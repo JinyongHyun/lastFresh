@@ -188,7 +188,7 @@
 
     require_bg {
         position: fixed;
-        z-index: 9998;
+        z-index: 1;
         left: 0;
         top: 0;
         width: 100%;
@@ -244,6 +244,7 @@
 
     div.check_view {
         position: relative;
+
     }
 
     label.check_agree2 {
@@ -302,7 +303,7 @@
         margin: 0 0 0 -220px;
         border-radius: 12px;
         background-color: #fff;
-        z-index: 9999;
+        z-index: 2;
     }
 
     div.inner_layer {
@@ -347,6 +348,7 @@
         height: 100%;
         display: none;
         background-color: rgba(0, 0, 0, 0.4);
+        z-index: 3;
     }
 
     .modal.show {
@@ -641,7 +643,7 @@
                 <!--개인정보 수집이용 동의 모달창-->
                 <div class="modal">
                     <div class="modal_body">
-                        <button type="button" class="btn_ok">확인</button>
+                        <button type="button" class="btn_ok"></button>
                         <h4 class="tit_layer">
                             이용약관
                             <span class="sub">(필수)</span>
@@ -694,7 +696,7 @@
                     </div>
                 </div>
                 <!--개인정보 수집이용 동의(선택)-->
-                <div class="check_view">
+                <div class="check_view" style="margin-bottom: 19px">
                     <label class="check_agree2">
                         <input type="checkbox" name="check" required label="이용약관">
                         <span class="agreeicon"></span>
@@ -719,23 +721,53 @@
 </div>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 
-    const modal = document.querySelector('.modal');
-    const btnOpenPopup = document.querySelector('.link_btn_agree');
-    btnOpenPopup.addEventListener('click', () => {
-        modal.style.display = 'block';
-    });
-    modal.addEventListener('click', ()=>{
-        modal.style.display='none';
-    });
-    //modal.forEach(element=>)
+    // const modal = document.querySelector('.modal');
+    // const btnOpenPopup = document.querySelector('.link_btn_agree');
+    // btnOpenPopup.addEventListener('click', () => {
+    //     modal.style.display = 'block';
+    // });
+    // modal.addEventListener('click', ()=>{
+    //     modal.style.display='none';
+    // });
+    /*상혁씨 코드*/
+    //
+
+    $('.link_btn_agree').each(function (i,btn) {
+        $(btn).on("click",function () {
+            $($(".modal").get(i)).show();
+        })
+    })
+
+    $('.btn_ok').each(function (i,ok) {
+        $(ok).on("click",function () {
+            $($(".modal").get(i)).hide();
+        })
+    })
+
+    $('.modal').each(function (i,modal) {
+        $(modal).on("click",function () {
+            $(this).hide();
+            // $($(".modal").get(i)).hide();
+        })
+    })
+
+
 </script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <!--체크박스-->
 <script>
     $(document).ready(function() {
+        $(".link_btn_agree").each(function(i, item){
+           $(this).on("click", function(e){
+               e.preventDefault();
+               $($(".modal")[i]).show();
+           })
+        });
+
         $("#allCheck").click(function() {
             if($("#allCheck").is(":checked")) $("input[name=check]").prop("checked", true);
             else $("input[name=check]").prop("checked", false);

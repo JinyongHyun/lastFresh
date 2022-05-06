@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>아이디 찾기</title>
+</head>
+<style>
+    *, :after, :before {
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    *, :after, :before, legend, td, th {
+        padding: 0;
+    }
+
+    div {
+        display: block;
+    }
+
+    body, button, input, select, textarea {
+        font-size: 14px;
+        color: rgb(51, 51, 51);
+    }
+
+    *, :after, :before {
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    html {
+        touch-action: manipulation;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.15;
+    }
+
+    form {
+        display: block;
+        margin-top: 0em;
+    }
+
+    label {
+        cursor: default;
+    }
+
+    div.wrapper {
+        min-width: 1050px;
+        padding: 50px 0;
+        background-color: white;
+    }
+
+    div.title {
+        padding-bottom: 30px;
+        font-weight: 500;
+        font-size: 28px;
+        text-align: center;
+    }
+
+    div.find_box {
+        max-width: 400px;
+        padding: 0 10px 6px 10px;
+        margin: auto;
+        position: relative;
+        background-color: white;
+    }
+
+    /*@media(min-width: 1050px)*/
+    /*    .verificationText {*/
+    /*        padding: 0;*/
+    /*        margin: 0 20px;*/
+    /*    }*/
+
+    div.verificationText {
+        background-color: white;
+        padding: 0 15px 0 15px;
+        margin: 0;
+        box-shadow: inset 0 -0.5px 0 0 #ddd;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-flex-wrap: nowrap;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        text-align: center;
+    }
+
+    button.hp_verification {
+        display: block;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        position: relative;
+        height: 48px;
+        font-weight: 500;
+        font-size: 16px;
+        color: #DA291C;
+        line-height: 18px;
+        box-shadow: inset 0px -2px 0px 0px #DA291C;
+    }
+
+    button.email_verification {
+        display: block;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        position: relative;
+        height: 48px;
+        font-weight: 400;
+        font-size: 16px;
+        color: #666;
+        line-height: 18px;
+    }
+
+    button, input[type=button], input[type=reset], input[type=submit] {
+        -webkit-appearance: button;
+        cursor: pointer;
+    }
+
+    button, select {
+        text-transform: none;
+    }
+
+    button, input, optgroup, select, textarea {
+        color: inherit;
+        font: inherit;
+        margin: 0;
+    }
+
+    body, button, input, select, textarea {
+        font-family: "Noto Sans", "malgun gothic", AppleGothic, dotum, sans-serif;
+    }
+
+    button {
+        appearance: auto;
+        writing-mode: horizontal-tb !important;
+        text-rendering: auto;
+        color: buttontext;
+        letter-spacing: normal;
+        word-spacing: normal;
+        line-height: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: center;
+        align-items: flex-start;
+        cursor: default;
+        box-sizing: border-box;
+        /*background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));*/
+        margin: 0em;
+        padding: 1px 6px;
+        border-width: 2px;
+        border-style: outset;
+        /*border-color: buttonborder;*/
+        border-image: initial;
+    }
+
+    form.sendInfo {
+        padding: 24px 20px;
+    }
+
+    div.Id_box {
+        padding-bottom: 12px;
+    }
+
+    label.Id_label {
+        display: inline-block;
+        padding: 8px 0 11px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 19px;
+        color: #333;
+    }
+
+    div.input_wrapper {
+        position: relative;
+        height: 48px;
+    }
+
+    input.input_info {
+        width: 100%;
+        height: 46px;
+        padding: 0 11px 1px 15px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+        outline: none;
+    }
+
+    div.accept_wrapper {
+        margin-top: 18px;
+    }
+
+    button.accept_button {
+        background-color: #ddd;
+        cursor: default;
+        display: block;
+        padding: 0 10px;
+        text-align: center;
+        overflow: hidden;
+        width: 100%;
+        height: 52px;
+        border-radius: 4px;
+        color: #fff;
+        background-color: #DA291C;
+        border: 0 none;
+    }
+
+    [type=submit] {
+        border-radius: 0;
+    }
+
+    span.accept_text {
+        display: inline-block;
+        font-size: 16px;
+        cursor: default;
+    }
+
+    button {
+        overflow: visible;
+        background-color: transparent;
+        border: none;
+    }
+</style>
+<body>
+<div class="wrapper">
+    <div class="title">아이디 찾기</div>
+    <div class="find_box">
+        <div class="verificationText">
+            <button selected="" type="button" class="hp_verification">휴대폰 인증</button>
+            <button type="button" class="email_verification">이메일 인증</button>
+        </div>
+        <form class="sendInfo"><!--여기부터 2개-->
+            <div class="css-1blp8ou el059co3">
+                <div class="Id_box"><label for="id" class="Id_label">이름</label>
+                    <div class="input_wrapper"><input type="text" data-testid="input-box" id="id" name="id"
+                                                      value="" placeholder="아이디를 입력해 주세요"
+                                                      class="input_info"></div>
+                </div>
+            </div>
+            <div class="css-1blp8ou el059co3">
+                <div class="Id_box"><label for="phone" class="Id_label">휴대폰 번호</label>
+                    <div class="input_wrapper"><input type="tel" data-testid="input-box" id="phone" name="phone"
+                                                      value="" placeholder="휴대폰 번호를 입력해 주세요"
+                                                      class="input_info"></div>
+                </div>
+            </div>
+            <div class="accept_wrapper">
+                <button class="accept_button" type="submit" disabled="" radius="4">
+                    <span class="accept_text">인증번호 받기</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<!--<script id="__NEXT_DATA__" type="application/json">{-->
+<!--    "props": {-->
+<!--        "pageProps": {}-->
+<!--    },-->
+<!--    "page": "/member/find/password",-->
+<!--    "query": {},-->
+<!--    "buildId": "HYIbhjrnjPMyC8LpUlozk",-->
+<!--    "assetPrefix": "https://res.kurly.com",-->
+<!--    "nextExport": true,-->
+<!--    "autoExport": true,-->
+<!--    "isFallback": false,-->
+<!--    "scriptLoader": []-->
+<!--}</script>-->
+<!--<p aria-live="assertive" id="__next-route-announcer__" role="alert"-->
+<!--   style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;"></p>-->
+</html>
+
+
+
+
+
