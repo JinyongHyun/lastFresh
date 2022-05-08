@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>아이디 찾기</title>
+    <title>라스트프레시 | 아이디 찾기</title>
 </head>
 <style>
     *, :after, :before {
@@ -117,6 +117,7 @@
         font-size: 16px;
         color: #666;
         line-height: 18px;
+        box-shadow: none;
     }
 
     button, input[type=button], input[type=reset], input[type=submit] {
@@ -238,48 +239,74 @@
     <div class="title">아이디 찾기</div>
     <div class="find_box">
         <div class="verificationText">
-            <button selected="" type="button" class="hp_verification">휴대폰 인증</button>
-            <button type="button" class="email_verification">이메일 인증</button>
+            <button selected="" type="button" class="hp_verification" onclick="showphonediv()">휴대폰 인증</button>
+            <button type="button" class="email_verification" onclick="showemaildiv()">이메일 인증</button>
         </div>
-        <form class="sendInfo"><!--여기부터 2개-->
+        <form class="sendInfo">
             <div class="css-1blp8ou el059co3">
                 <div class="Id_box"><label for="id" class="Id_label">이름</label>
                     <div class="input_wrapper"><input type="text" data-testid="input-box" id="id" name="id"
-                                                      value="" placeholder="아이디를 입력해 주세요"
+                                                      value="" placeholder="이름을 입력해 주세요"
                                                       class="input_info"></div>
                 </div>
             </div>
             <div class="css-1blp8ou el059co3">
-                <div class="Id_box"><label for="phone" class="Id_label">휴대폰 번호</label>
+                <div class="Id_box phone_box"><label for="phone" class="Id_label">휴대폰 번호</label>
                     <div class="input_wrapper"><input type="tel" data-testid="input-box" id="phone" name="phone"
                                                       value="" placeholder="휴대폰 번호를 입력해 주세요"
                                                       class="input_info"></div>
                 </div>
             </div>
+            <div class="css-1blp8ou el059co3">
+                <div class="email_box" style="padding-bottom: 12px"><label for="phone" class="Id_label">이메일</label>
+                    <div class="input_wrapper"><input type="tel" data-testid="input-box"
+                                                      value="" placeholder="이메일을 입력하세요"
+                                                      class="input_info"></div>
+                </div>
+            </div>
+
+
             <div class="accept_wrapper">
-                <button class="accept_button" type="submit" disabled="" radius="4">
+                <button class="accept_button email_box"  type="submit" disabled="" radius="4">
+                    <span class="accept_text">확인</span>
+                </button>
+            </div>
+            <div class="accept_wrapper">
+                <button class="accept_button phone_box" type="submit" disabled="" radius="4">
                     <span class="accept_text">인증번호 받기</span>
                 </button>
             </div>
+
         </form>
     </div>
 </div>
 </body>
-<!--<script id="__NEXT_DATA__" type="application/json">{-->
-<!--    "props": {-->
-<!--        "pageProps": {}-->
-<!--    },-->
-<!--    "page": "/member/find/password",-->
-<!--    "query": {},-->
-<!--    "buildId": "HYIbhjrnjPMyC8LpUlozk",-->
-<!--    "assetPrefix": "https://res.kurly.com",-->
-<!--    "nextExport": true,-->
-<!--    "autoExport": true,-->
-<!--    "isFallback": false,-->
-<!--    "scriptLoader": []-->
-<!--}</script>-->
-<!--<p aria-live="assertive" id="__next-route-announcer__" role="alert"-->
-<!--   style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;"></p>-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function showemaildiv() {
+        $('.email_box').show();
+        $('.email_verification').css("color","#DA291C");
+        $('.phone_box').hide();
+        $('.hp_verification').css("color","#333");
+        $('.hp_verification').css("box-shadow","none");
+        $('.email_verification').css("box-shadow","inset 0px -2px 0px 0px #DA291C");
+
+    }
+    function showphonediv() {
+        $('.phone_box').show();
+        $('.email_verification').css("color","#333");
+        $('.email_box').hide();
+        $('.hp_verification').css("color","#DA291C");
+        $('.email_verification').css("box-shadow","none");
+        $('.hp_verification').css("box-shadow","inset 0px -2px 0px 0px #DA291C");
+    }
+    $( document ).ready(function() {
+        $('.email_box').hide();
+        $("button").click(function(){
+    });
+    });
+
+</script>
 </html>
 
 
