@@ -9,6 +9,7 @@
 </head>
 <style>
 
+
     *, *:after, *:before {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -368,6 +369,20 @@
         box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
         transform: translateX(-50%) translateY(-50%);
     }
+    .modal_body2 {
+        /*style="width: 560px; height: 310px;*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 430px;
+        height: 310px;
+        padding: 40px;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+        transform: translateX(-50%) translateY(-50%);
+    }
     button.btn_ok{
         cursor: pointer;
         position: absolute;
@@ -484,9 +499,61 @@
         font-size: 13px;
     }
 
+    /*회원가입 미디어쿼리*/
+    @media ( max-width: 768px ) {
+        div.body{
+            width: 420px;
+        }
+        table.tbl_comm{
+            width: 420px;
+        }
+        div.title_page {
+            width: 420px;
+        }
+         tr{
+            display: grid;
+        }
+
+        .body input[type=text], input[type=password] {
+            width: 256px ;
+        }
+
+        input.media{
+            width: 95% !important;
+        }
+        input.id{
+            margin-left: 10px ;
+        }
+
+        h2.title{
+            margin-right: 0;
+        }
+        [type=checkbox] {
+            width: 1.2rem;
+            height: 1.3rem;
+            margin-left: 7px;
+        }
+        p.sub{
+            display: inline-block;
+            width: 318px;
+            margin-left: 34px;
+        }
+        p.page_line{
+            margin-right: 10px;
+        }
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        div.media2{
+            width: 405px;
+        }
+
+    }
+
 </style>
 <body>
-<!--style="margin-bottom:60px"-->
 <div class="body">
     <div class="title_page">
         <h2 class="title">회원가입</h2>
@@ -511,7 +578,7 @@
                 <span class="icon">*</span>
             </th>
             <td>
-                <input class="id" type="password" value maxlength="16" placeholder="비밀번호를 입력하세요">
+                <input class="id media" type="password" value maxlength="16" placeholder="비밀번호를 입력하세요">
 
             </td>
         </tr>
@@ -520,7 +587,7 @@
                 <span class="icon">*</span>
             </th>
             <td>
-                <input class="id" type="password" value maxlength="16" placeholder="비밀번호를 한번 더 입력하세요">
+                <input class="id media" type="password" value maxlength="16" placeholder="비밀번호를 한번 더 입력하세요">
             </td>
         </tr>
         <tr>
@@ -528,7 +595,7 @@
                 <span class="icon">*</span>
             </th>
             <td>
-                <input class="id" type="text" value maxlength="16" placeholder="이름을 입력하세요">
+                <input class="id media" type="text" value maxlength="16" placeholder="이름을 입력하세요">
             </td>
         </tr>
         <tr>
@@ -563,7 +630,7 @@
                 <span class="icon">*</span>
             </th>
             <td>
-                <input class="id" type="text" value maxlength="16" placeholder="주소를 입력하세요">
+                <input class="id media" type="text" value maxlength="16" placeholder="주소를 입력하세요">
             </td>
         </tr>
         <tr>
@@ -571,7 +638,7 @@
                 <span class="icon">*</span>
             </th>
             <td>
-                <input class="id" type="text" value maxlength="16" placeholder="상세 주소를 입력하세요">
+                <input class="id media" type="text" value maxlength="16" placeholder="상세 주소를 입력하세요">
             </td>
         </tr>
         <tr>
@@ -579,7 +646,7 @@
                 <span class="icon"></span>
             </th>
             <td class="td_birth">
-                <input class="id" type="text" value maxlength="16" placeholder="ex)19970527">
+                <input class="id media" type="text" value maxlength="16" placeholder="ex)19970527">
             </td>
         </tr>
 
@@ -747,7 +814,7 @@
                     </a>
                 </div>
                 <div class="modal">
-                    <div class="modal_body" style="width: 560px; height: 310px;">
+                    <div class="modal_body2">
                         <button type="button" class="btn_ok"></button>
                         <h4 class="tit_layer">
                             개인정보 수집 이용 동의
