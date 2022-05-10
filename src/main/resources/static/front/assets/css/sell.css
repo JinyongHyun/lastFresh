@@ -42,6 +42,7 @@ div.cookingTime-content-wrapper {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    user-select: none;
 }
 
 div.cookingTime-TopBar{
@@ -173,7 +174,7 @@ div.sidebar-wrapper div p {
     margin-bottom: 5px;
 }
 
-div.reception, div.process, div.complete, div.orderhistoy {
+div.reception, div.process, div.complete{
     height: 22.9vh;
     /*line-height: 22vh;*/
     text-align: center;
@@ -206,7 +207,22 @@ div.reception-content, div.process-content, div.complete-content{
 }
 
 div.orderhistoy {
-    line-height: 22vh;
+    height: 22.9vh;
+    /*line-height: 22vh;*/
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border: solid #b9aeae40 2px;
+    color: #818181cc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    cursor: auto !important;
+}
+
+div.orderhistoy img {
+    width: 160px;
 }
 
 div.sidebar-content {
@@ -261,9 +277,15 @@ div.order-info2 div.order-address, div.order-info2 p.order-price {
     font-weight: bold;
 }
 
-div.order-info2 p.order-menuInfo {
+div.order-info2 p.order-menuInfo, .order-phoneNum, p.order-price {
     color: #818181cc;
+    margin: 15px 0;
 }
+
+div.order-info2 p.order-price {
+    color: #000000;
+}
+
 
 div.order-accept {
     display: flex;
@@ -273,7 +295,7 @@ div.order-accept {
     line-height: 9;
 }
 
-div.order-accept input[type=button] {
+div.order-accept button {
     width: 6vw;
     height: 15vh;
     font-size: 1.8rem;
@@ -284,6 +306,18 @@ div.order-accept input[type=button] {
     border: none;
     margin: 7px;
     cursor: pointer;
+}
+
+div.order-accept button.delivery-complete-btn {
+    width: 6vw;
+    height: 15vh;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #818181;
+    background-color: #81818157;
+    box-shadow: 1px 1px 3px #a9a4a4;
+    border: none;
+    margin: 7px;
 }
 
 div.order-time {
@@ -311,7 +345,4 @@ div.shipping {
     background-color: #FFC107;
     box-shadow: 1px 1px 4px #FFC107;
 }
-
-
-
 

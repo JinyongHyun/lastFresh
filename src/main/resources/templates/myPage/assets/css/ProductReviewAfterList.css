@@ -1,0 +1,366 @@
+/* 리뷰 완료 목록 */
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+.page_myPage.myPage_type1 .page_section {
+    float: right;
+    width: 820px;
+}
+.section_review .head_aticle {
+    padding-bottom: 20px;
+}
+.page_myPage .head_aticle {
+    padding: 5px 0 34px;
+}
+.page_aticle .head_aticle .tit {
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+.section_review .review_notice {
+    font-size: 14px;
+    color: #999;
+    line-height: 22px;
+    letter-spacing: -.3px;
+}
+.section_review .review_notice b {
+    font-weight: 700;
+}
+.section_review .tab_menu {
+    overflow: hidden;
+    padding-top: 30px;
+}
+.section_review .tab_menu li {
+    float: left;
+    width: 410px;
+    height: 50px;
+    background-color: #fff;
+}
+.section_review .tab_menu a {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #dddfe1;
+    font-size: 14px;
+    color: #666;
+    line-height: 44px;
+    text-align: center;
+}
+.section_review .tab_menu li {
+    float: left;
+    width: 410px;
+    height: 50px;
+    background-color: #fff;
+}
+.section_review .tab_menu li:last-child a {
+    border-left: 0;
+}
+.section_review .tab_menu .on a {
+    border-bottom: 2px solid #DA291C;
+    font-weight: 700;
+    color: #DA291C;
+}
+.section_review .list_before {
+    padding-top: 10px;
+}
+.section_review .list_after li.no_data, .section_review .list_before .no_data {
+    padding: 50px 0;
+    border: 0;
+}
+.section_review .list_after li {
+    border-bottom: 2px solid #ddd;
+}
+/* 작성한게 없을 때 */
+.page_myPage .no_data {
+    padding: 50px 0;
+    font-size: 13px;
+    color: #757575;
+    text-align: center;
+}
+
+/* 작성한게 있을 때 */
+.section_review .list_after .tit_after {
+    padding: 25px 30px 17px;
+    border-bottom: 1px solid #e9e9e9;
+}
+.section_review .list_after .main_name {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #000;
+    cursor: pointer;
+}
+.section_review .list_after .cont_after {
+    padding-bottom: 20px;
+}
+.section_review .list_after li.item_view .desc_after {
+    cursor: default;
+}
+.section_review .list_after .desc_after {
+    display: block;
+    overflow: hidden;
+    padding: 14px 30px 0;
+    cursor: pointer;
+}
+.section_review .list_after li.item_view .subject {
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+}
+.section_review .list_after .subject {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding-right: 120px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #000;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.section_review .list_after .date {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 12px;
+    color: #949296;
+    line-height: 20px;
+    text-align: right;
+}
+.section_review .list_after li.item_view .desc {
+    display: none;
+}
+.section_review .list_after .desc {
+    display: block;
+    overflow: hidden;
+    padding-top: 20px;
+}
+.section_review .list_after li.item_view .txt {
+    max-height: none;
+    padding-top: 0;
+    display: block;
+    -webkit-line-clamp: inherit;
+}
+.section_review .list_after .txt {
+    display: block;
+    overflow: hidden;
+    max-height: 70px;
+    padding-top: 10px;
+    font-size: 12px;
+    color: #000;
+    line-height: 20px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.section_review .list_after li.item_view .view {
+    display: block;
+    padding-top: 20px;
+}
+.section_review .list_after .view {
+    display: none;
+}
+.section_review .list_after .btn_after {
+    overflow: hidden;
+    padding: 20px 30px 0;
+}
+.section_review .list_after li.item_view .btn_help {
+    padding-top: 16px;
+}
+.section_review .list_after .btn_help {
+    float: left;
+    padding-top: 0;
+    border: 0;
+    background: 0 0;
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    cursor: default;
+}
+.section_review .list_after li.item_view .btn {
+    display: block;
+}
+.section_review .list_after .btn_modify {
+    margin-left: 28px;
+    border: 1px solid #DA291C;
+}
+.section_review .list_after .btn {
+    display: none;
+    float: right;
+    height: 34px;
+    padding: 0 13px 0 12px;
+    font-size: 12px;
+    color: #DA291C;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+}
+.section_review .list_after .btn_del {
+    padding-top: 1px;
+}
+.section_review .list_after .write_reply {
+    display: none;
+    border-top: 1px solid #dddfe1;
+    padding-top: 20px;
+}
+.section_review .list_after .write_reply .inner_replay {
+    padding: 19px 10px;
+    background-color: #ede9f0;
+}
+.section_review .list_after .write_reply .time {
+    display: block;
+    padding-bottom: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+}
+.section_review .list_after .write_reply .num {
+    padding-left: 21px;
+    font-weight: 400;
+    font-size: 13px;
+    color: #000;
+}
+.section_review .list_after .write_reply .reply {
+    font-size: 14px;
+    color: #000;
+    line-height: 20px;
+}
+@media screen and (max-width: 1000px) {
+
+
+    div.review_notice {
+        display: none;
+    }
+
+    .page_myPage.myPage_type1 .page_section {
+        width: 820px;
+        margin: 0 auto;
+    }
+
+    .page_myPage.myPage_type1 .page_section {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .section_review .tab_menu li {
+        float: left;
+        width: 50%;
+        height: 77px;
+        background-color: #fff;
+    }
+    .section_review .tab_menu a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: none;
+        font-size: 37px;
+        color: #666;
+        line-height: 44px;
+        text-align: center;
+    }
+    .section_review .tab_menu {
+        overflow: inherit;
+    }
+    .section_review .list_before {
+        padding-top: 69px;
+    }
+    .link_back {
+        left: 0;
+        top: 0;
+        width: 150px;
+        height: 104px;
+        background: url(https://res.kurly.com/mobile/service/common/2006/ico_navi_back.svg?v=1) no-repeat 6px 81%;
+        background-size: 134px 141px;
+    }
+    .head_aticle {
+        display: flex;
+        font-size: 31px;
+        padding:0px !important;
+    }
+    .page_myPage.myPage_type1 {
+        padding-top: 32px;
+    }
+    .tit{
+        margin-left: 277px;
+    }
+    .space-line{
+        background: black;
+        height: 25px;
+        background: #ececec;
+    }
+    .section_review .list_after .main_name{
+        font-size: 33px;
+        font-weight: 100;
+    }
+    .section_review .list_after .subject {
+        font-size: 33px;
+    }
+    .section_review .list_after .txt {
+        height: 70px;
+        padding-top: 33px !important;
+        font-size: 33px;
+    }
+    .section_review .list_after .btn {
+        float: right;
+        width: 106px;
+        height: 68px;
+        padding: 16px 13px 2px 13px;
+        font-size: 39px;
+        color: #DA291C;
+        background: #da291c1c;
+        line-height: 32px;
+        text-align: center;
+        cursor: pointer;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        margin-left: 28px;
+        border: 1px solid #DA291C;
+    }
+    .section_review .list_after .date{
+        font-size: 26px;
+    }
+    .section_review .list_after .desc_after {
+        display: block;
+        overflow: hidden;
+        padding: 39px 30px 0;
+    }
+    #snb {
+        float: left !important;
+        width: 100% !important;
+    }
+    #snb .tit_snb{
+        display: none;
+    }
+    #snb .list_menu li a {
+        display: block !important;
+        overflow: hidden !important;
+        padding: 28px 0 16px 20px !important;
+        background: #fff url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11.svg) no-repeat 97% 52% !important;
+        background-size: 14px 23px !important;
+        font-size: 34px !important;
+        color: #666 !important;
+        line-height: 37px !important;
+        letter-spacing: -.3px !important;
+        height: 98px !important;
+    }
+    #snb .list_menu li.on a, #snb .list_menu li a:hover {
+        background: #fafafa url(https://cdn.discordapp.com/attachments/969471931575320587/972087200621690880/590706d067c9b9b2.png) no-repeat 97% 52% !important;
+        background-size: 14px 23px !important;
+        font-weight: 700 !important;
+        color: #DA291C !important;
+    }
+
+}

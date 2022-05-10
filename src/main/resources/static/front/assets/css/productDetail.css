@@ -151,9 +151,7 @@ div {
     text-indent: -9999px;
 }
 
-ol, ul {
-    list-style-type: none;
-}
+
 
 ul {
     display: block;
@@ -288,6 +286,10 @@ a {
     background: url(https://res.kurly.com/mobile/service/goodsview/1910/ico_view_sns.png) no-repeat 50% 50%;
     font-size: 0;
     text-indent: -9999px;
+}
+
+ol, ul {
+    list-style-type: none;
 }
 
 #sectionView .goods_name .name {
@@ -490,11 +492,6 @@ form {
     padding: 0;
 }
 
-#cartPut .cart_option .list {
-    overflow: hidden;
-    padding-bottom: 1px;
-}
-
 #cartPut .cart_type2 .list_nopackage li {
     float: none;
     width: 100%;
@@ -511,14 +508,13 @@ form {
     border: 1px solid #f4f4f4;
 }
 
-#cartPut .cart_type2 .list_nopackage .price, #cartPut .cart_type2 .list_nopackage .name, #cartPut .cart_type2 .list_nopackage .btn_position {
-    display: none;
-}
-
 #cartPut .cart_option .list .btn_position {
     display: block;
     position: relative;
 }
+
+
+
 
 #cartPut .cart_type2 .list .name {
     padding: 0 63px 0 0;
@@ -541,9 +537,7 @@ form {
     letter-spacing: -.5px;
 }
 
-#cartPut .cart_type2 .list_nopackage .option {
-    padding-top: 0;
-}
+
 
 #cartPut .cart_type2 .list .option {
     padding-top: 8px;
@@ -688,6 +682,17 @@ form {
     vertical-align: 1px;
 }
 
+.goods-view-tab.fixed {
+    position: fixed;
+    left: 0;
+    top: 55px;
+    width: 100%;
+    min-width: 1010px;
+    padding-right: 40px;
+    z-index: 299;
+    box-sizing: border-box;
+}
+
 #cartPut .cart_option .total .emph {
     font-weight: 700;
 }
@@ -790,10 +795,7 @@ strong {
     position: static;
 }
 
-#cartPut .cart_option .list .btn_position {
-    display: block;
-    position: relative;
-}
+
 
 #cartPut .cart_type1 .list_nopackage .btn_del {
     display: none;
@@ -850,6 +852,10 @@ strong {
     float: left;
     width: 88px;
     margin-top: 1px;
+}
+
+#cartPut .cart_type2 .list_nopackage .option {
+    padding-top: 0;
 }
 
 #cartPut .cart_option .list .count {
@@ -996,6 +1002,18 @@ a:-webkit-any-link {
     color: #666;
 }
 
+
+#cartPut .cart_type2 .list_nopackage .price, #cartPut .cart_type2 .list_nopackage .name, #cartPut .cart_type2 .list_nopackage .btn_position {
+    display: none;
+}
+
+#cartPut .cart_type2 .list_nopackage li {
+    float: none;
+    width: 100%;
+    padding: 0 0 5px;
+    margin: 0;
+    border: 0;
+}
 .goods_wrap .goods_intro .context .words {
     margin-top: 28px;
 }
@@ -1295,4 +1313,65 @@ script {
     display: block;
     max-width: 600px;
     margin: 0 auto;
+}
+
+.xans-product-additional div.board .btnArea {
+    padding: 10px 0;
+    text-align: right;
+    width: 100%;
+    display: table;
+}
+
+.xans-product-additional div.board>.btnArea {
+    border-top: 1px solid #6a3664;
+}
+
+.layout-pagination-button:first-child {
+    border-left: 1px solid #ddd;
+}
+
+.layout-pagination-first-page {
+    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-first.png);
+}
+
+.layout-pagination-first-page, .layout-pagination-prev-page, .layout-pagination-next-page, .layout-pagination-last-page {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+}
+
+.layout-pagination-button {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #ddd;
+    border-left: 0;
+    vertical-align: top;
+}
+
+.layout-pagination-prev-page {
+    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-prev.png);
+}
+
+.layout-pagination-number:hover, .layout-pagination-number.__active {
+    background-color: #f7f7f7;
+    color: #5f0080;
+}
+
+.layout-pagination-number {
+    font-weight: 700;
+    color: #333;
+    line-height: 34px;
+}
+
+.layout-pagination-next-page {
+    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-next.png);
+}
+
+.layout-pagination-last-page {
+    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-last.png);
+}
+
+a:active, a:hover {
+    outline: 0;
 }

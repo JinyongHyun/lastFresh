@@ -5,7 +5,7 @@
     <title>라스트프레시 | 상품상세페이지</title>
     <link rel="stylesheet" href="../../static/front/assets/css/productDetail.css">
 </head>
-<body class="goods-goods_view" oncontextmenu="return false" ondragstart="return false" onselectstart="return !disableSelection">
+<body class="goods-goods_view">
     <div id="wrap">
         <div id="pos_scroll"></div>
         <div id="container">
@@ -64,16 +64,7 @@
                                     </span>
                                     <!---->
                                     <span>
-                                        <span class="txt_benefit">
-                                            <span class="ico_grade grade0">
-                                                "일반 0.5%"
-                                            </span>
-                                            <span class="point">
-                                                "개당"
-                                                <strong class="emph">80원 적립</strong>
-                                                <!---->
-                                            </span>
-                                        </span>
+
                                     </span>
                                     <!---->
                                     <!---->
@@ -85,35 +76,20 @@
                                 <div class="goods_info">
                                     <!---->
                                     <dl class="list fst">
-                                        <dt class="tit">판매단위</dt>
-                                        <dd class="desc">1팩</dd>
+                                        <dt class="tit">매장</dt>
+                                        <dd class="desc">동영이네 동태탕</dd>
                                     </dl>
                                     <dl class="list">
-                                        <dt class="tit">중량/용량</dt>
-                                        <dd class="desc">1.2kg</dd>
+                                        <dt class="tit">주소</dt>
+                                        <dd class="desc">서울특별시 구로구 구로동로26길 51-7</dd>
                                     </dl>
                                     <dl class="list">
                                         <dt class="tit">배송구분</dt>
                                         <!---->
-                                        <dd class="desc"> 샛별배송/택배배송 </dd>
+                                        <dd class="desc"> 배달/배송 </dd>
                                     </dl>
                                     <!---->
-                                    <dl class="list">
-                                        <dt class="tit">포장타입</dt>
-                                        <dd class="desc">
-                                            "냉동/스티로폼"
-                                            <strong class="emph"> 택배배송은 에코포장이 스트리폼으로 대채됩니다.</strong>
-                                        </dd>
-                                    </dl>
-                                    <dl class="list">
-                                        <dt class="tit">알레르기정보</dt>
-                                        <dd class="desc">
-                                            "-우유, 대두, 밀, 새우, 쇠고기, 오징어, 조개류(굴, 홍합, 바지락, 개량조개) 함유"
-                                            <br>
-                                            "
-                                            -이 제품은 알류, 메밀, 땅콩, 고등어, 게, 돼지고기, 복숭아, 토마토, 아황산류, 호두, 닭고기, 조개류(전복 포함), 잣을 사용한 제품과 같은 제조시설에서 제조하고 있습니다."
-                                        </dd>
-                                    </dl>
+
                                     <!---->
                                     <!---->
                                     <!---->
@@ -175,12 +151,7 @@
                                                 </span>
                                             </div>
                                             <p class="txt_point">
-                                                <span class="ico">적립</span>
-                                                <!---->
-                                                <span class=""point>
-                                                    구매 시
-                                                    <strong class="emph">80원 적립</strong>
-                                                </span>
+
                                             </p>
                                         </div>
                                     </div>
@@ -225,24 +196,15 @@
                         </div>
                     </div>
                     <div class="layout-wrapper goods-view-area">
-                        <div class="goods-add-product"></div>
                         <div class="goods-view-infomation detail_wrap_outer" id="goods-view-infomation">
-                            <div class="goods-view-tab">
-                                <ul class="goods-view-infomation-tab-group">
-                                    <li class="goods-view-infomation-tab">
-                                        <a href="#goods-description" class="goods-view-infomation-tab-anchor __active">상품설명</a>
-                                    </li>
-                                    <li class="goods-view-infomation-tab">
-                                        <a href="#goods-infomation" class="goods-view-infomation-tab-anchor">상세정보</a>
-                                    </li>
-                                    <li class="goods-view-infomation-tab goods-view-review-tab">
-                                        <a href="#goods-review" class="goods-view-infomation-tab-anchor">후기</a>
-                                    </li>
-                                    <li class="goods-view-infomation-tab qna-show">
-                                        <a href="#goods-qna" class="goods-view-infomation-tab-anchor">문의</a>
-                                    </li>
-                                </ul>
-                            </div>
+                                    <div class="goods-view-infomation-tab-group" style="position: sticky; top: 0;">
+                                        <li class="goods-view-infomation-tab">
+                                            <a href="#goods-description" class="goods-view-infomation-tab-anchor __active">상품설명</a>
+                                        </li>
+                                        <li class="goods-view-infomation-tab goods-view-review-tab">
+                                            <a href="#goods-review" class="goods-view-infomation-tab-anchor">후기</a>
+                                        </li>
+                                    </div>
                             <div class="goods-view-infomation-content __active" id="goods-description">
                                 <div id="giftNotice"></div>
                                 <div class="goods_wrap">
@@ -318,9 +280,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="goods-view-infomation-content" id="goods-infomation"></div>
-                            <div class="goods-view-infomation-content" id="goods-review" data-load="0">
-                                <iframe id="inreview" src="./goods_review_list.php?goodsno=122963" frameborder="0" class="goods-view-infomation-board" height="734"></iframe>
+
                             </div>
                             <div class="goods-view-infomation-content" id="goods-qna">
                                 <div id="contents-wrapper" class="goods_board">
@@ -353,22 +313,19 @@
                                                         <col style="width:70px;">
                                                         <col style="width:auto;">
                                                         <col style="width:51px;">
-                                                        <col style="width:77px;">
-                                                        <col style="width:100px;">
-                                                        <col style="width:40px;">
+                                                        <col style="width:110px;">
                                                         <col style="width:80px;">
+
                                                     </colgroup>
                                                     <tbody>
                                                         <tr>
                                                             <th scope="col" class="input_txt">번호</th>
                                                             <th scope="col" class="input_txt">제목</th>
                                                             <th scope="col" class="input_txt">
-                                                                <span class="screen_out">회원 등급</span>
                                                             </th>
                                                             <th scope="col" class="input_txt" align="left">작성자</th>
                                                             <th scope="col" class="input_txt">작성일</th>
-                                                            <th scope="col" class="input_txt">도움</th>
-                                                            <th scope="col" class="input_txt">조회</th>
+
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -379,10 +336,9 @@
                                                             <col style="width:70px;">
                                                             <col style="width:auto;">
                                                             <col style="width:51px;">
-                                                            <col style="width:77px;">
-                                                            <col style="width:100px;">
-                                                            <col style="width:40px;">
+                                                            <col style="width:110px;">
                                                             <col style="width:80px;">
+
                                                         </colgroup>
                                                         <tbody>
                                                         <tr>
@@ -395,14 +351,10 @@
                                                             <td class="subject">
                                                                 <div class="fst">괜찮대요 </div>
                                                             </td>
+                                                            <td></td>
                                                             <td class="user_grade">최*영</td>
                                                             <td class="time">2022-05-01</td>
-                                                            <td>
-                                                                <span class="review-like-cnt" data-sno="53094294">0</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="review-hit-cnt" data-sno="53094294">0</span>
-                                                            </td>
+
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -413,13 +365,7 @@
                                                                 <p class="package"></p>
                                                             </div>
                                                             <div class="review_photo">
-                                                                <script>
-                                                                    $rv_attach_image = $("img[name='rv_attach_image[]']");
-                                                                    $rv_attach_image.load(function() {
-                                                                        if("function" == typeof(resizeFrame))
-                                                                            resizeFrame();
-                                                                    });
-                                                                </script>
+
                                                                 <img src="//img-cf.kurly.com/shop/data/review/20220501/b9a428fca3ef0cd357bcf4d546e5f577.jpg" name="rv_attach_image[]" border="0">
                                                                 <br>
                                                                 <br>
@@ -428,17 +374,192 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tr_line"></div>
-                                                <div class="tr_line"></div>
-                                                <div class="tr_line"></div>
-                                                <div class="tr_line"></div>
-                                                <div class="tr_line"></div>
-                                                <div class="tr_line"></div>
+                                                <div class="tr_line">
+                                                    <table class="xans-board-listheaderd tbl_newtype1" width="100%" border="0" cellpadding="0" cellspacing="0" onclick="view_content(this,event,'notice')">
+                                                        <caption style="display:none">구매후기 제목</caption>
+                                                        <colgroup>
+                                                            <col style="width:70px;">
+                                                            <col style="width:auto;">
+                                                            <col style="width:51px;">
+                                                            <col style="width:110px;">
+                                                            <col style="width:80px;">
+
+                                                        </colgroup>
+                                                        <tbody>
+                                                        <tr>
+                                                            <input type="hidden" name="index" value="-1">
+                                                            <input type="hidden" name="image" value>
+                                                            <input type="hidden" name="grade" value="0">
+                                                            <input type="hidden" name="best" value="false">
+                                                            <input type="hidden" name="pNo" value>
+                                                            <td align="center">20</td>
+                                                            <td class="subject">
+                                                                <div class="fst">별로에요 </div>
+                                                            </td>
+                                                            <td></td>
+                                                            <td class="user_grade">진*종</td>
+                                                            <td class="time">2022-04-27</td>
+
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div data-sno="53094294" class="review_view" style="display: none;">
+                                                        <div class="inner_review">
+                                                            <div class="name_purchase">
+                                                                <strong class="name">[프레시지] 자이언트 살이꽉찬 동태탕 (3~4인분)</strong>
+                                                                <p class="package"></p>
+                                                            </div>
+                                                            <div class="review_photo">
+
+                                                                <img src="//img-cf.kurly.com/shop/data/review/20220501/b9a428fca3ef0cd357bcf4d546e5f577.jpg" name="rv_attach_image[]" border="0">
+                                                                <br>
+                                                                <br>
+                                                                큰아이는 좀 짜다고 하고 다른 식구들은 맛있대요.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tr_line">
+                                                    <table class="xans-board-listheaderd tbl_newtype1" width="100%" border="0" cellpadding="0" cellspacing="0" onclick="view_content(this,event,'notice')">
+                                                        <caption style="display:none">구매후기 제목</caption>
+                                                        <colgroup>
+                                                            <col style="width:70px;">
+                                                            <col style="width:auto;">
+                                                            <col style="width:51px;">
+                                                            <col style="width:110px;">
+                                                            <col style="width:80px;">
+
+                                                        </colgroup>
+                                                        <tbody>
+                                                        <tr>
+                                                            <input type="hidden" name="index" value="-1">
+                                                            <input type="hidden" name="image" value>
+                                                            <input type="hidden" name="grade" value="0">
+                                                            <input type="hidden" name="best" value="false">
+                                                            <input type="hidden" name="pNo" value>
+                                                            <td align="center">19</td>
+                                                            <td class="subject">
+                                                                <div class="fst">맛있어용~~~~ 아이도 너무 맛있어하고 남편도 너무 맛있어해요 </div>
+                                                            </td>
+                                                            <td></td>
+                                                            <td class="user_grade">심*환</td>
+                                                            <td class="time">2022-04-20</td>
+
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div data-sno="53094294" class="review_view" style="display: none;">
+                                                        <div class="inner_review">
+                                                            <div class="name_purchase">
+                                                                <strong class="name">[프레시지] 자이언트 살이꽉찬 동태탕 (3~4인분)</strong>
+                                                                <p class="package"></p>
+                                                            </div>
+                                                            <div class="review_photo">
+
+                                                                <img src="//img-cf.kurly.com/shop/data/review/20220501/b9a428fca3ef0cd357bcf4d546e5f577.jpg" name="rv_attach_image[]" border="0">
+                                                                <br>
+                                                                <br>
+                                                                큰아이는 좀 짜다고 하고 다른 식구들은 맛있대요.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tr_line">
+                                                    <table class="xans-board-listheaderd tbl_newtype1" width="100%" border="0" cellpadding="0" cellspacing="0" onclick="view_content(this,event,'notice')">
+                                                        <caption style="display:none">구매후기 제목</caption>
+                                                        <colgroup>
+                                                            <col style="width:70px;">
+                                                            <col style="width:auto;">
+                                                            <col style="width:51px;">
+                                                            <col style="width:110px;">
+                                                            <col style="width:80px;">
+                                                        </colgroup>
+                                                        <tbody>
+                                                        <tr>
+                                                            <input type="hidden" name="index" value="-1">
+                                                            <input type="hidden" name="image" value>
+                                                            <input type="hidden" name="grade" value="0">
+                                                            <input type="hidden" name="best" value="false">
+                                                            <input type="hidden" name="pNo" value>
+                                                            <td align="center">18</td>
+                                                            <td class="subject">
+                                                                <div class="fst">굿 </div>
+                                                            </td>
+                                                            <td></td>
+                                                            <td class="user_grade">현*용</td>
+                                                            <td class="time">2022-03-12</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div data-sno="53094294" class="review_view" style="display: none;">
+                                                        <div class="inner_review">
+                                                            <div class="name_purchase">
+                                                                <strong class="name">[프레시지] 자이언트 살이꽉찬 동태탕 (3~4인분)</strong>
+                                                                <p class="package"></p>
+                                                            </div>
+                                                            <div class="review_photo">
+                                                                <img src="//img-cf.kurly.com/shop/data/review/20220501/b9a428fca3ef0cd357bcf4d546e5f577.jpg" name="rv_attach_image[]" border="0">
+                                                                <br>
+                                                                <br>
+                                                                큰아이는 좀 짜다고 하고 다른 식구들은 맛있대요.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tr_line">
+                                                    <table class="xans-board-listheaderd tbl_newtype1" width="100%" border="0" cellpadding="0" cellspacing="0" onclick="view_content(this,event,'notice')">
+                                                        <caption style="display:none">구매후기 제목</caption>
+                                                        <colgroup>
+                                                            <col style="width:70px;">
+                                                            <col style="width:auto;">
+                                                            <col style="width:51px;">
+                                                            <col style="width:110px;">
+                                                            <col style="width:80px;">
+                                                        </colgroup>
+                                                        <tbody>
+                                                        <tr>
+                                                            <input type="hidden" name="index" value="-1">
+                                                            <input type="hidden" name="image" value>
+                                                            <input type="hidden" name="grade" value="0">
+                                                            <input type="hidden" name="best" value="false">
+                                                            <input type="hidden" name="pNo" value>
+                                                            <td align="center">17</td>
+                                                            <td class="subject">
+                                                                <div class="fst">생각보다 </div>
+                                                            </td>
+                                                            <td></td>
+                                                            <td class="user_grade">공*윤</td>
+                                                            <td class="time">2022-03-09</td>
+
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div data-sno="53094294" class="review_view" style="display: none;">
+                                                        <div class="inner_review">
+                                                            <div class="name_purchase">
+                                                                <strong class="name">[프레시지] 자이언트 살이꽉찬 동태탕 (3~4인분)</strong>
+                                                                <p class="package"></p>
+                                                            </div>
+                                                            <div class="review_photo">
+                                                                <img src="//img-cf.kurly.com/shop/data/review/20220501/b9a428fca3ef0cd357bcf4d546e5f577.jpg" name="rv_attach_image[]" border="0">
+                                                                <br>
+                                                                <br>
+                                                                큰아이는 좀 짜다고 하고 다른 식구들은 맛있대요.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </form>
                                             <p class="btnArea after"></p>
                                         </div>
                                     </div>
-                                    <div class="board_pg_area"></div>
+                                    <div class="board_pg_area">
+                                        <a href="https://www.kurly.com/shop/goods/goods_review_list.php?goodsno=122963&page=1" class="layout-pagination-button layout-pagination-first-page">맨 처음 페이지로 가기</a>
+                                        <a href="https://www.kurly.com/shop/goods/goods_review_list.php?goodsno=122963&page=1" class="layout-pagination-button layout-pagination-prev-page">이전 페이지로 가기</a>
+                                        <strong class="layout-pagination-button layout-pagination-number __active">1</strong>
+                                        <a href="https://www.kurly.com/shop/goods/goods_review_list.php?goodsno=122963&page=2" class="layout-pagination-button layout-pagination-next-page">다음 페이지로 가기</a>
+                                        <a href="https://www.kurly.com/shop/goods/goods_review_list.php?goodsno=122963&page=1" class="layout-pagination-button layout-pagination-last-page">맨 끝 페이지로 가기</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -450,4 +571,125 @@
         </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+    // 2021-05-13 �곹뭹�곸꽭 �� 怨좎젙 泥섎━
+    window.addEventListener('load', function (){
+        var $tab = document.querySelector('.goods-view-tab');
+        if($tab){
+            $tab.addEventListener('click', setTabAnchor);
+            window.addEventListener('scroll', tabFixed);
+        }
+    })
+
+    //Fixed product detail Tab
+    function tabFixed(){
+        var $gnb = document.querySelector('#gnb.gnb_stop');
+        var $layout = document.getElementById('goods-view-infomation'); //湲곗���
+
+        if(!$layout || !$gnb) {
+            return;
+        }
+
+        //Calculate ScrollTop
+        var scrollTop = window.pageYOffset + $gnb.clientHeight;
+        var $layoutTop = $($layout, window).offset().top;
+
+        if(scrollTop > $layoutTop){
+            setTapPosition();
+        }else{
+            setOriginPosition();
+        }
+    }
+
+    //Fixing tabs naturally
+    function setTapPosition(){
+        var $tab = document.querySelector('.goods-view-tab');
+        var $layoutDesc = document.getElementById('goods-description');
+
+        var isExistClass = $tab.classList.contains('fixed') || $layoutDesc.classList.contains('fixed_tab');
+        if(isExistClass){
+            return;
+        }
+
+        $layoutDesc.classList.add('fixed_tab');
+        $tab.classList.add('fixed');
+    }
+
+    //Tab back to its original position
+    function setOriginPosition() {
+        var $gnb = document.querySelector('#gnb.gnb_stop');
+        var $tab = document.querySelector('.goods-view-tab');
+        var $layoutDesc = document.getElementById('goods-description');
+        $tab.removeAttribute('style');
+        $gnb.removeAttribute('style');
+        $tab.classList.remove('fixed');
+
+        if($layoutDesc.classList.contains('fixed_tab')){
+            $layoutDesc.classList.remove('fixed_tab');
+        }
+    }
+
+    var selectedAnchor = '';
+    function setTabAnchor(e){
+        e.preventDefault();
+        var hash = e.target.closest('a').getAttribute('href');
+
+        // KMF-369 hash媛� null �쇨꼍�� error媛� 諛쒖깮�섏뼱 �꾨옒 script媛� �뺤긽�묐룞 �섏� �딅뒗 �댁뒋媛� �뺤씤�섏뼱 �댁뒋 �섏젙
+        if(hash === selectedAnchor || hash === null) {
+            return false;
+        }
+        selectedAnchor = hash;
+
+        var $beforeItem = document.querySelector('.goods-view-infomation-tab-anchor.__active');
+
+        $beforeItem.classList.remove('__active');
+        e.target.closest('a').classList.add('__active');
+
+        setScroll(hash);
+        setAmplitude(hash);
+    }
+
+    function setScroll(hash) {
+        console.log("스크롤")
+        var $container = $(hash);
+        var gnbHeight = document.querySelector('#gnb').clientHeight;
+        var tab = document.querySelector('.goods-view-tab');
+        var scrollPosition = $container.offset().top - gnbHeight;
+
+        if (!tab.classList.contains('fixed')) {
+
+            scrollPosition -= tab.clientHeight;
+        }
+        $('html, body').animate({
+            scrollTop: scrollPosition
+        }, 500);
+
+        console.log("스크롤2")
+    }
+
+    // KM-1483 Amplitude �곕룞
+    function setAmplitude(hash){
+        var _event_name;
+        switch(hash){
+            case '#goods-description':
+                _event_name = 'select_product_detail_description_subtab';
+                break;
+            case '#goods-infomation':
+                _event_name = 'select_product_detail_info_subtab';
+                break;
+            case '#goods-review':
+                _event_name = 'select_product_detail_review_subtab';
+                break;
+            case '#goods-qna':
+                _event_name = 'select_product_detail_inquiry_subtab';
+                break;
+            default :
+                break;
+        }
+        KurlyTracker.setAction(_event_name).sendData();
+    }
+
+</script>
 </html>

@@ -155,7 +155,7 @@
                                     약관보기
                                 </a>
                             </div>
-                            <div class="layer layer_choice">
+                            <div class="layer layer_choice" style="margin-top: -153.5px;">
                                 <div class="inner_layer">
                                     <div class="in_layer">
                                         <h4 class="tit_layer">
@@ -184,7 +184,7 @@
                                         <p class="txt_service">동의를 거부하시는 경우에도 서비스는 이용하실 수 있습니다.</p>
                                     </div>
                                     <button type="button" class="btn_ok"><span class="txt_type">확인</span></button>
-                                    <button type="button" class="btn_close"><span class="screen_out">레이어 닫기</span></button>
+                                    <button type="button" class="btn_close"><span class="screen_out"></span></button>
                                 </div>
                             </div>
 
@@ -229,4 +229,27 @@
     </div>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('.btn_choice').each(function (i,btn) {
+        $(btn).on("click",function () {
+            $($(".layer").get(i)).show();
+            $($(".bg_dim").get(i)).show();
+        })
+    })
+
+    $('.btn_ok').each(function (i,ok) {
+        $(ok).on("click",function () {
+            $($(".layer").get(i)).hide();
+            $($(".bg_dim").get(i)).hide();
+        })
+    })
+
+    $('.btn_close').each(function (i,close) {
+        $(close).on("click",function () {
+            $($(".layer").get(i)).hide();
+            $($(".bg_dim").get(i)).hide();
+        })
+    })
+</script>
 </html>

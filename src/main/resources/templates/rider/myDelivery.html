@@ -33,8 +33,8 @@
     </div>
     <!-- menubar Wrapper-->
     <div class="menu-Bar">
-        <div type="button" class="menuItem list" style="background: white;color: #2C2929"> 배달 목록 </div>
-        <div type="button" class="menuItem myList">MY 배달 내역</div>
+        <div type="button" class="menuItem list" > 배달 목록 </div>
+        <div type="button" class="menuItem myList" style="background: white;color: #2C2929">MY 배달 내역</div>
     </div>
     <!-- 주문 내용 Wrapper-->
     <div class="content-wrapper">
@@ -45,12 +45,12 @@
                     <p style=" padding: 20px 0 0 0;">Last fresh</p>
                 </div>
             </div>
-            <div type="button" class="deliveryList sideItem" style="color: #2C2929; background: white">
+            <div type="button" class="deliveryList sideItem" >
                 <div class="deliveryList-content">
                     <p>배달 목록</p>
                 </div>
             </div>
-            <div type="button" class="myDeliveryList sideItem">
+            <div type="button" class="myDeliveryList sideItem"style="color: #2C2929; background: white">
                 <div class="myDeliveryList-content">
                     <p>MY 배달 내역</p>
                     <p>4</p>
@@ -72,11 +72,11 @@
             </div>
 
             <!-- 접수 대기 목록이 있을 시-->
-            <div class="order-content">
+            <div class="order-content" >
                 <!-- ajax로 가져올 데이터 접수 대기 -->
                 <div class="order-list-wrapper">
                     <hr>
-                    <div class="order-list">
+                    <div class="order-list myDeliveryInfo">
                         <!-- 시간&수령 방법-->
                         <div class="orderWrap">
                             <div class="order-timeTit">
@@ -111,53 +111,28 @@
                         </div>
 
                         <!--  주문 수락 및 취소-->
-                        <div class="order-accept ">
-                            <input class="order-acceptBtn" type="button" value="접수하기">
+                        <div class="btnWrap">
+                            <div class="order-accept myDeliveryBtn">
+                                <input type="button" class="deliveryFinishBtn pc" value="전달완료">
+                                <input type="button" class="deliveryFinish" value="완료">
+                                <input type="button" class="deliveryCancel" value="접수취소">
+                                <a href='tel:01012341234'>
+                                    <div class="callIconWrap">
+                                        <input type="button">
+                                        <div class="callIcon">
+                                            <img class="callImg" src="https://cdn.discordapp.com/attachments/969471931575320587/970637419240108072/4141.png">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <input type="button" class="deliveryFinishBtn Mobile" value="전달완료">
                         </div>
                     </div>
                     <hr>
                 </div>
                 <div class="order-list-wrapper">
                     <hr>
-                    <div class="order-list">
-                        <!-- 시간&수령 방법-->
-                        <div class="order-info1">
-                            <div class="order-time">
-                                18:41
-                            </div>
-                            <div class="order-method delivery">
-                                배달
-                            </div>
-                        </div>
-                        <!-- 주문 관련 정보 (가격, 메뉴이름, 수량, 주소)-->
-                        <div class="order-info2">
-                            <div class="order-menu">
-                                <p class="order-menuInfo">엄~청 맛있는 김치찌개 2개</p>
-                                <p class="storeName">코리아김치: 010-1234-1234</p>
-                            </div>
-                            <br>
-                            <div class="addressWrap">
-                                <div class="order-address">
-                                    <div class="addressTitle">출발지:</div>
-                                    <div class="address">배민동 배민 아파트 2동 101호</div>
-                                </div>
-                                <div class="order-address">
-                                    <div class="addressTitle">도착지:</div>
-                                    <div class="address">서울 송파구 방이동 999-9</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--  주문 수락 및 취소-->
-                        <div class="order-accept ">
-                            <input class="order-acceptBtn" type="button" value="접수하기">
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-                <div class="order-list-wrapper">
-                    <hr>
-                    <div class="order-list">
+                    <div class="order-list myDeliveryInfo">
                         <!-- 시간&수령 방법-->
                         <div class="order-info1">
                             <div class="order-time">
@@ -187,15 +162,25 @@
                         </div>
 
                         <!--  주문 수락 및 취소-->
-                        <div class="order-accept ">
-                            <input class="order-acceptBtn" type="button" value="접수하기">
+                        <div class="btnWrap">
+                            <div class="order-accept myDeliveryBtn">
+                                <input type="button" class="deliveryFinishBtn pc" value="전달완료">
+                                <input type="button" class="deliveryFinish" value="완료">
+                                <input type="button" class="deliveryCancel" value="접수취소">
+                                <div class="callIconBtnWrap"><input type="button" class="callIconBtn">
+                                    <div class="callIcon">
+                                        <img class="callImg" src="https://cdn.discordapp.com/attachments/969471931575320587/970637419240108072/4141.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="deliveryFinishBtn Mobile" value="전달완료">
                         </div>
                     </div>
                     <hr>
                 </div>
                 <div class="order-list-wrapper">
                     <hr>
-                    <div class="order-list">
+                    <div class="order-list myDeliveryInfo">
                         <!-- 시간&수령 방법-->
                         <div class="order-info1">
                             <div class="order-time">
@@ -225,15 +210,25 @@
                         </div>
 
                         <!--  주문 수락 및 취소-->
-                        <div class="order-accept ">
-                            <input class="order-acceptBtn" type="button" value="접수하기">
+                        <div class="btnWrap">
+                            <div class="order-accept myDeliveryBtn">
+                                <input type="button" class="deliveryFinishBtn pc" value="전달완료" style="display: none">
+                                <input type="button" class="deliveryFinish" value="완료"style="display: block; margin-right: -325px;">
+                                <input type="button" class="deliveryCancel" value="접수취소"style="display: none">
+                                <div class="callIconBtnWrap"><input type="button" class="callIconBtn"style="display: none">
+                                    <div class="callIcon"style="display: none">
+                                        <img class="callImg" src="https://cdn.discordapp.com/attachments/969471931575320587/970637419240108072/4141.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="deliveryFinishBtn Mobile" value="전달완료"style="display: none">
                         </div>
                     </div>
                     <hr>
                 </div>
                 <div class="order-list-wrapper">
                     <hr>
-                    <div class="order-list">
+                    <div class="order-list myDeliveryInfo">
                         <!-- 시간&수령 방법-->
                         <div class="order-info1">
                             <div class="order-time">
@@ -263,15 +258,25 @@
                         </div>
 
                         <!--  주문 수락 및 취소-->
-                        <div class="order-accept ">
-                            <input class="order-acceptBtn" type="button" value="접수하기">
+                        <div class="btnWrap">
+                            <div class="order-accept myDeliveryBtn">
+                                <input type="button" class="deliveryFinishBtn pc" value="전달완료">
+                                <input type="button" class="deliveryFinish" value="완료">
+                                <input type="button" class="deliveryCancel" value="접수취소">
+                                <div class="callIconBtnWrap"><input type="button" class="callIconBtn">
+                                    <div class="callIcon">
+                                        <img class="callImg" src="https://cdn.discordapp.com/attachments/969471931575320587/970637419240108072/4141.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="deliveryFinishBtn Mobile" value="전달완료">
                         </div>
                     </div>
                     <hr>
                 </div>
                 <div class="order-list-wrapper">
                     <hr>
-                    <div class="order-list">
+                    <div class="order-list myDeliveryInfo">
                         <!-- 시간&수령 방법-->
                         <div class="order-info1">
                             <div class="order-time">
@@ -301,16 +306,24 @@
                         </div>
 
                         <!--  주문 수락 및 취소-->
-                        <div class="order-accept ">
-                            <input class="order-acceptBtn" type="button" value="접수하기">
+                        <div class="btnWrap">
+                            <div class="order-accept myDeliveryBtn">
+                                <input type="button" class="deliveryFinishBtn pc" value="전달완료" style="display: none">
+                                <input type="button" class="deliveryFinish" value="완료"style="display: block; margin-right: -325px;">
+                                <input type="button" class="deliveryCancel" value="접수취소"style="display: none">
+                                <div class="callIconBtnWrap"><input type="button" class="callIconBtn"style="display: none">
+                                    <div class="callIcon"style="display: none">
+                                        <img class="callImg" src="https://cdn.discordapp.com/attachments/969471931575320587/970637419240108072/4141.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="deliveryFinishBtn Mobile" value="전달완료"style="display: none">
                         </div>
                     </div>
                     <hr>
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
 </body>

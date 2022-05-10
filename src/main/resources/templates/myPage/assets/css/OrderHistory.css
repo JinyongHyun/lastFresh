@@ -94,7 +94,8 @@
 .section_orderlist .list_order .name a {
     display: block;
     overflow: hidden;
-    background: url(https://res.kurly.com/pc/ico/1806/ico_arrow_10x15.png) no-repeat 100% 1px;
+    background: url(https://cdn.discordapp.com/attachments/969471931575320587/972087200621690880/590706d067c9b9b2.png) no-repeat 100% 1px;
+    background-size: 10px 15px;
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
@@ -138,4 +139,151 @@
     line-height: 20px;
     font-weight: 700;
     color: #000;
+}
+.layout-pagination {
+    margin: 60px 0 0;
+    text-align: center;
+}
+.page_myPage .layout-pagination {
+    font-size: 0;
+}
+.page_myPage .layout-pagination-first-page:first-child {
+    border-left: 1px solid #ddd;
+}
+.page_myPage .layout-pagination-button:first-child {
+    border-left: 0;
+}
+.page_myPage .layout-pagination a {
+    cursor: pointer;
+}
+.page_myPage .layout-pagination a, .page_myPage .layout-pagination strong {
+    font-weight: 700;
+    font-size: 12px;
+}
+.layout-pagination-button:first-child {
+    border-left: 1px solid #ddd;
+}
+.layout-pagination-first-page, .layout-pagination-prev-page, .layout-pagination-next-page, .layout-pagination-last-page {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+}
+.layout-pagination-button {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #ddd;
+    border-left: 0;
+    vertical-align: top;
+}
+.layout-pagination-number:hover, .layout-pagination-number.__active {
+    background-color: #f7f7f7;
+    color: #DA291C;
+}
+.layout-pagination-first-page {
+    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-first.png);
+}
+.layout-pagination-prev-page {
+    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-prev.png);
+}
+.layout-pagination-next-page {
+    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-next.png);
+}
+.layout-pagination-last-page {
+    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-last.png);
+}
+.page_myPage .layout-pagination a:hover {
+    background-color: #f7f7f7;
+}
+.section_orderlist .list_order .name .goodsNum {
+    display: none;
+}
+/*반응형*/
+@media (max-width: 1000px) {
+    /*#viewOrderList{*/
+    /*    display: none !important;*/
+    /*}*/
+    /*#snb {*/
+    /*    float: left !important;*/
+    /*    width: 100% !important;*/
+    /*}*/
+    /*#snb .list_menu li.on a, #snb .list_menu li a:hover {*/
+    /*    background: #fafafa url(https://cdn.discordapp.com/attachments/969471931575320587/972087200621690880/590706d067c9b9b2.png) no-repeat 97% 52% !important;*/
+    /*    background-size: 14px 23px !important;*/
+    /*    font-weight: 700 !important;*/
+    /*    color: #DA291C !important;*/
+    /*}*/
+    /*#snb .list_menu li a {*/
+    /*    display: block !important;*/
+    /*    overflow: hidden !important;*/
+    /*    padding: 28px 0 16px 20px !important;*/
+    /*    background: #fff url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11.svg) no-repeat 97% 52% !important;*/
+    /*    background-size: 14px 23px !important;*/
+    /*    font-size: 34px !important;*/
+    /*    color: #666 !important;*/
+    /*    line-height: 37px !important;*/
+    /*    letter-spacing: -.3px !important;*/
+    /*    height: 98px !important;*/
+    /*}*/
+    .pagediv {
+        display: none;
+    }
+    .page_myPage.myPage_type1 .page_section {
+        float: right;
+        width: 100%;
+    }
+    .page_myPage .head_aticle {
+        display: none;
+    }
+    .section_orderlist .list_order {
+        padding-top: 10px;
+        border-top: none;
+    }
+    .section_orderlist .list_order .name .goodsName {
+        display: none;
+    }
+    .section_orderlist .list_order .name .goodsNum {
+        display: block;
+    }
+    .section_orderlist .list_order .thumb img {
+        display: none;
+    }
+    .section_orderlist .list_order .date {
+        display: none;
+    }
+    .section_orderlist .list_order .order_info {
+        overflow: hidden;
+        padding: 14px 0 20px;
+        height: 251px;
+    }
+    .section_orderlist .list_order .order_info dt {
+        float: left;
+        padding-right: 15px;
+        font-size: 33px;
+        color: #000;
+        line-height: 45px;
+    }
+    .section_orderlist .list_order .order_info dd {
+        float: left;
+        font-size: 27px;
+        line-height: 45px;
+        font-weight: 700;
+        color: #000;
+        padding-left: 39px;
+    }
+    .section_orderlist .list_order .name a {
+        display: block;
+        overflow: hidden;
+        background: url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11.svg) no-repeat 100% 18px;
+        background-size: 19px 27px;
+        font-size: 32px;
+        line-height: 64px;
+        font-weight: 700;
+        color: #000;
+        cursor: pointer;
+        height: 65px;
+    }
+    #snb .list_menu li {
+        border-bottom: 4px solid #f2f2f2 !important;
+    }
 }

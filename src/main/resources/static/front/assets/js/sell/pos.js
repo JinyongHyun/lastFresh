@@ -57,21 +57,15 @@ $minusBtn.on("click", function () {
     $cookingTime.find('.cookingTime-real').text(cookingTime);
 });
 
-/* 클릭시 색 변화 */
-function handleClick(e) {
-
-}
-
 $.each($sideBars, function (i, e) {
-    console.log("들어옴")
     let index = 0;
-    $(e).click(function (e) {
+    $(e).click(function () {
         index = i
+
+        for (let j = 0; j < $sideBars.length; j++){
+            $sideBars[j].classList.remove("sellClicked")
+        }
+
+        $sideBars[index].classList.add("sellClicked");
     });
-
-    for (let j = 0; j < $sideBars.length; j++){
-        $sideBars[j].classList.remove("sellClicked")
-    }
-
-    $sideBars[index].classList.add("sellClicked");
 });

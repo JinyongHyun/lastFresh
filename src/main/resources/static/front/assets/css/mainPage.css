@@ -1,0 +1,1123 @@
+
+
+    /* ------------헤더 --------------*/
+    /* ------------유저 메뉴-----------*/
+    #userMenu {
+        margin-right: 30px;
+    }
+
+    .slice {
+        color: #d8d8d8;
+        font-size: 13px;
+    }
+
+    .list_menu_li {
+        float: right;
+    }
+
+    .list_menu_txt {
+        font-size: 12px;
+        color: #333333;
+        font-weight: 400;
+        text-decoration: none;
+    }
+
+    .menu_before_login {
+        list-style: none;
+    }
+
+    .menu_after_login {
+        list-style: none;
+        display: none;
+    }
+
+    .userStatus {
+        border: 1px solid #DA291C;
+        background-color: #fff;
+        color: #DA291C;
+        display: inline-block;
+        min-width: 38px;
+        height: 16px;
+        padding: 0 4px;
+        border-radius: 30px;
+        font-weight: 400;
+        font-size: 9px;
+        line-height: 14px;
+        text-align: center;
+    }
+
+    /* ------------로고---------------*/
+    #logo {
+        width: 110px;
+        margin-top: -15px;
+    }
+
+    /* ------------제품 메뉴 -----------*/
+    .categoryIcon {
+        width: 17px;
+        margin-right: 17px;
+    }
+
+    .cart {
+        float: right;
+        padding-top: 5px;
+    }
+
+    /* ------------헤더 끝--------------*/
+    /* ------------슬라이더 배너--------------*/
+    [name="slide"] {
+        display: none;
+    }
+
+    .slidebox {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 0;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        transition: all .35s;
+    }
+
+    .slidebox img {
+        max-width: 100%;
+    }
+
+    .slidebox .slidelist {
+        white-space: nowrap;
+        font-size: 0;
+        overflow: hidden;
+    }
+
+    .slidebox .slideitem {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        transition: all .35s !important;
+    }
+
+    .slidebox .slideitem label {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 20px;
+        cursor: pointer;
+    }
+
+    label.left {
+        left: 330px;
+        background-image: url('https://s3.ap-northeast-2.amazonaws.com/res.kurly.com/kurly/ico/2021/arrow_banner_left_52_52.svg');
+        background-position: center center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    label.right {
+        right: 330px;
+        background-image: url('https://s3.ap-northeast-2.amazonaws.com/res.kurly.com/kurly/ico/2021/arrow_banner_right_52_52.svg');
+        background-position: center center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    /* 페이징 스타일 */
+    .paginglist {
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    .paginglist > li {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 10px;
+    }
+
+    .paginglist > li > label {
+        display: block;
+        padding: 10px 30px;
+        border-radius: 10px;
+        background: #ccc;
+        cursor: pointer;
+    }
+
+    .paginglist > li > label {
+        background: #333;
+    }
+
+    [id="slide01"]:checked ~ .slidelist .slideitem {
+        transform: translateX(0);
+        animation: slide01 20s infinite !important;
+    }
+
+    [id="slide02"]:checked ~ .slidelist .slideitem {
+        transform: translateX(-100%);
+        animation: slide02 20s infinite !important;
+    }
+
+    [id="slide03"]:checked ~ .slidelist .slideitem {
+        transform: translateX(-200%);
+        animation: slide03 20s infinite !important;
+    }
+
+    [id="slide04"]:checked ~ .slidelist .slideitem {
+        transform: translateX(-300%);
+        animation: slide04 20s infinite !important;
+    }
+
+    @keyframes slide01 {
+        0% {
+            left: 0%;
+        }
+        23% {
+            left: 0%;
+        }
+        25% {
+            left: -100%;
+        }
+        48% {
+            left: -100%;
+        }
+        50% {
+            left: -200%;
+        }
+        73% {
+            left: -200%;
+        }
+        75% {
+            left: -300%;
+        }
+        98% {
+            left: -300%;
+        }
+        100% {
+            left: 0%;
+        }
+    }
+    @keyframes slide02 {
+        0% {
+            left: 0%;
+        }
+        23% {
+            left: 0%;
+        }
+        25% {
+            left: -100%;
+        }
+        48% {
+            left: -100%;
+        }
+        50% {
+            left: -200%;
+        }
+        73% {
+            left: -200%;
+        }
+        75% {
+            left: 100%;
+        }
+        98% {
+            left: 100%;
+        }
+        100% {
+            left: 0%;
+        }
+    }
+    @keyframes slide03 {
+        0% {
+            left: 0%;
+        }
+        23% {
+            left: 0%;
+        }
+        25% {
+            left: -100%;
+        }
+        48% {
+            left: -100%;
+        }
+        50% {
+            left: 200%;
+        }
+        73% {
+            left: 200%;
+        }
+        75% {
+            left: 100%;
+        }
+        98% {
+            left: 100%;
+        }
+        100% {
+            left: 0%;
+        }
+    }
+    @keyframes slide04 {
+        0% {
+            left: 0%;
+        }
+        23% {
+            left: 0%;
+        }
+        25% {
+            left: 300%;
+        }
+        48% {
+            left: 300%;
+        }
+        50% {
+            left: 200%;
+        }
+        73% {
+            left: 200%;
+        }
+        75% {
+            left: 100%;
+        }
+        98% {
+            left: 100%;
+        }
+        100% {
+            left: 0%;
+        }
+    }
+    /* ------------슬라이더 배너 끝--------------*/
+    /* ---------------본문-------------------*/
+    .mainWrapper {
+        text-align: center;
+        margin: 0 auto;
+        width: 56em;
+    }
+
+    .imgBox {
+        width: 249px;
+        height: 320px;
+        overflow: hidden;
+        display: block;
+        margin-bottom: 9px;
+    }
+
+    .newProduct {
+        margin-bottom: 88px;
+    }
+
+    .mainTitle {
+        color: rgb(51, 51, 51);
+        font-size: 28px;
+        line-height: 1.15;
+        letter-spacing: -0.26px;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 40px;
+    }
+
+    .titleBtn {
+        vertical-align: top;
+        max-width: 100%;
+    }
+
+    .mainNewBox {
+        text-align: left;
+        float: left;
+        margin-right: 1.4%;
+        position: relative;
+    }
+
+    .mainNewBoxLast {
+        text-align: left;
+    }
+
+    .innerCart {
+        position: absolute;
+        z-index: 300;
+        display: block;
+        right: 16px;
+        bottom: 16px;
+        width: 45px;
+        top: 256px;
+        height: 45px;
+    }
+
+    .mainNewImg {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .mainNewImg:hover {
+        object-fit: cover;
+        transition: all 0.3s ease-in-out 0s !important;
+        transform: scale(1.04);
+    }
+
+    div.mainNewTxt p, div.mainNewTxtLast p {
+        padding: 0;
+        margin: 0;
+    }
+
+    .mainNewTxt {
+        width: 250px;
+    }
+
+    .mainNewTxtLast {
+        display: contents;
+    }
+
+    .mainNewTxtTitle {
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 8px;
+    }
+
+    .mainNewTxtPrice {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .mainNewTxtOriginPrice {
+        color: rgb(153, 153, 153);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration: line-through;
+        margin-top: 2px;
+    }
+
+    .newATag {
+        text-decoration: none;
+        color: #333333;
+    }
+
+    /* -----------미니 배너-------- */
+    .miniBanner {
+        margin-bottom: 125px;
+    }
+
+    /* -----------오늘 마감-------- */
+    .imgLastChanceBox {
+        width: 339px;
+        height: 436.38px;
+        overflow: hidden;
+        display: block;
+        margin-bottom: 9px;
+    }
+
+    .lastChance {
+        text-align: left;
+    }
+
+    .mainLastBoxTxt {
+        text-align: left;
+        width: 300px;
+        float: left;
+        margin-right: 1.4%;
+    }
+
+    .lastIcon {
+        width: 33px;
+        float: left;
+        padding-top: 4px;
+    }
+
+    .lastChanceTxt {
+        font-size: 16px;
+        font-weighffdsft: normal;
+        line-height: 1.45;
+        letter-spacing: -0.2px;
+        margin-top: -17px;
+        margin-bottom: 30px;
+    }
+
+    .lastChanceDate {
+        color: #333333;
+        font-size: 29px;
+        font-weight: 700;
+        line-height: initial;
+    }
+
+    .mainLastBox {
+        text-align: left;
+        float: right;
+        margin-left: 1.5%;
+        position: relative;
+    }
+
+    .innerLatChanceCart {
+        position: absolute;
+        z-index: 300;
+        display: block;
+        right: 16px;
+        bottom: 16px;
+        width: 45px;
+        top: 369px;
+        height: 45px;
+    }
+
+    .upLeftLabel {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .sticker {
+        padding: 0px 8px;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        height: 32px;
+        opacity: 0.9;
+        background-color: #ff786e;
+        opacity: 0.9;
+    }
+
+    .stickerText {
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .mainLastTxt {
+        width: 330px;
+    }
+
+    .mainLastTxtPrice {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .mainLastDescription {
+        color: rgb(153, 153, 153);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 2px;
+    }
+
+    .mainLastTxtTitle {
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 3px;
+    }
+
+    /* -----------메인-------------*/
+    /*-----------푸터 시작-----------*/
+    #myFooter {
+        margin: 0 auto;
+    }
+
+    .innerFooter {
+        width: 56em;
+        margin: 0 auto;
+    }
+
+    #myFooter .inner_footer {
+        overflow: hidden;
+        padding-bottom: 45px;
+    }
+
+    #myFooter .footer_cc {
+        float: left;
+        width: 513px;
+    }
+
+    #myFooter .tit_cc {
+        padding: 29px 0 2px;
+        font-weight: 500;
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+        line-height: 24px;
+    }
+
+    #myFooter .cc_call {
+        padding-top: 20px;
+    }
+
+    #myFooter .cc_call .tit {
+        padding-top: 4px;
+        font-weight: 700;
+        font-size: 28px;
+        color: #333;
+        line-height: 36px;
+        letter-spacing: -.5px;
+        white-space: nowrap;
+        float: left;
+        margin-right: 22px;
+    }
+
+    #myFooter .footer_cc .list {
+        font-size: 14px;
+        color: #333;
+        line-height: 22px;
+        letter-spacing: -.2px;
+        padding-top: 5px;
+    }
+
+    #myFooter .footer_cc .list dt {
+        display: block;
+        font-weight: 400;
+    }
+
+    #myFooter .footer_cc .list dd {
+        color: #999;
+        margin-bottom: -30px;
+    }
+
+    #myFooter .cc_view {
+        overflow: hidden;
+        padding-top: 16px;
+    }
+
+    #myFooter .cc_kakao .tit {
+        height: 40px;
+        margin-top: 3px;
+        border: 1px solid #e3e3e3;
+        border-radius: 3px;
+        font-weight: 500;
+        font-size: 14px;
+        color: #333;
+        line-height: 22px;
+        text-align: center;
+        padding: 10px 29px 33px 29px;
+        float: left;
+        margin-right: 16px;
+    }
+
+    #myFooter .company {
+        float: left;
+        padding-top: 29px;
+        font-size: 12px;
+        color: #999;
+        line-height: 20px;
+        margin-left: 27px;
+    }
+
+    #myFooter .company .list {
+        overflow: hidden;
+        width: 100%;
+        padding-bottom: 29px;
+    }
+
+
+    #myFooter .company .bar {
+        padding: 0 4px 0 3px;
+    }
+
+
+    #myFooter .footer_below {
+        background-color: #f7f7f7;
+        text-align: center;
+        padding: 19px 0 27px;
+    }
+
+    #myFooter .footer_below .txt {
+        font-size: 10px;
+        line-height: 16px;
+        color: #999;
+        letter-spacing: -.5px;
+        font-weight: 400;
+        margin-bottom: 1px;
+    }
+
+    #myFooter .company .list li {
+        float: left;
+        padding-right: 20px;
+        list-style: none;
+        padding-left: 0;
+    }
+
+    #myFooter .company {
+        float: left;
+        padding-top: 29px;
+        font-size: 12px;
+        color: #999;
+        line-height: 20px;
+    }
+
+    #myFooter .company {
+        float: left;
+        padding-top: 29px;
+        font-size: 12px;
+        color: #999;
+        line-height: 20px;
+        font-weight: 400;
+    }
+
+    a.link {
+        text-decoration: none;
+    }
+
+    #myFooter .company ul {
+        padding: 0;
+    }
+
+    #myFooter .company .list .link {
+        font-size: 14px;
+        color: #333;
+        font-weight: 400;
+        text-decoration: none;
+        line-height: 18px;
+    }
+
+    #myFooter .footer_below .copy {
+        font-style: normal;
+        font-size: 10px;
+        color: #949296;
+        line-height: 25px;
+        letter-spacing: 0;
+        font-weight: 400;
+    }
+
+    /* aside */
+    #pageTop {
+        overflow: hidden;
+        position: fixed;
+        z-index: 300;
+        right: 31px;
+        bottom: 0;
+        width: 58px;
+        height: 58px;
+        border: 0;
+        background: url(https://res.kurly.com/pc/service/common/1903/btn_pagetop_v2.png) no-repeat 50% 50%;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -9999px;
+        opacity: 0;
+        transition: background .5s;
+    }
+
+    /* 전체 카테고리 */
+    #gnb .gnb_sub {
+
+        overflow: hidden;
+        position: absolute;
+        z-index: 301;
+        left: 45px;
+        top: 192px;
+        width: 213px;
+
+
+    }
+
+    #gnb .gnb_sub .inner_sub {
+        width: 100%;
+        border: 1px solid #ddd;
+        background: url(https://res.kurly.com/pc/service/common/1908/bg_gnb_sub_v3.png) repeat-y 0 0;
+    }
+
+    #gnb .gnb_sub .gnb_menu {
+        width: 219px;
+        padding: 0;
+    }
+
+    #gnb .gnb_sub .menu {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        height: 40px;
+        padding: 8px 0 0 14px;
+        cursor: pointer;
+    }
+
+    a {
+        background-color: transparent;
+        text-decoration: none;
+        color: inherit;
+    }
+
+
+    img {
+
+        max-width: 100%;
+    }
+
+    img {
+        border: 0;
+    }
+
+    #gnb .gnb_sub .txt {
+        float: left;
+        padding: 0 4px 0 10px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #333;
+        line-height: 22px;
+        white-space: nowrap;
+    }
+
+    #gnb .gnb_sub .ico {
+        float: left;
+        width: 24px;
+        height: 24px;
+    }
+
+    #gnb .gnb_sub .gnb_menu li {
+        width: 100%;
+        text-align: left;
+        padding: 0px;
+    }
+
+    li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+    }
+
+    div, th, td, li, dt, dd, p {
+        word-break: break-all;
+    }
+
+    li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+    }
+
+    ol, ul {
+        list-style-type: none;
+    }
+
+    #gnb .gnb_sub .current .menu:hover {
+        background: #f7f7f7
+    }
+
+    /* 장바구니 모달창*/
+
+    #cartPut .cart_result, #cartPut .cart_option.off, #cartPut .cart_option .tit_cart, #cartPut .cart_option .box_select, #cartPut .cart_option .bar_open, #cartPut .cart_option .view_function {
+        display: none;
+    }
+
+    #cartPut .cart_type3 {
+        position: fixed;
+        z-index: 9999;
+        left: 50%;
+        top: 50%;
+        width: 440px;
+        max-height: 600px;
+        margin-left: -220px;
+        border-radius: 12px;
+        background-color: #fff;
+        -webkit-transform: translate(0,-50%);
+        -ms-transform: translate(0,-50%);
+        transform: translate(0,-50%);
+    }
+
+    #cartPut .cart_option {
+        background-color: #fff;
+    }
+
+    #cartPut * {
+        font-family: noto sans;
+        color: #333;
+        letter-spacing: 0;
+    }
+
+
+    #cartPut .cart_type3 .inner_option {
+        padding: 0 30px;
+    }
+
+    #cartPut .cart_type3 .btn_close1 {
+        display: none;
+    }
+
+    .cart_modal_footer {
+        display: flex;
+        align-items: center;
+        padding: 20px 0 30px;
+    }
+
+    #cartPut .cart_type3 .base_button.half {
+        width: 50%;
+    }
+
+    #cartPut .base_button {
+        width: 432px;
+        height: 56px;
+        border: none;
+        border-radius: 3px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: normal;
+        color: #fff;
+        background-color: #DA291C;
+        border: 1px solid #DA291C;
+        cursor: pointer;
+    }
+
+    .cart_modal_footer button:not(:first-of-type) {
+        margin-left: 8px;
+    }
+
+    button {
+        outline: none;
+    }
+
+    #cartPut .cart_type3 .list_goods {
+        width: 380px;
+    }
+
+    .secondBanner {
+
+      margin-top: 70px;
+    }
+
+    #cartPut .cart_type3 .list_nopackage {
+        padding-top: 30px;
+        min-height: 148px;
+    }
+
+    #cartPut .cart_type3 .list {
+        overflow: hidden;
+        overflow-y: auto;
+        width: 400px;
+        max-height: 355px;
+        min-height: 120px;
+    }
+
+    #cartPut .cart_option .list {
+        overflow: hidden;
+        padding-bottom: 1px;
+        margin-left: -16px;
+    }
+
+    #cartPut .cart_type3 .list_nopackage li {
+        border: 0;
+    }
+
+    #cartPut .cart_type3 .list li {
+        width: 380px;
+        padding: 11px 0;
+        border-bottom: 1px solid #f4f4f4;
+    }
+
+
+
+    #cartPut .cart_option .list .btn_position {
+        display: block;
+        position: relative;
+    }
+
+    #cartPut .cart_type3 .list .name {
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+
+    #cartPut .cart_option .list .name {
+        display: block;
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: -.6px;
+        font-weight: 500;
+    }
+
+    #cartPut .cart_type3 .list .option {
+        padding-top: 7px;
+    }
+
+    #cartPut .cart_option .list .option {
+        overflow: hidden;
+    }
+
+    #cartPut .cart_option .list .btn_del {
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        top: -1px;
+        width: 24px;
+        height: 24px;
+        border: 0;
+        background: url(https://res.kurly.com/pc/ico/2010/ico_cartput_del_24x25.svg) no-repeat 50% 50%;
+        background-size: 24px 25px;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -9999px;
+    }
+
+
+
+    #cartPut .cart_option .list .count {
+        overflow: hidden;
+        float: left;
+        width: 88px;
+        height: 30px;
+        border: 1px solid #dddfe1;
+        border-radius: 3px;
+    }
+
+    #cartPut .cart_type3 .list .price {
+        float: left;
+        padding: 7px 0 0;
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+
+    #cartPut .cart_option .list .price {
+        font-weight: 700;
+        text-align: right;
+    }
+
+    #cartPut .cart_option .list .down.on {
+        background-image: url(https://res.kurly.com/pc/ico/2010/ico_minus_on.svg);
+    }
+
+    #cartPut .cart_option .list .down {
+        background: #fff url(https://res.kurly.com/pc/ico/2010/ico_minus.svg) no-repeat 50% 50%;
+        background-size: 30px 30px;
+    }
+
+    #cartPut .cart_option .list .btn {
+        overflow: hidden;
+        float: left;
+        width: 28px;
+        height: 28px;
+        border: 0;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -9999px;
+    }
+
+    #cartPut .cart_option .list .inp {
+        float: left;
+        width: 30px;
+        height: 30px;
+        margin-right: -1px;
+        padding: 0 0 4px;
+        border: 0;
+        background-color: #fff;
+        font-size: 14px;
+        color: #000;
+        line-height: 18px;
+        text-align: center;
+    }
+
+    #cartPut .cart_option .list .up.on {
+        background-image: url(https://res.kurly.com/pc/ico/2010/ico_plus_on.svg);
+    }
+
+    #cartPut .cart_option .list .up {
+        float: right;
+        margin-left: -1px;
+        background: #fff url(https://res.kurly.com/pc/ico/2010/ico_plus.svg) no-repeat 50% 50%;
+        background-size: 30px 30px;
+    }
+
+    #cartPut .cart_type3 .list .dc_price {
+        padding-right: 4px;
+        font-weight: 800;
+    }
+
+    #cartPut .cart_option .total .price {
+        overflow: hidden;
+        text-align: right;
+    }
+
+    #cartPut .cart_type3 .total .txt_point {
+        padding-top: 6px !important;
+        margin-bottom: 0;
+    }
+
+    #cartPut .cart_option .total .txt_point {
+        display: block;
+        padding-top: 14px;
+        font-size: 14px;
+        color: #666;
+        line-height: 20px;
+        text-align: right;
+    }
+
+    #cartPut .cart_type3 .total .tit {
+        float: left;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -.67px;
+        vertical-align: 0;
+    }
+
+    #cartPut .cart_option .total .tit {
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 20px;
+        vertical-align: 2px;
+    }
+
+    #cartPut .cart_type3 .total .sum {
+        float: right;
+        margin-top: -1px;
+    }
+
+    #cartPut .cart_type3 .total .num {
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: -1px;
+    }
+
+    #cartPut .cart_option .total .num {
+        padding-left: 8px;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    #cartPut .cart_type3 .total .won {
+        padding-left: 0;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -.67px;
+        vertical-align: 3px;
+    }
+
+    #cartPut .cart_option .total .won {
+        padding-left: 2px;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 20px;
+        vertical-align: -1px;
+    }
+
+    #cartPut .base_button.cancel {
+        color: #333 !important;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+
+    .bg_loading {
+        position: fixed;
+        z-index: 9998;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: .5;
+    }
+
+    .loading_show {
+        position: fixed;
+        z-index: 10000;
+        top: 50%;
+        left: 50%;
+        margin: -16px 0 0 -16px;
+        width: 32px;
+        height: 32px;
+        background: url(https://res.kurly.com/pc/img/1909/img_loading_128x128.gif) no-repeat 50% 50%;
+        background-size: 16px 16px;
+    }
+
+    #cartPut .cart_type3 .list .btn_position {
+        display: none;
+    }
+
+    #cartPut .cart_type3 .list .count {
+        float: right;
+        margin-right: 18px;
+    }
+
+
+
+
+

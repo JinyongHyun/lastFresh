@@ -12,7 +12,7 @@
         <h2 class="tit_snb">마이페이지</h2>
         <div class="inner_snb">
             <ul class="list_menu">
-                <li class="on">
+                <li>
                     <a href="#">주문 내역</a>
                 </li>
                 <li>
@@ -28,38 +28,28 @@
         <div class="head_aticle">
             <h2 class="tit">
                 주문 내역
-                <span class="tit_sub">지난 3년간의 주문 내역 조회가 가능합니다</span>
             </h2>
         </div>
-        <div class="search_date">
-            <h3 class="screen_out">기간 선택</h3>
-        <a href="#none" class="btn_layer">
-            전체기간
-        </a>
-        <ul class="layer_search">
-            <li>
-                <a href="#none" class="on">전체기간</a>
-            </li>
-            <li>
-                <a href="#none" data-year="2022">2022 년</a>
-            </li>
-            <li><a href="#none" data-year="2021">2021 년</a>
-            </li>
-            <li><a href="#none" data-year="2020">2020 년</a>
-            </li>
-        </ul>
-    </div>
             <ul class="list_order">
                 <li>
                     <div class="date">2022.04.28 (19시 06분)</div>
                     <div class="order_goods"><div class="name">
-                        <a>[우주] 프리미엄 손질 생새우살 200g (냉동) 외 4건</a>
+                        <a class="goodsName">[우주] 프리미엄 손질 생새우살 200g (냉동) 외 4건</a>
+                        <a class="goodsNum">주문번호 9999999</a>
                     </div>
                         <div class="order_info">
                             <div class="thumb">
                                 <img src="https://img-cf.kurly.com/shop/data/goods/1648206103254s0.jpg" alt="해당 주문 대표 상품 이미지">
                             </div>
                             <div class="desc">
+                                <dl>
+                                    <dt>상품명</dt>
+                                    <dd>[우주] 프리미엄 손질 생새우살 200g (냉동) 외 4건</dd>
+                                </dl>
+                                <dl>
+                                    <dt>결제일시</dt>
+                                    <dd>2022.04.28 (19시 06분)</dd>
+                                </dl>
                                 <dl>
                                     <dt>결제금액</dt>
                                     <dd>35,600원</dd>
@@ -76,6 +66,16 @@
 <!--        주문내역이 없습니다.-->
                <!-- </li>-->
             </ul>
+        <div class="layout-pagination">
+            <div class="pagediv">
+                <a href="#viewOrderList" class="layout-pagination-button layout-pagination-first-page">맨 처음 페이지로 가기</a>
+                <a href="#viewOrderList" class="layout-pagination-button layout-pagination-prev-page">이전 페이지로 가기</a>
+                <span><strong class="layout-pagination-button layout-pagination-number __active" style="padding-top: 7px;">1</strong>
+                </span>
+                <a href="#viewOrderList" class="layout-pagination-button layout-pagination-next-page">다음 페이지로 가기</a>
+                <a href="#viewOrderList" class="layout-pagination-button layout-pagination-last-page">맨 끝 페이지로 가기</a>
+            </div>
+        </div>
     </div>
 </div>
 </body>

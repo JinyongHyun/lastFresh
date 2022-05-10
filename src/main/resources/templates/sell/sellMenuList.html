@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu List</title>
+    <link rel="stylesheet" href="/front/assets/css/sellMain.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="page_myPage myPage_type1">
+    <div id="snb" class="snb_my">
+        <h2 class="tit_snb">판매자 페이지</h2>
+        <div class="inner_snb">
+            <ul class="list_menu">
+                <li>
+                    <a  class="menuClicked" href="#">판매 내역</a>
+                </li>
+                <li>
+                    <a href="#">상품 목록</a>
+                </li>
+                <li>
+                    <a href="#">개인 정보 수정</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page_section section_orderview">
+        <div class="blank_article">
+        </div>
+
+        <div class="order-list-wrapper">
+            <div class="order-list">
+                <div class="sellHead_section link_type sell-menuList-media Type-wrapper">
+                    <h3 class="tit">상품목록</h3>
+                    <span class="media-info">상품 등록 및 수정, 삭제는 웹사이트에서만 가능합니다</span>
+                    <button>상품 등록</button>
+                </div>
+                <div class="menuTable-wrapper" name="frmOrdView">
+                    <table class="menuTable">
+                        <colgroup>
+                            <col class="colgroup-span-1" style="width:80px;">
+                            <col class="colgroup-span-2" style="width:100px">
+                            <col class="colgroup-span-3" style="width:auto;">
+                            <col class="colgroup-span-4" style="width:100px;">
+                            <col class="colgroup-span-5" style="width:100px;">
+                            <col class="colgroup-span-6" style="width:140px;">
+                            <col class="colgroup-span-7" style="width:auto;">
+                        </colgroup>
+                        <thead>
+                        <tr class="tHead">
+                            <th class="Thumb">상품 이미지</th>
+                            <th class="method">판매 방법</th>
+                            <th class="Title">상품 이름</th>
+                            <th class="sellPrice">가격</th>
+                            <th class="quantity">재고 수량</th>
+                            <th class="registerDate">판매 기간</th>
+                        </tr>
+                        </thead>
+                        <tbody class="menuRegister-list">
+                        <tr>
+                            <td class="menuThumb">
+                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
+                            </td>
+                            <td class="menuMethod">
+                                <div class="order-method-wrapper">
+                                    <div class="order-method pickUp">
+                                        포장
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuTitle">
+                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuSellPrice">
+                                    <span class="price" th:text="|${#numbers.formatInteger(10900, 0, 'COMMA')}원|"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuQuantity">
+                                    <span> 2개 </span>
+                                </div>
+                            </td>
+                            <td class="menuRegisterDate">
+                                2022-12-12
+                            </td>
+                            <td class="menuManging">
+                                <div class="menu-btn-wrapper">
+                                    <button>
+                                        수정
+                                    </button>
+                                    <button>
+                                        삭제
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="menuThumb">
+                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
+                            </td>
+                            <td class="menuMethod">
+                                <div class="order-method-wrapper">
+                                    <div class="order-method pickUp">
+                                        포장
+                                    </div>
+                                    <div class="order-method shipping">
+                                        배송
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuTitle">
+                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuSellPrice">
+                                    <span class="price" th:text="|${#numbers.formatInteger(7900, 0, 'COMMA')}원|"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuQuantity">
+                                    <span> 2개 </span>
+                                </div>
+                            </td>
+                            <td class="menuRegisterDate">
+                                2022-12-12
+                            </td>
+                            <td class="menuManging">
+                                <div class="menu-btn-wrapper">
+                                    <button>
+                                        수정
+                                    </button>
+                                    <button>
+                                        삭제
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="menuThumb">
+                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
+                            </td>
+                            <td class="menuMethod">
+                                <div class="order-method-wrapper">
+                                    <div class="order-method pickUp">
+                                        포장
+                                    </div>
+                                    <div class="order-method delivery">
+                                        배달
+                                    </div>
+                                    <div class="order-method shipping">
+                                        배송
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuTitle">
+                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuSellPrice">
+                                    <span class="price" th:text="|${#numbers.formatInteger(7900, 0, 'COMMA')}원|"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuQuantity">
+                                    <span> 2개 </span>
+                                </div>
+                            </td>
+                            <td class="menuRegisterDate">
+                                2022-12-12
+                            </td>
+                            <td class="menuManging">
+                                <div class="menu-btn-wrapper">
+                                    <button>
+                                        수정
+                                    </button>
+                                    <button>
+                                        삭제
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="menuThumb">
+                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
+                            </td>
+                            <td class="menuMethod">
+                                <div class="order-method-wrapper">
+                                    <div class="order-method pickUp">
+                                        포장
+                                    </div>
+                                    <div class="order-method delivery">
+                                        배달
+                                    </div>
+                                    <div class="order-method shipping">
+                                        배송
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuTitle">
+                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuSellPrice">
+                                    <span class="price" th:text="|${#numbers.formatInteger(7900, 0, 'COMMA')}원|"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuQuantity">
+                                    <span> 2개 </span>
+                                </div>
+                            </td>
+                            <td class="menuRegisterDate">
+                                2022-12-12
+                            </td>
+                            <td class="menuManging">
+                                <div class="menu-btn-wrapper">
+                                    <button>
+                                        수정
+                                    </button>
+                                    <button>
+                                        삭제
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="menuThumb">
+                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
+                            </td>
+                            <td class="menuMethod">
+                                <div class="order-method-wrapper">
+                                    <div class="order-method pickUp">
+                                        포장
+                                    </div>
+                                    <div class="order-method delivery">
+                                        배달
+                                    </div>
+                                    <div class="order-method shipping">
+                                        배송
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuTitle">
+                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuSellPrice">
+                                    <span class="price" th:text="|${#numbers.formatInteger(7900, 0, 'COMMA')}원|"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuQuantity">
+                                    <span> 2개 </span>
+                                </div>
+                            </td>
+                            <td class="menuRegisterDate">
+                                2022-12-12
+                            </td>
+                            <td class="menuManging">
+                                <div class="menu-btn-wrapper">
+                                    <button>
+                                        수정
+                                    </button>
+                                    <button>
+                                        삭제
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="menuThumb">
+                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
+                            </td>
+                            <td class="menuMethod">
+                                <div class="order-method-wrapper">
+                                    <div class="order-method pickUp">
+                                        포장
+                                    </div>
+                                    <div class="order-method delivery">
+                                        배달
+                                    </div>
+                                    <div class="order-method shipping">
+                                        배송
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuTitle">
+                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuSellPrice">
+                                    <span class="price" th:text="|${#numbers.formatInteger(7900, 0, 'COMMA')}원|"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="menuQuantity">
+                                    <span> 2개 </span>
+                                </div>
+                            </td>
+                            <td class="menuRegisterDate">
+                                2022-12-12
+                            </td>
+                            <td class="menuManging">
+                                <div class="menu-btn-wrapper">
+                                    <button>
+                                        수정
+                                    </button>
+                                    <button>
+                                        삭제
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/front/assets/js/sell/sellMenuList.js"></script>
+</html>

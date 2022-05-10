@@ -1,4 +1,8 @@
 /*개인 정보 수정 입력 창*/
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
 .page_myPage.myPage_type1 .page_section {
     float: right;
     width: 820px;
@@ -94,9 +98,9 @@
     vertical-align: 0;
 }
 .type_form .btn.default {
-    border: 1px solid #5f0080;
+    border: 1px solid #DA291C;
     background-color: #fff;
-    color: #5f0080;
+    color: #DA291C;
 }
 .member_join .btn {
     display: inline-block;
@@ -149,8 +153,8 @@
     vertical-align: -7px;
 }
 .type_form input[type=radio]:checked+.ico {
-    border: 1px solid #5f0081;
-    background-color: #5f0080;
+    border: 1px solid #DA291C;
+    background-color: #DA291C;
 }
 .type_form input[type=radio]:checked+.ico:after {
     content: "";
@@ -224,7 +228,7 @@
     opacity: 0;
 }
 .type_form input[type=checkbox]:checked+.ico {
-    background: url(https://res.kurly.com/pc/service/common/2006/ico_checkbox_checked.svg) no-repeat 50% 50%;
+    background: url(https://cdn.discordapp.com/attachments/733016627054116960/972402191346331708/1.png) no-repeat 50% 50%;
     background-size: 24px 24px;
 }
 .type_form input[type=checkbox]+.ico {
@@ -247,7 +251,7 @@
     top: 0;
     padding-top: 10px;
     font-size: 14px;
-    color: #5f0080;
+    color: #DA291C;
     line-height: 18px;
     letter-spacing: 0;
 }
@@ -257,7 +261,7 @@
     margin-top: 4px;
     width: 6px;
     height: 9px;
-    background: url(https://res.kurly.com/pc/service/common/2006/ico_arrow_6x9.svg) no-repeat 50% 0;
+    background: url(https://cdn.discordapp.com/attachments/969471931575320587/972087200621690880/590706d067c9b9b2.png) no-repeat 50% 0;
     background-size: 6px 9px;
     vertical-align: top;
 }
@@ -301,15 +305,21 @@
     font-size: 14px;
     color: #333;
 }
-.page_aticle button, .page_aticle input, .page_aticle select, .page_aticle * {
+.page_myPage caption, .page_myPage legend {
+    display: none;
+}
+.page_myPage button, .page_myPage input, .page_myPage select, .page_myPage * {
     font-weight: 400;
     letter-spacing: 0;
 }
-.page_aticle caption, .page_aticle legend {
-    display: none;
-}
 .member_join .reg_agree .layer_choice .tit1 {
     width: auto;
+}
+.member_join .reg_agree .layer_choice .tit2 {
+    width: 81px;
+}
+.member_join .reg_agree .layer_choice .tit3 {
+    width: 101px;
 }
 .member_join .reg_agree .box_tbl th {
     padding: 7px 8px 8px;
@@ -354,7 +364,7 @@ table {
     background-color: #fff;
     font-weight: 700;
     font-size: 16px;
-    color: #5f0080;
+    color: #DA291C;
     line-height: 32px;
     letter-spacing: 0;
 }
@@ -396,8 +406,8 @@ table {
     vertical-align: top;
 }
 .type_form .btn.active {
-    border: 1px solid #5f0081;
-    background-color: #5f0080;
+    border: 1px solid #DA291C;
+    background-color: #DA291C;
     color: #fff;
 }
 .member_join .check_event {
