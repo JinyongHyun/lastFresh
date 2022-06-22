@@ -32,7 +32,7 @@ import java.util.Random;
 @RequestMapping("/user/*")
 @RequiredArgsConstructor
 public class UserManaingController {
-    // 현진용
+
     private final UserService userService;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
