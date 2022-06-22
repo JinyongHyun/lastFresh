@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>라스트프레시 | 비밀번호 찾기</title>
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+    <link rel="stylesheet" href="/front/assets/css/user/userFindId.css">
+</head>
+<body>
+<th:block th:insert="/fragments/header.html :: headFragment"/>
+<div class="wrapper">
+    <div class="title">비밀번호 찾기</div>
+    <div class="find_box">
+        <div class="verificationText">
+            <button selected="" type="button" class="hp_verification" onclick="showphonediv()">휴대폰 인증</button>
+        </div>
+        <form class="sendInfo">
+            <div class="css-1blp8ou el059co3">
+                <div class="Id_box">
+                    <label for="id" class="Id_label">아이디</label>
+                    <div class="input_wrapper">
+                        <input type="text" data-testid="input-box" id="id" name="id" value="" placeholder="아이디를 입력해 주세요" class="input_info">
+                        <span id="result" style="font-size:0.7em"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="css-1blp8ou el059co3">
+                <div class="Id_box phone_box">
+                    <label for="phone" class="Id_label">휴대폰 번호</label>
+                    <div class="input_wrapper">
+                        <input type="tel" data-testid="input-box" id="phone" name="phone" value="" placeholder="휴대폰 번호를 입력해 주세요" class="input_info">
+                        <span id="result_phone" style="font-size:0.7em"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="css-1blp8ou el059co3">
+                <div class="email_box" style="padding-bottom: 12px">
+                    <label for="phone" class="Id_label">이메일</label>
+                    <div class="input_wrapper">
+                        <input type="tel" data-testid="input-box" id="input_email" value="" placeholder="이메일을 입력하세요" class="input_info">
+                        <span id="result_email" style="font-size:0.7em"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="authentication_number">
+               <!-- <div class="css-1blp8ou el059co3" id="el059co3" style="display: none">
+                    <div class="input_wrapper" id="certified">
+                        <input type="tel" data-testid="input-box" id="inputCertifiedPhone" name="phone" value="" placeholder="인증번호 입력" class="input_info">
+                    </div>
+                </div>-->
+                <div class="css-1blp8ou el059co3" id="el059co4" style="display: none">
+                    <div class="input_wrapper" id="certified1">
+                        <input type="tel" data-testid="input-box" id="inputCertifiedPhone" name="phone" value="" placeholder="인증번호 입력" class="input_info">
+                    </div>
+                </div>
+               <!-- <div class="accept_wrapper check1">
+                    <p class="accept_button email_box" type="submit" disabled="" radius="4">
+                        <span class="accept_text">확인</span>
+                    </p>
+                </div>-->
+                <div class="accept_wrapper check" id="check">
+                    <p class="accept_button phone_box" type="button" disabled="" radius="4">
+                        <span class="accept_text">확인</span>
+                    </p>
+                </div>
+            </div>
+           <!-- <div class="css-1blp8ou el059co3">
+                <div class="input_wrapper" id="findId" style="display: none">
+                    <input type="tel" data-testid="input-box" id="findId_css" name="phone" value="!hrhrw123" placeholder="" class="input_info">
+                </div>
+            </div>
+            <div class="css-1blp8ou el059co3">
+                <div class="input_wrapper" id="findId1" style="display: none">
+                    <input type="tel" data-testid="input-box" id="findId_css" name="phone" value="!fhwegwer123" placeholder="" class="input_info">
+                </div>
+            </div>-->
+            <div class="accept_wrapper" id="emailCheckPw" style="display: block">
+                <p class="accept_button email_box"  type="submit" disabled="" radius="4">
+                    <span class="accept_text">확인</span>
+                </p>
+            </div>
+            <div class="accept_wrapper" id="phoneCheck1" onclick="find1()" style="display: block">
+                <p class="accept_button phone_box" type="submit" disabled="" radius="4">
+                    <span class="accept_text">인증번호 받기</span>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+<th:block th:insert="/fragments/footer.html :: footFragment"/>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/front/assets/js/user/userFind.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</html>
+
+
+
+
+

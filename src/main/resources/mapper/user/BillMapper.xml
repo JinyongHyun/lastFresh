@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lastfresh.mapper.user.BillMapper">
+    <insert id="insertBill">
+        INSERT INTO TBL_BILLS
+        (USER_NUM, BILL_DELIVERY_ADDRESS, BILL_DELIVERY_ADDRESS_DETAIL, BILL_DELIVERY_ADDRESS_POST_NUM, BILL_TOTAL_PRICE, BILL_ORDER_DATE)
+        VALUES(#{userNum}, #{userAddress}, #{userAddressDetail}, #{userAddressPostNum}, #{finalPrice}, NOW());
+    </insert>
+
+    <select id ="getLastOrderNum" resultType="_int">
+        SELECT BILL_ORDER_NUM FROM TBL_BILLS
+        ORDER BY BILL_ORDER_NUM DESC LIMIT 1;
+    </select>
+
+    <insert id="insertBillProduct">
+    INSERT INTO TBL_BILLS_PRODUCT (SELL_PRODUCT_NUM, USER_NUM, BILL_PRODUCT_QUANTITY, BILL_PRODUCT_PRICE, BILL_DELIVERY_METHOD, BILL_ORDER_NUM)
+    (SELECT SELL_PRODUCT_NUM, null, BASKET_QUANTITY, BASKET_PRICE, BASKET_DELIVERY_METHOD, #{orderNum}
+    FROM TBL_BASKET
+    WHERE USER_NUM = #{userNum} AND BASKET_GO_ORDER = 1);
+    </insert>
+
+    <update id="cancelOrder">
+        UPDATE TBL_BILLS_PRODUCT
+        SET BILL_STATUS="-1"
+        WHERE BILL_PRODUCT_LIST_NUM=#{billProductNum}
+    </update>
+
+    <update id="addStock">
+        UPDATE TBL_SELL_PRODUCT
+        SET SELL_PRODUCT_STOCK = SELL_PRODUCT_STOCK + #{quantity}
+        WHERE SELL_PRODUCT_NUM = #{sellProductNum}
+    </update>
+<!--    <insert id="insert">-->
+<!--    </insert>-->
+
+<!--    <delete id="delete">-->
+<!--    </delete>-->
+
+<!--    <select id="select" resultType="">-->
+<!--    </select>-->
+</mapper>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>라스트프레시 | 주문내역</title>
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+    <link rel="stylesheet" href="/front/assets/css/user/myOrder.css">
+    <link rel="stylesheet" href="/front/assets/css/user/myPageMenuBar.css">
+</head>
+<style>
+    .myPage_type1{
+        height: 802px;
+    }
+</style>
+<body>
+<th:block th:insert="/fragments/headerWithout.html :: headWithoutFragment"/>
+<div class="page_myPage myPage_type1">
+    <div id="snb" class="snb_my">
+        <h2 class="tit_snb">마이페이지</h2>
+        <div class="inner_snb">
+            <ul class="list_menu">
+                <li>
+                    <a href="javascript:goOrder();" class="on">주문 내역</a>
+                </li>
+                <li>
+                    <a href="javascript:goReview();">상품 후기</a>
+                </li>
+                <li>
+                    <a href="javascript:goInfo();">개인 정보 수정</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="viewOrderList" class="page_section section_orderlist">
+        <div class="head_aticle">
+            <h2 class="tit">
+                주문 내역
+            </h2>
+        </div>
+        <ul class="list_order">
+            <th:block th:each="bill:${bills}">
+                <li th:object="${bill}">
+                    <div class="date orderDate" th:text="*{billOrderDate}"></div>
+                    <div class="order_goods"><div class="name">
+                       <!-- <a th:text="*{#lists.size(products)}"></a>-->
+                        <a class="goodsName" th:href="*{billOrderNum}" th:if="*{#lists.size(products) == 1}" th:text="|*{products[0].productVO.sellProductName}|"></a>
+                        <a class="goodsName" th:href="*{billOrderNum}" th:if="*{#lists.size(products) != 1}" th:text="|*{products[0].productVO.sellProductName} 외 *{#lists.size(products) -1}건|"></a>
+                        <!--<a class="goodsNum" th:text="|주문번호 *{billOrderNum}|"></a>-->
+                    </div>
+                        <div class="order_info">
+                            <div class="thumb">
+                                <img th:src="'/user/order/display?fileName=' + *{products[0].productVO.sellProductImageUploadPath} + '/' + *{products[0].productVO.sellProductThumbnail}">
+                            </div>
+                            <div class="desc">
+                                <dl style="padding-top: 5px;">
+                                    <dt >주문번호</dt>
+                                    <dd class="orderNum" th:text="*{billOrderNum}"></dd>
+                                </dl>
+                                <dl>
+                                    <dt>결제금액</dt>
+                                    <dd th:text="|*{#numbers.formatInteger(billTotalPrice, 0, 'COMMA')}원|"></dd>
+                                </dl>
+                             <!--   <dl>
+                                    <dt>상품명</dt>
+                                    <dd>[우주] 프리미엄 손질 생새우살 200g (냉동) 외 4건</dd>
+                                </dl>-->
+                              <!--  <dl>
+                                    <dt>결제일시</dt>
+                                    <dd class="orderDate" th:text="*{billOrderDate}"></dd>
+                                </dl>-->
+
+                                 <dl class="orderBill">
+                                     <dt>주문상태</dt>
+                                     <dd class="status"></dd>
+                                     <th:block th:each="product:*{products}">
+                                         <span th:object="${product}">
+                                             <span class="orderBillStatus" style="font-size:0px;" th:text="*{billStatus}"></span>
+                                            <!-- <p th:text="*{billStatus}"></p>-->
+                                         </span>
+                                     </th:block>
+                                     <!--<dd class="status end">배송완료</dd>-->
+                                 </dl>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--            <li class="no_data">-->
+                <!--        주문내역이 없습니다.-->
+                <!-- </li>-->
+            </th:block>
+        </ul>
+        <div class="layout-pagination">
+            <div class="pagediv">
+                <a href="#viewOrderList" class="layout-pagination-button layout-pagination-first-page">맨 처음 페이지로 가기</a>
+                <a href="#viewOrderList" class="layout-pagination-button layout-pagination-prev-page">이전 페이지로 가기</a>
+                <span><strong class="layout-pagination-button layout-pagination-number __active" style="padding-top: 7px;">1</strong>
+                </span>
+                <a href="#viewOrderList" class="layout-pagination-button layout-pagination-next-page">다음 페이지로 가기</a>
+                <a href="#viewOrderList" class="layout-pagination-button layout-pagination-last-page">맨 끝 페이지로 가기</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:insert="/fragments/footerWithout.html :: footWithoutFragment"/>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/front/assets/js/user/myPageListMenuSelect.js"></script>
+<script th:inline="javascript">
+    let userNum = [[${userNum}]];
+
+
+    function goReview(){
+        location.href = '/user/myPage/myReviewUnwritten?userNum=' + userNum;
+    }
+
+    function goOrder(){
+        location.href = '/user/myPage/myOrder?userNum=' + userNum;
+    }
+
+    function goInfo(){
+        location.href = '/user/myPage/myCheckPw?userNum=' + userNum;
+    }
+
+    $("a.goodsName").click(function(e){
+        e.preventDefault();
+        location.href = "/user/myPage/myOrderDetail?billOrderNum=" + $(this).attr("href") + "&userNum=" + userNum;
+    });
+
+    let dateOrder;
+
+    // 날짜 처리
+    $('.orderDate').each(function () {
+        //   console.log("ff : " + $(this).text());
+        var dataOrder = $(this).text();
+        var dateSplit = dataOrder.split(' ');
+        dateSplit[0].replace("-", ".");
+
+        //console.log(dateSplit[0]);
+        var timeSplit = dateSplit[1].split(':');
+        //console.log(timeSplit[0]);
+        //console.log(timeSplit[1]);
+        /* for ( var i in dateSplit ) {
+             document.write( '<p>' + dateSplit[i] + '</p>' );
+         }*/
+        var dateInfo = dateSplit[0] + " (" + timeSplit[0] + "시 " + timeSplit[1] +"분)";
+        //console.log(dateInfo);
+
+        $(this).text(dateInfo);
+    });
+
+    // 주문번호 처리
+    $('.orderNum').each(function (){
+        var orderNumber = $(this).text();
+        var result = '';
+        var n = orderNumber.toString();
+
+        if (n.length < 7) {
+            for (var i = 0; i < 7 - n.length; i++)
+                result += '0';
+        }
+        $(this).text(result + n);
+
+    });
+
+
+    // 주문상태 처리
+    $('.orderBill').each(function (){
+        var countZero = 0; //waiting
+        var countOne = 0; //prepare
+        var countTwo = 0; //shipping
+        var countThree = 0; // finished
+        var countMinus = 0; //cancel
+        var len = $(this).children().children().length;
+        //   console.log($(this).children().children()[0]).text();
+        //  for (var i = 0; i < $(this).children().children().length; i++){
+        for(var i = 0; i < $(this).children().children().text().length; i++){
+            if ($(this).children().children().text().charAt(i) == 0){
+                countZero++;
+            } else if ($(this).children().children().text().charAt(i) == 1){
+                countOne++;
+            } else if ($(this).children().children().text().charAt(i) == 2){
+                countTwo++;
+            } else if ($(this).children().children().text().charAt(i) == 3){
+                countThree++;
+            } else {
+                countMinus++;
+            }
+        }
+
+        /*   console.log("my len : " + len);
+       console.log("my countZero : " + countZero);
+       console.log("my countOne : " + countOne);
+       console.log("my countTwo : " + countTwo);
+       console.log("my countThree : " + countThree);
+       console.log("my countMinus : " + countMinus);*/
+        if (len == countMinus){
+            $(this).children('.status').text("주문 취소");
+        } else if (len == countZero){
+            $(this).children('.status').text("접수 대기중");
+        }else if (len == countThree || len == countThree + countMinus){
+            $(this).children('.status').text("배송 완료");
+        }else if (countTwo == 0){
+            $(this).children('.status').text("준비중");
+        }else{
+            $(this).children('.status').text("배송 대기중");
+        }
+
+        //  console.log("gg : " + $(this).children().children().text());
+        // }
+    });
+
+
+    $(document).ready(function() {
+        /*div 높이 변화시, 전체 높이 변경*/
+        let $pageDiv = $('.page_myPage');
+
+
+            let height = $('.list_order').height() + 300;
+            $('.page_myPage').css("height", height);
+        });
+
+
+
+</script>
+</html>

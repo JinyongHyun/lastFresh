@@ -38,7 +38,7 @@ public class MyBatisConfig {
     public SqlSessionFactory sqlSessionFactory() throws IOException {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean(); //세션 팩토리 설정 객체 생성
         sqlSessionFactoryBean.setDataSource(dataSource()); //위에서 설정한 datasource객체를 세션 팩토리 설정에 전달
-        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath*:/mapper/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath*:/mapper/**/*.xml"));
         sqlSessionFactoryBean.setConfigLocation(applicationContext.getResource("classpath:/config/config.xml"));
 
         try {

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>라스트프레시 | 후기 상세보기</title>
+    <link rel="stylesheet" href="/front/assets/css/user/myPageMenuBar.css">
+    <link rel="stylesheet" href="/front/assets/css/user/myReviewWrite.css">
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+</head>
+<style>
+    .myPage_type1{
+        height: 981px;
+    }
+
+    @media screen and (max-width: 1000px) {
+        .myPage_type1{
+            height: 0px;
+        }
+    }
+
+    .description{
+        padding-bottom: 4px;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 500;
+        color: #666;
+        cursor: pointer;
+    }
+</style>
+<body>
+<th:block th:insert="/fragments/headerWithout.html :: headWithoutFragment"/>
+<div class="page_myPage myPage_type1">
+    <div id="snb" class="snb_my">
+        <h2 class="tit_snb">마이페이지</h2>
+        <div class="inner_snb">
+            <ul class="list_menu">
+                <li>
+                    <a href="javascript:goOrder();">주문 내역</a>
+                </li>
+                <li>
+                    <a href="javascript:goReview();" class="on">상품 후기</a>
+                </li>
+                <li>
+                    <a href="javascript:goInfo();">개인 정보 수정</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page_section section_write">
+        <div class="head_aticle">
+            <a href="" class="link_back" role="button"><span class="screen_out"></span></a>
+            <h2 class="tit">후기 작성</h2>
+        </div>
+        <form name="form_review" id="form_review" method="post" th:object="${productVO}" action="/user/myPage/write" onsubmit="submitCheck();">
+            <div class="write_board">
+                <div class="goods_info">
+                    <div class="thumb">
+                        <img th:src="'/user/order/display?fileName=' + *{sellProductImageUploadPath} + '/' + *{sellProductThumbnail}">
+                    </div>
+                    <div class="desc">
+                        <div class="inner_desc">
+                            <p class="description" th:text="*{sellProductDescription}"></p>
+                            <div class="name_main" th:text="*{sellProductName}"></div>
+                        </div>
+                    </div>
+                </div>
+                <table class="tbl">
+                    <th:block th:object="${review}">
+                    <caption style="display:none">후기 작성 입력상자</caption>
+                    <colgroup>
+                        <col style="width:110px;">
+                        <col style="width:auto">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>제목</th>
+                        <td>
+                            <input type="hidden" name="userNum" th:value="${userNum}">
+                            <input type="hidden" name="reviewNum" th:value="${reviewNum}">
+                            <input type="text" th:if="*{reviewTitle==''}" name="reviewTitle" placeholder="제목을 입력해주세요." class="inp" value="">
+                            <input type="text" th:unless="*{reviewTitle==''}" name="reviewTitle" placeholder="제목을 입력해주세요." class="inp" th:value="*{reviewTitle}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>후기작성</th>
+                        <td>
+                            <div class="field_cmt">
+                                <textarea id="fieldCmt" th:if="*{reviewContent==''}" name="reviewContent" cols="100" rows="10" placeholder="자세한 후기는 다른 고객의 구매에 많은 도움이 되며,
+일반식품의 효능이나 효과 등에 오해의 소지가 있는 내용을 작성 시 검토 후 비공개 조치될 수 있습니다.
+반품/환불 문의는 1:1문의로 가능합니다."></textarea>
+                                <textarea id="fieldCmt1" th:if="*{reviewContent!=''}" name="reviewContent" cols="100" rows="10" th:text="*{reviewContent}" placeholder="자세한 후기는 다른 고객의 구매에 많은 도움이 되며,
+일반식품의 효능이나 효과 등에 오해의 소지가 있는 내용을 작성 시 검토 후 비공개 조치될 수 있습니다.
+반품/환불 문의는 1:1문의로 가능합니다."></textarea>
+                                <input type="hidden" name="reviewDate">
+
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                    </th:block>
+                </table>
+                <button type="submit" id="btnSubmit" class="btn_reg btn_disabled">등록하기</button>
+            </div>
+        </form>
+    </div>
+</div>
+<th:block th:insert="/fragments/footerWithout.html :: footWithoutFragment"/>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/front/assets/js/user/myReviewWrite.js"></script>
+<script src="/front/assets/js/user/myPageListMenuSelect.js"></script>
+<script th:inline="javascript">
+    let userNum = [[${userNum}]];
+
+    function goReview(){
+        location.href = '/user/myPage/myReviewUnwritten?userNum=' + userNum;
+    }
+
+    function goOrder(){
+        location.href = '/user/myPage/myOrder?userNum=' + userNum;
+    }
+
+    function goInfo(){
+        location.href = '/user/myPage/myCheckPw?userNum=' + userNum;
+    }
+
+    function submitCheck(){}
+
+</script>
+</html>

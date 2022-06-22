@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="footWithoutFragment">
+    <link th:href="@{/front/assets/css/main2.css}" rel="stylesheet" />
+
+<!-- aside -->
+<a href="#top" id="pageTop" class="on" style="opacity: 1; bottom: 15px;">맨 위로가기</a>
+
+<!-- Footer -->
+<hr style="border-color: #f8f9fa;
+        margin: 0;" class="footerHr">
+
+
+<section class="footer all">
+    <div id ="myFooter">
+        <div class="innerFooter">
+
+            <div class="inner_footer">
+                <div class="footer_cc">
+
+
+                    <h2 class="tit_cc">고객행복센터</h2>
+                    <div class="cc_view cc_call customer">
+                        <h3 style=" "><span class="tit">1234-1234</span></h3>
+                        <dl class="list">
+                            <dt>365고객센터</dt>
+                            <dd>오전 7시 - 오후 7시</dd>
+                        </dl>
+                    </div>
+                    <div class="cc_view cc_kakao">
+                        <h3><a class="tit" href="#none">카카오톡 문의</a></h3>
+                        <dl class="list">
+                            <dt>365고객센터</dt>
+                            <dd>오전 7시 - 오후 7시</dd>
+                        </dl>
+                    </div>
+
+                </div>
+                <div class="company">
+                    <ul class="list">
+                        <li><a class="link" href="/main/mainHowToUser">라스트프레시 소개</a></li>
+                        <li><a class="link" href="/main/mainTerm">이용약관</a></li>
+                        <li><a class="link emph" href="/main/mainTerm">개인정보처리방침</a></li>
+                        <li><a class="link" href="/main/mainHowToUser">이용안내</a></li>
+                    </ul>
+                    법인명 (상호) : 세미콜론 <span class="bar">I</span> 사업자등록번호 : 123-45-67890
+                    <br>
+                    통신판매업 <span class="bar">I</span> 개인정보보호책임자 : 장서영
+                    <br>
+                    주소 : 서울특별시 강남구 테헤란로  146, 현익빌딩 3층(역삼동) <span class="bar">I</span> 팀장 : 심창환
+                    <br>
+                    마케팅제휴 및 광고 문의 : <a href="mailto:lastfresh@gmail.com" class="link">lastfresh@gamil.com</a>
+                    <br>
+                    팩스: 070 - 1234 - 1234 <span class="bar">I</span> 이메일 : <a href="mailto:lastfresh@gmail.com" class="link">lastfresh@gamil.com</a>
+                    <br>
+                    대량주문 문의 : <a href="mailto:lastfresh@gmail.com" class="link">lastfresh@gmail.com</a>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer_below">
+            <p class="txt">라스트프레시에서 판매되는 모든 상품들은 라스트프레시에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품들 입니다.</p>
+            <p class="txt">마켓플레이스(오픈마켓) 상품의 경우 라스트프레시는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 라스트프레시는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.</p>
+            <em class="copy">© LASTFRESH CORP. ALL RIGHTS RESERVED</em>
+        </div>
+    </div>
+
+<!--    <div id ="myFooterMOBILE">-->
+<!--        <div class="innerFooter">-->
+<!--            <div class="inner_footer">-->
+<!--                <div class="footer_cc">-->
+<!--                    <div>-->
+<!--                        <ul class="list">-->
+<!--                            <li class="linkMobile" style="margin-left: -20px;"><a href="#">라스트프레시 소개</a></li>-->
+<!--                            <li class="linkMobile"><a href="#">이용약관</a></li>-->
+<!--                            <li class="linkMobile"><a class="emph" href="#">개인정보처리방침</a></li>-->
+<!--                            <li class="linkMobile"><a href="#">이용안내</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <h2 class="tit_cc">고객행복센터</h2>-->
+<!--                    <div class="cc_view cc_call">-->
+<!--                        <h3 style=" "><span class="tit">1234-1234</span></h3>-->
+<!--                        <dl class="list">-->
+<!--                            <dt>365고객센터 | 오전 7시 - 오후 7시</dt>-->
+<!--                        </dl>-->
+<!--                    </div>-->
+
+
+<!--                </div>-->
+<!--                <div class="company">-->
+
+<!--                    법인명 (상호) : 세미콜론 <span class="bar">I</span> 사업자등록번호 : 123-45-67890-->
+<!--                    <br>-->
+<!--                    통신판매업 <span class="bar">I</span> 개인정보보호책임자 : 심창환-->
+<!--                    <br>-->
+<!--                    주소 : 서울특별시 강남구 테헤란로  146, 현익빌딩 3층(역삼동)-->
+<!--                    <br>-->
+<!--                    마케팅제휴 및 광고 문의 : <a href="mailto:lastfresh@gmail.com" class="link redLink">lastfresh@gamil.com</a>-->
+<!--                    <br>-->
+<!--                    팩스: 070 - 1234 - 1234 <span class="bar">I</span> 이메일 : <a href="mailto:lastfresh@gmail.com" class="link redLink">lastfresh@gamil.com</a>-->
+<!--                    <br>-->
+<!--                    대량주문 문의 : <a href="mailto:lastfresh@gmail.com" class="link redLink">lastfresh@gmail.com</a>-->
+<!--                    <br>-->
+<!--                    <br>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="footer_below">-->
+<!--            <p class="txt">라스트프레시에서 판매되는 모든 상품들은 라스트프레시에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품들 입니다.마켓플레이스(오픈마켓) 상품의 경우 라스트프레시는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 라스트프레시는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.</p>-->
+
+<!--        </div>-->
+<!--    </div>-->
+</section>
+
+<div class="MBH">
+<section class="mobileFooter" >
+    <div id ="myFooterMOBILE" style="display: none">
+        <div class="innerFooter">
+            <div class="inner_footer">
+                <div class="footer_cc">
+                    <div>
+                        <ul class="list">
+                            <li class="linkMobile" style="margin-left: -20px;"><a href="/main/mainHowToUser">라스트프레시 소개</a></li>
+                            <li class="linkMobile"><a href="/main/mainTerm">이용약관</a></li>
+                            <li class="linkMobile"><a class="emph" href="/main/mainTerm">개인정보처리방침</a></li>
+                            <li class="linkMobile"><a href="/main/mainHowToUser">이용안내</a></li>
+                        </ul>
+                    </div>
+                    <h2 class="tit_cc">고객행복센터</h2>
+                    <div class="cc_view cc_call">
+                        <h3 style=" "><span class="tit">1234-1234</span></h3>
+                        <dl class="list">
+                            <dt>365고객센터 | 오전 7시 - 오후 7시</dt>
+                        </dl>
+                    </div>
+
+
+                </div>
+                <div class="company">
+
+                    법인명 (상호) : 세미콜론 <span class="bar">I</span> 사업자등록번호 : 123-45-67890
+                    <br>
+                    통신판매업 <span class="bar">I</span> 개인정보보호책임자 : 심창환
+                    <br>
+                    주소 : 서울특별시 강남구 테헤란로  146, 현익빌딩 3층(역삼동)
+                    <br>
+                    마케팅제휴 및 광고 문의 : <a href="mailto:lastfresh@gmail.com" class="link redLink">lastfresh@gamil.com</a>
+                    <br>
+                    팩스: 070 - 1234 - 1234 <span class="bar">I</span> 이메일 : <a href="mailto:lastfresh@gmail.com" class="link redLink">lastfresh@gamil.com</a>
+                    <br>
+                    대량주문 문의 : <a href="mailto:lastfresh@gmail.com" class="link redLink">lastfresh@gmail.com</a>
+                    <br>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer_below">
+            <p class="txt">라스트프레시에서 판매되는 모든 상품들은 라스트프레시에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품들 입니다.마켓플레이스(오픈마켓) 상품의 경우 라스트프레시는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 라스트프레시는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.</p>
+
+        </div>
+    </div>
+</section>
+</div>
+</th:block>
+</html>

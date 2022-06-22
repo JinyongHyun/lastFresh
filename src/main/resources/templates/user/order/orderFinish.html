@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>라스트프레시 | 주문완료</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/front/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+    <link rel="stylesheet" href="/front/assets/css/user/orderFinish.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+</head>
+<style>
+    *{
+        font-family: 'Noto Sans KR','Noto Sans', sans-serif !important;
+    }
+</style>
+<body>
+<th:block th:insert="/fragments/header.html :: headFragment"/>
+<div id="content">
+    <div>
+        <div class="page_aticle section_end">
+            <h2 class="screen_out">주문완료</h2>
+            <div class="order_result">
+                <div class="delivery_check">
+                    <img src="https://cdn.discordapp.com/attachments/969471931575320587/976387277389447188/img_success_order_end.png" alt="아이콘" class="ico">
+                    <div class="check">
+                        <p class="tit">
+                            <span id="user_name" class="name" th:text="${userName}"></span><span> 님의</span>
+                            <span id="completed" class="name">주문이 완료되었습니다.</span>
+                        </p>
+                        <strong id="delivery_complete_message">곧 만나요!</strong>
+                    </div>
+                </div>
+                <div class="amount_money ">
+                    <ul style="padding-left:0;">
+                        <li>
+                            <span class="title">결제금액</span>
+                            <strong class="money" th:text="${#numbers.formatInteger(totalPrice, 0, 'COMMA')}" style="font-size: 30px;"></strong><span class="won" style="margin-left: -100px;">원</span>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+
+                <ul class="list_policy" id="list-policy" style="display: block;">
+                    <li>
+                        <span>[주문접수완료] 이전일 때 주문내역 상세페이지에서 주문 취소가 가능합니다.</span>
+                    </li>
+                    <li>
+                        <span>엘리베이터 이용이 어려운 경우 6층 이상부터는 공동 현관 앞 또는 경비실로 대응 배송 될 수 있습니다.</span>
+                    </li>
+
+                </ul>
+
+                <a onclick="goBasket()" class="btn btn_orderlist">주문 목록 가기</a>
+                <br><br><br><br>
+                <a class="btn btn_positive" href="/main/main">메인페이지 가기</a>
+            </div>
+            <span class="bg"></span>
+            <span class="bg lst"></span>
+        </div>
+    </div>
+</div>
+<th:block th:insert="/fragments/footer.html :: footFragment"/>
+</body>
+<script th:inline="javascript">
+    let userNum = [[${userNum}]];
+    function goBasket(){
+        if (userNum == null){
+            alert("로그인 후 이용하실 수 있습니다.")}
+        else{
+            location.href='/user/myPage/myOrder?userNum=' + userNum;
+        }
+    }
+</script>
+</html>

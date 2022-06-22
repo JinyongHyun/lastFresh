@@ -1,0 +1,115 @@
+
+p{margin:0 !important;
+}
+#content {
+    padding-bottom: 0;
+    background-color: #f3f2f4;
+}
+
+*{font-family: 'Noto Sans KR', sans-serif;}
+.section_end .amount_money .money {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -.3px;
+    color: #333;
+}
+.section_end {
+    width: 400px;
+    min-height: 800px;
+    padding: 54px 0 115px;
+    color: #000;
+}
+.page_aticle {
+
+    margin: 0 auto;
+}
+
+.screen_out {
+    font-size: 0;
+    line-height: 0;
+}
+
+.section_end .order_result {
+    position: relative;
+    margin-bottom: 15px;
+    padding: 56px 30px 60px 30px;
+    background: #fff;
+}
+.section_end .delivery_check {
+    font-size: 20px;
+    line-height: 1.4;
+    text-align: center;
+}
+.section_end .delivery_check .ico {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    vertical-align: top;
+}
+
+.section_end .delivery_check .check {
+    padding: 24px 0 56px;
+}
+.section_end .amount_money {
+    border-top: 1px solid #f4f4f4;
+    padding-top: 16px;
+    margin-bottom: 25px;
+}
+
+.page_aticle * {
+    font-family: noto sans;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 23px;
+}
+
+.section_end .amount_money .title {
+    width: 76px;
+    font-size: 19px;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #333;
+}
+
+.section_end .amount_money li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul#list-policy {
+    padding-left: 17px;
+    color: #999;
+    font-size: 15px;
+    margin-bottom: 45px;
+}
+
+a.btn.btn_orderlist {
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    padding: 21px 112px;
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a.btn.btn_positive {
+    border: solid 1px #DA291C;
+    border-radius: 5px;
+    padding: 21px 106px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    background: #DA291C;
+}
+
+div#userMenuMOBILE {
+    margin-top: 29px !important;
+}
+
+ul.menuMOBILE {
+    top: 16px !important;
+}

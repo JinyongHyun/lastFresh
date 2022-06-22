@@ -2695,6 +2695,32 @@ input, select, textarea {
 
 	@media screen and (max-width: 736px) {
 
+		.gnb_sub {
+			top: 105px !important;
+		}
+
+		ul.gnb_menu.cate {
+			height: 452px !important;
+		}
+
+		.cate{
+			height:452px;
+		}
+		a {
+			color: #333;
+			text-decoration: none;
+		}
+
+		#navMOBILE ul{
+			padding: 10px 0 !important;
+		}
+
+		.myLi a{
+			color: #333;
+		}
+
+		li{list-style: none;}
+
 		/* Basic */
 
 			body, input, textarea, select {

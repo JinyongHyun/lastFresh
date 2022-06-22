@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="headWithoutFragment">
+    <link th:href="@{/front/assets/css/main2.css}" rel="stylesheet" />
+
+    <div class="header-wrapper-media">
+        <div class="media_catagory" style="display: none">
+            <div class="gnb_sub" style=" width: 350px;">
+                <div class="inner_sub">
+                    <ul data-default="219" data-min="219" data-max="731" class="gnb_menu" style="margin: 0;">
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_veggies_inactive_pc@2x.1586324570.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">과일/채소</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_meat_inactive_pc@2x.1568684452.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">육류</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_seafood_inactive_pc@2x.1568684352.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">수산물</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_convenient_inactive_pc@2x.1572243542.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">반찬</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_cookie_inactive_pc.1610074008.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">간식</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_health_inactive_pc@2x.1574645922.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">건강</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_side_inactive_pc@2x.1572243579.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">한식</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/category/icon/pc/9bead7b8-2a7e-4a2f-910a-ebe5c8f5f4f0" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">일식</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_kitchen_inactive_pc@2x.1574646457.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">중식</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_sauce_inactive_pc@2x.1572243594.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">양식</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_snacks_inactive_pc@2x.1572243615.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">카페</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu">
+                         <span class="ico">
+                            <img src="https://res.kurly.com/pc/service/common/1908/ico_recommend_v2.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">기타</span>
+                         </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div></div>
+        <div class="upper-gnb">
+            <div class="logo-wrapper">
+                <img class="media-log-img" src="https://cdn.discordapp.com/attachments/969471931575320587/973236493160173659/2022-05-09_11.54.16.png" alt="">
+                <img th:if="${session.userStatus == '1'}" class="media-basket-img" src="https://cdn.discordapp.com/attachments/969471931575320587/973289654080139354/2022-05-10_3.22.50.png" alt="">
+                <img th:if="${session.userStatus == '1'}" class="media-my-img" src="https://cdn.discordapp.com/attachments/969471931575320587/973289653627133992/2022-05-10_3.23.55.png" alt="">
+            </div>
+        </div>
+        <nav id="navMOBILE-media" th:if="${session.userStatus == '1'}">
+            <ul style="float: left; padding: 11px 0; background: white; width: 100%;    border-bottom: solid 1px #ddd;">
+                <li class="allCategory myli" onclick="send_catagory()" style="margin-left:23px;"><a>전체 카테고리</a></li>
+                <li class="myli"><a class="aa" href="/product/proNew">신상품</a></li>
+                <li class="myli"><a class="aa" href="/product/proPickup">픽업</a></li>
+                <li class="myli"><a class="aa" href="/product/proDelivery">배달</a></li>
+                <li class="myli"><a class="aa" href="/product/proShipping">배송</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="header-wrapper" style="
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    color: #999999;
+    font-size: 14pt;
+    line-height: 1.75em;
+    margin: 0;
+">
+        <div style="
+             width: 100%;
+             background: url(https://res.kurly.com/pc/service/common/1902/bg_1x9.png) repeat-x 0 100%;
+        " class="pcHeader all">
+            <section id="header">
+                <!-- userMenu -->
+                <div id="userMenu">
+                    <ul class="menu_before_login">
+                        <li class="list_menu_li">
+                            <th:block>
+                                <span th:if="${session.userStatus == '1'}" class="userStatus">일반</span>
+                                <a th:if="${session.userStatus == '2'}" class="userStatus" onclick="window.open('/sell/pos', '라스트 POS', 'height=' + screen.height + ',width=' + screen.width + 'fullscreen=yes');"><strong>Pos 이동</strong></a>
+                            </th:block>
+                            <a th:if="${session.userStatus == null}" href="javascript:goLogin();" class="list_menu_txt" id="welcome">로그인</a>
+                            <a th:if="${session.userStatus != null}" href="javascript:goMyPage();" class="list_menu_txt" id="welcome">로그인</a>
+                        </li>
+                        <li class="list_menu_li">
+                            <a href="javascript:goJoin();" class="list_menu_txt" style="color: #DA291C" id="world">회원가입</a>
+                            <a href="javascript:logout();" class="list_menu_txt" id="world2" style="color: #DA291C; display: none" >로그아웃</a>
+                            <span class ="slice">&nbsp; |&nbsp; </span>
+                        </li>
+                    </ul>
+                    <ul class="menu_after_login">
+                        <li class="list_menu_li">
+                            <a href="#" class="list_menu_txt">로그아웃</a>
+                        </li>
+                        <li class="list_menu_li">
+                            <span class ="userStatus">일반</span>
+                            <a href="#" class="list_menu_txt"> 장서영 님</a>
+                            <span class ="slice">&nbsp; |&nbsp; </span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Logo -->
+                <div style="margin-top: -39px;"><p>&nbsp;</p></div>
+                <div style ="margin: 0 auto;">
+                    <a href="main.html">
+                        <a id="logo" href="/main/main">
+                        <img  src ="https://cdn.discordapp.com/attachments/969471931575320587/969513952226738196/logo.png">
+                        </a>
+                        <a id="logoSell" href="/sell/sellMain">
+                            <img  src="https://cdn.discordapp.com/attachments/969471931575320587/980093289028001802/logo_3.png" style="width: 110px; margin-top: -15px; display: none">
+                        </a>
+                        <a id="logoRider" href="/rider/riderList">
+                        <img  src="https://cdn.discordapp.com/attachments/969471931575320587/980092769378922636/logo_1.png" style="width: 110px; margin-top: -15px; display: none">
+                        </a>
+                    </a>
+                </div>
+                <!-- Nav -->
+                <nav id="nav">
+                    <ul style="float:left; margin-top:10px">
+                        <li class="allCategory" onclick="send()" ><a id="allCategory"><img src="https://res.kurly.com/pc/service/common/1908/ico_gnb_all_off_x2.png" class="categoryIcon">전체 카테고리</a></li>
+                        <li><a href="/product/proNew">신상품</a></li>
+                        <li><a href="/product/proPickup">우리동네 픽업</a></li>
+                        <li><a href="/product/proDelivery">우리동네 배달</a></li>
+                        <li><a href="/product/proShipping">집 앞까지 배송</a></li>
+                    </ul>
+                    <ul>
+                        <li class="cart"><a onclick="goBasket()"><img width="40px" src ="https://cdn.discordapp.com/attachments/969471931575320587/969802537794420767/2022-04-29_3.23.52.png"
+                                                 onmouseover="this.src='https://cdn.discordapp.com/attachments/969471931575320587/969800742623916042/2022-04-29_3.23.52.png'",
+                                                 onmouseout="this.src='https://cdn.discordapp.com/attachments/969471931575320587/969802537794420767/2022-04-29_3.23.52.png'"></a></li>
+                    </ul>
+                </nav>
+
+            </section>
+        </div>
+
+        <!-- 전체 카테고리 -->
+
+
+
+        <!-- 전체 카테고리 -->
+        <div id="gnb">
+            <div class="gnb_sub" style="display: none;">
+                <div class="inner_sub">
+                    <ul data-default="219" data-min="219" data-max="731" class="gnb_menu" style="margin: 0;">
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_veggies_inactive_pc@2x.1586324570.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">과일/채소</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_meat_inactive_pc@2x.1568684452.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">육류</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_seafood_inactive_pc@2x.1568684352.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">수산물</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_convenient_inactive_pc@2x.1572243542.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">반찬</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_cookie_inactive_pc.1610074008.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">간식</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_health_inactive_pc@2x.1574645922.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">건강</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_side_inactive_pc@2x.1572243579.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">한식</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/category/icon/pc/9bead7b8-2a7e-4a2f-910a-ebe5c8f5f4f0" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">일식</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_kitchen_inactive_pc@2x.1574646457.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">중식</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_sauce_inactive_pc@2x.1572243594.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">양식</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://img-cf.kurly.com/shop/data/category/icon_snacks_inactive_pc@2x.1572243615.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">카페</span>
+                         </span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a class="menu categoryChoice">
+                         <span class="ico">
+                            <img src="https://res.kurly.com/pc/service/common/1908/ico_recommend_v2.png" alt="카테고리 아이콘">
+                         </span>
+                                <span class="tit">
+                            <span class="txt">기타</span>
+                         </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+<!--                <form action="/product/categorySort" th:object="${criteriaProduct}" name="selectPriceListForm">-->
+<!--                    <input type="hidden" th:field="*{pageNum}">-->
+<!--                    <input type="hidden" th:field="*{amount}">-->
+<!--                    <input type="hidden" name="categoryName">-->
+<!--                </form>-->
+            </div>
+        </div>
+
+
+        <!-- 모바일 -->
+
+        </header>
+
+
+
+
+
+    </div>
+
+    <script th:inline="javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script th:inline="javascript">
+        let userNumber = [[${session.userNumber}]];
+        function goMyPage(){
+            if (userNumber == null){
+                alert("로그인 후 이용하실 수 있습니다.")}
+            else{
+                location.href='/user/myPage/myCheckPw?userNum=' + userNumber;
+            }
+        }
+
+        function goBasket() {
+            if (userNumber == null) {
+                alert("로그인 후 이용하실 수 있습니다.");
+            } else {
+                location.href = '/user/order/orderCart?userNum=' + userNumber;
+            }
+        }
+
+
+        const userStatus = [[${session.userStatus}]]
+        if(userStatus == '2' ){
+            $("#nav").hide();
+            $("#logo").hide();
+            $("#logoSell img").show();
+            $("#logoSell").show();
+        }
+        if(userStatus == '3'){
+            $("#nav").hide();
+            $("#logo").hide();
+            $("#logoSell img").hide();
+            $("#logoRider").show();
+            $("#logoRider img").show();
+        }
+
+        //세션코드
+        const userId = [[${session.userId}]]
+        console.log('jsTest' + userId)
+        if (userId) {
+            $("#welcome").show();
+            $("#welcome").text(userId + "님 환영합니다");
+            $("#world2").show();
+            $("#world").hide();
+            $("#status").show();
+        }
+
+        //페이지 이동
+        function goLogin(){
+            location.href = "/user/manage/userLogin";
+        }
+
+        function goJoin(){
+            location.href = "/user/manage/userSelect";
+        }
+
+        function logout(){
+            location.href = "/user/manage/logout";
+        }
+
+        /*<![CDATA[*/
+
+        var check = false;
+
+        const $category = $('.gnb_menu li');
+
+        function send(){
+            if(check == false) {
+                $('.gnb_sub').show();
+                /*   $('#allCategory').css({
+                        "color" : "#DA291C",
+                        "font-weight" : "600"
+                    });*/
+                check = true;
+            }else {
+                $('.gnb_sub').hide();
+                /*$('#allCategory').css({
+                    "color" : "#333",
+                    "font-weight" : "500"
+                });*/
+                check = false;
+            }
+        }
+
+        function send() {
+            if (check == false) {
+                $('.gnb_sub').show();
+                $('#catecate').css({
+                    "color": "#DA291C",
+                    "font-weight": "600"
+                });
+                check = true;
+            } else {
+                $('.gnb_sub').hide();
+                $('#catecate').css({
+                    "color": "#333",
+                    "font-weight": "500"
+                });
+                check = false;
+            }
+        }
+
+        $.each($category, function (index, item) {
+            $(item).mouseover(function () {
+                $category.addClass("current");
+            })
+        });
+
+        function send(){
+            if(check == false) {
+                $('.gnb_sub').show();
+                /*	$('#allCategory').css({
+                        "color" : "#DA291C",
+                        "font-weight" : "600"
+                    });*/
+                check = true;
+            }else {
+                $('.gnb_sub').hide();
+                /*$('#allCategory').css({
+                    "color" : "#333",
+                    "font-weight" : "500"
+                });*/
+                check = false;
+            }
+        }
+
+
+
+        function send_catagory(){
+            if(check == false) {
+                $('.media_catagory').show();
+                /*   $('#allCategory').css({
+                        "color" : "#DA291C",
+                        "font-weight" : "600"
+                    });*/
+                check = true;
+            }else {
+                $('.media_catagory').hide();
+                /*$('#allCategory').css({
+                    "color" : "#333",
+                    "font-weight" : "500"
+                });*/
+                check = false;
+            }
+        }
+
+        // $.each($category, function(index, item){
+        //     $(item).mouseover(function(){
+        //         $category.addClass("current");
+        //     })
+        // });
+
+        /*]]>*/
+        $("a.categoryChoice").on("click",function (e) {
+            e.preventDefault();
+            console.log("카테고리 클릭 들어옴")
+            $("div.inner_sub").hide();
+            console.log($(this).find("span.txt").text());
+            location.href = "/product/categorySort?categoryName=" + $(this).find("span.txt").text() +"&type=";
+            $("input[name='categoryName']").val($(this).text());
+        })
+
+    </script>
+
+</th:block>
+
+
+</html>

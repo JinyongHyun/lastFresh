@@ -1,0 +1,761 @@
+/* ------------헤더 --------------*/
+/* ------------유저 메뉴-----------*/
+#userMenu {
+    margin-right: 30px;
+}
+
+section.footer {
+    margin-bottom: 0;
+}
+
+.slice {
+    color: #d8d8d8;
+    font-size: 13px;
+}
+
+.list_menu_li {
+    float: right;
+}
+
+.list_menu_txt {
+    font-size: 12px;
+    color: #333333;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.menu_before_login {
+    list-style: none;
+}
+
+.menu_after_login {
+    list-style: none;
+    display: none;
+}
+
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
+.userStatus {
+    border: 1px solid #DA291C;
+    background-color: #fff;
+    color: #DA291C;
+    display: inline-block;
+    min-width: 38px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 30px;
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 14px;
+    text-align: center;
+}
+
+/* ------------로고---------------*/
+#logo {
+    width: 110px;
+    margin-top: -15px;
+}
+
+/* ------------제품 메뉴 -----------*/
+.categoryIcon {
+    width: 17px;
+    margin-right: 17px;
+}
+
+.cart {
+    float: right;
+    padding-top: 5px;
+}
+
+/* ------------헤더 끝--------------*/
+
+/*-----------푸터 시작-----------*/
+#myFooter {
+    margin: 0 auto;
+}
+
+.innerFooter {
+    width: 56em;
+    margin: 0 auto;
+}
+
+#myFooter .inner_footer {
+    overflow: hidden;
+    padding-bottom: 45px;
+}
+
+#myFooter .footer_cc {
+    float: left;
+    width: 513px;
+}
+
+#myFooter .tit_cc {
+    padding: 29px 0 2px;
+    font-weight: 500;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+
+#myFooter .cc_call {
+    padding-top: 20px;
+}
+
+#myFooter .cc_call .tit {
+    padding-top: 4px;
+    font-weight: 700;
+    font-size: 28px;
+    color: #333;
+    line-height: 36px;
+    letter-spacing: -.5px;
+    white-space: nowrap;
+    float: left;
+    margin-right: 22px;
+}
+
+#myFooter .footer_cc .list {
+    font-size: 14px;
+    color: #333;
+    line-height: 22px;
+    letter-spacing: -.2px;
+    padding-top: 5px;
+}
+
+#myFooter .footer_cc .list dt {
+    display: block;
+    font-weight: 400;
+}
+
+#myFooter .footer_cc .list dd {
+    color: #999;
+    margin-bottom: -30px;
+}
+
+#myFooter .cc_view {
+    overflow: hidden;
+    padding-top: 16px;
+}
+
+#myFooter .cc_kakao .tit {
+    height: 40px;
+    margin-top: 3px;
+    border: 1px solid #e3e3e3;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+    line-height: 22px;
+    text-align: center;
+    padding: 10px 29px 33px 29px;
+    float: left;
+    margin-right: 16px;
+}
+
+#myFooter .company {
+    float: left;
+    padding-top: 29px;
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+    margin-left: 27px;
+}
+
+#myFooter .company .list {
+    overflow: hidden;
+    width: 100%;
+    padding-bottom: 29px;
+}
+
+
+#myFooter .company .bar {
+    padding: 0 4px 0 3px;
+}
+
+
+#myFooter .footer_below {
+    background-color: #f7f7f7;
+    text-align: center;
+    padding: 19px 0 27px;
+}
+
+#myFooter .footer_below .txt {
+    font-size: 10px;
+    line-height: 16px;
+    color: #999;
+    letter-spacing: -.5px;
+    font-weight: 400;
+    margin-bottom: 1px;
+}
+
+#myFooter .company .list li {
+    float: left;
+    padding-right: 20px;
+    list-style: none;
+    padding-left: 0;
+}
+
+#myFooter .company {
+    float: left;
+    padding-top: 29px;
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+}
+
+#myFooter .company {
+    float: left;
+    padding-top: 29px;
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+a.link {
+    text-decoration: none;
+    color: #DA291C;
+}
+
+#myFooter .company ul {
+    padding: 0;
+}
+
+#myFooter .company .list .link {
+    font-size: 14px;
+    color: #333;
+    font-weight: 400;
+    text-decoration: none;
+    line-height: 18px;
+}
+
+#myFooter .footer_below .copy {
+    font-style: normal;
+    font-size: 10px;
+    color: #949296;
+    line-height: 25px;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+/* aside */
+#pageTop {
+    overflow: hidden;
+    position: fixed;
+    z-index: 300;
+    right: 31px;
+    bottom: 0;
+    width: 58px;
+    height: 58px;
+    border: 0;
+    background: url(https://res.kurly.com/pc/service/common/1903/btn_pagetop_v2.png) no-repeat 50% 50%;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    opacity: 0;
+    transition: background .5s;
+}
+
+
+
+/* 전체 카테고리 */
+#gnb .gnb_sub {
+
+    overflow: hidden;
+    position: absolute;
+    z-index: 301;
+    left: 421px;
+    top: 192px;
+    width: 213px;
+
+
+}
+
+#gnb .gnb_sub .inner_sub {
+    width: 100%;
+    border: 1px solid #ddd;
+    background: url(https://res.kurly.com/pc/service/common/1908/bg_gnb_sub_v3.png) repeat-y 0 0;
+}
+
+#gnb .gnb_sub .gnb_menu {
+    width: 219px;
+    padding: 0;
+}
+
+#gnb .gnb_sub .menu {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 40px;
+    padding: 8px 0 0 14px;
+    cursor: pointer;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+img {
+
+    max-width: 100%;
+}
+
+img {
+    border: 0;
+}
+
+#gnb .gnb_sub .txt {
+    float: left;
+    padding: 0 4px 0 10px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+    line-height: 22px;
+    white-space: nowrap;
+}
+
+#gnb .gnb_sub .ico {
+    float: left;
+    width: 24px;
+    height: 24px;
+}
+
+#gnb .gnb_sub .gnb_menu li {
+    width: 100%;
+    text-align: left;
+    padding: 0px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+div, th, td, li, dt, dd, p {
+    word-break: break-all;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ol, ul {
+    list-style-type: none;
+}
+
+#gnb .gnb_sub .current .menu:hover {
+    background: #f7f7f7
+}
+
+
+/*-----------반응형---------------------------------------------------*/
+@media screen and (max-width:768px) {
+
+    h2.tit_cc {
+        font-size: 13px;
+    }
+    .linkMobile{
+        display: inline-block !important;
+        font-weight: 600;
+        margin-right:15px;
+    }
+    div.footer_below p.txt{
+        font-size:10px;
+    }
+    .innerFooter{
+    }
+    #myFooter{
+        display:none;
+    }
+
+
+    #myFooterMOBILE {
+        display: block !important;
+        background: #f4f4f4;
+     /*   margin-top: 262px;*/
+        padding: 25px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+
+    /* ------------헤더 --------------*/
+        /* 헤더 */
+        section#headerMOBILE {
+            background: #DA291C;
+            /* position:fixed; */
+        }
+        img#logo2 {
+            width: 81px;
+            margin-top: -7px;
+        }
+        .pcHeader{
+            display:none;
+        }
+        .mobileHeader{
+            display:block !important;
+        }
+        div#userMenuMOBILE {
+            position: relative;
+        }
+        .cartMOBILE {
+            float: right;
+            padding-top: 9px;
+            width: 34px;
+            margin-left: 7px;
+        }
+        .myPageMOBILE{
+            float: right;
+            padding-top: 8px;
+            width: 36px;
+        }
+        ul.menuMOBILE {
+            position: absolute;
+            right: 16px;
+            top: 45px;
+        }
+        .myli{
+            display: inline-block !important;
+            margin-right: 26px;
+            font-weight: 500;
+            color: #666;
+        }
+        .myli:hover, .myli:focus{
+            color: #DA291C;
+            font-weight: 600;
+        }
+        span.tit {
+            color: #DA291C;
+            font-size: 22px;
+            font-weight: 400;
+        }
+        .redLink{
+            color: #DA291C;
+        }
+        /* ------------유저 메뉴-----------*/
+        #userMenu {margin-right: 30px;}
+        .slice {color: #d8d8d8;font-size: 13px;}
+        .list_menu_li {float: right;}
+        .list_menu_txt {
+            font-size: 12px;
+            color: #333333;
+            font-weight: 400;
+            text-decoration: none;
+        }
+        .menu_before_login {list-style: none;}
+        .menu_after_login {list-style: none;display: none;}
+        .userStatus {
+            border: 1px solid #DA291C;
+            background-color: #fff;
+            color: #DA291C;
+            display: inline-block;
+            min-width: 38px;
+            height: 16px;
+            padding: 0 4px;
+            border-radius: 30px;
+            font-weight: 400;
+            font-size: 9px;
+            line-height: 14px;
+            text-align: center;
+        }
+        /* ------------로고---------------*/
+        #logo {
+            width: 110px;
+            margin-top: -15px;
+        }
+        /* ------------제품 메뉴 -----------*/
+        .categoryIcon {
+            width: 17px;
+            margin-right: 17px;
+        }
+        .cart {
+            float: right;
+            padding-top: 5px;
+        }
+        /* ------------헤더 끝--------------*/
+
+        /*-----------푸터 시작-----------*/
+        #myFooter {
+            margin: 0 auto;
+        }
+        .innerFooter {
+            width: 56em;
+            margin: 0 auto;
+        }
+        #myFooter .inner_footer {
+            overflow: hidden;
+            padding-bottom: 45px;
+        }
+        #myFooter .footer_cc {
+            float: left;
+            width: 513px;
+        }
+        #myFooter .tit_cc {
+            padding: 29px 0 2px;
+            font-weight: 500;
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 24px;
+        }
+        #myFooter .cc_call {
+            padding-top: 20px;
+        }
+        #myFooter .cc_call .tit {
+            padding-top: 4px;
+            font-weight: 700;
+            font-size: 28px;
+            color: #333;
+            line-height: 36px;
+            letter-spacing: -.5px;
+            white-space: nowrap;
+            float: left;
+            margin-right: 22px;
+        }
+        #myFooter .footer_cc .list {
+            font-size: 14px;
+            color: #333;
+            line-height: 22px;
+            letter-spacing: -.2px;
+            padding-top: 5px;
+        }
+        #myFooter .footer_cc .list dt {
+            display: block;
+            font-weight: 400;
+        }
+        #myFooter .footer_cc .list dd {
+            color: #999;
+            margin-bottom: -30px;
+        }
+        #myFooter .cc_view {
+            overflow: hidden;
+            padding-top: 16px;
+        }
+        #myFooter .cc_kakao .tit {
+            height: 40px;
+            margin-top: 3px;
+            border: 1px solid #e3e3e3;
+            border-radius: 3px;
+            font-weight: 500;
+            font-size: 14px;
+            color: #333;
+            line-height: 22px;
+            text-align: center;
+            padding: 10px 29px 33px 29px;
+            float: left;
+            margin-right: 16px;
+        }
+        #myFooter .company {
+            float: left;
+            padding-top: 29px;
+            font-size: 12px;
+            color: #999;
+            line-height: 20px;
+            margin-left: 27px;
+        }
+        #myFooter .company .list {
+            overflow: hidden;
+            width: 100%;
+            padding-bottom: 29px;
+        }
+        #myFooter .company .bar {
+            padding: 0 4px 0 3px;
+        }
+        #myFooter .footer_below {
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 19px 0 27px;
+        }
+        #myFooter .footer_below .txt {
+            font-size: 10px;
+            line-height: 16px;
+            color: #999;
+            letter-spacing: -.5px;
+            font-weight: 400;
+            margin-bottom: 1px;
+        }
+        #myFooter .company .list li {
+            float: left;
+            padding-right: 20px;
+            list-style: none;
+            padding-left: 0;
+        }
+        #myFooter .company .list {
+            overflow: hidden;
+            width: 100%;
+            padding-bottom: 29px;
+        }
+        #myFooter .company .bar {
+            padding: 0 4px 0 3px;
+        }
+        #myFooter .footer_below {
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 19px 0 27px;
+        }
+        #myFooter .footer_below .txt {
+            font-size: 10px;
+            line-height: 16px;
+            color: #999;
+            letter-spacing: -.5px;
+            font-weight: 400;
+            margin-bottom: 1px;
+        }
+        #myFooter .company .list li {
+            float: left;
+            padding-right: 20px;
+            list-style: none;
+            padding-left: 0;
+        }
+        #myFooter .company {
+            float: left;
+            padding-top: 29px;
+            font-size: 12px;
+            color: #999;
+            line-height: 20px;
+        }
+        #myFooter .company {
+            float: left;
+            padding-top: 29px;
+            font-size: 12px;
+            color: #999;
+            line-height: 20px;
+            font-weight: 400;
+        }
+        a.link {
+            text-decoration: none;
+        }
+        #myFooter .company ul {
+            padding: 0;
+        }
+        #myFooter .company .list .link {
+            font-size: 14px;
+            color: #333;
+            font-weight: 400;
+            text-decoration: none;
+            line-height: 18px;
+        }
+        #myFooter .footer_below .copy {
+            font-style: normal;
+            font-size: 10px;
+            color: #949296;
+            line-height: 25px;
+            letter-spacing: 0;
+            font-weight: 400;
+        }
+        /* aside */
+        #pageTop {
+            overflow: hidden;
+            position: fixed;
+            z-index: 300;
+            right: 31px;
+            bottom: 0;
+            width: 58px;
+            height: 58px;
+            border: 0;
+            background: url(https://res.kurly.com/pc/service/common/1903/btn_pagetop_v2.png) no-repeat 50% 50%;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
+            opacity: 0;
+            transition: background .5s;
+        }
+        /* 전체 카테고리 */
+        #gnb .gnb_sub {
+            overflow: hidden;
+            position: absolute;
+            z-index: 301;
+            left: 45px;
+            top: 192px;
+            left: -1px;
+            top: 106px;
+            width: 213px;
+
+
+        }
+        #gnb .gnb_sub .inner_sub {
+            width: 100%;
+            border: 1px solid #ddd;
+            background: url(https://res.kurly.com/pc/service/common/1908/bg_gnb_sub_v3.png) repeat-y 0 0;
+        }
+        #gnb .gnb_sub .gnb_menu {
+            width: 219px;
+            padding: 0;
+        }
+        #gnb .gnb_sub .menu {
+            display: block;
+            overflow: hidden;
+            width: 100%;
+            height: 40px;
+            padding: 8px 0 0 14px;
+            cursor: pointer;
+        }
+        a {
+            background-color: transparent;
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+        }
+        img {
+            border: 0;
+        }
+        #gnb .gnb_sub .txt {
+            float: left;
+            padding: 0 4px 0 10px;
+            font-weight: 400;
+            font-size: 14px;
+            color: #333;
+            line-height: 22px;
+            white-space: nowrap;
+        }
+        #gnb .gnb_sub .ico {
+            float: left;
+            width: 24px;
+            height: 24px;
+        }
+        #gnb .gnb_sub .gnb_menu li {
+            width: 100%;
+            text-align: left;
+            padding: 0px;
+        }
+        li {
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+        div, th, td, li, dt, dd, p {
+            word-break: break-all;
+        }
+        li {
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+        ol, ul {
+            list-style-type: none;
+        }
+        #gnb .gnb_sub .current .menu:hover {
+            background: #f7f7f7
+        }
+
+    a.aa:focus {
+        color: #DA291C;
+    }
+
+
+    /*-----------------------------------------------반응형 끝*/
+
+
+
+
+}

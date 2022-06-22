@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Last fresh Pos</title>
-    <link rel="stylesheet" href="/front/assets/css/sell.css">
+    <title>라스트프레시 | POS</title>
+    <link rel="stylesheet" href="/front/assets/css/sell/sell.css">
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -21,7 +21,7 @@
                 <div class="cookingTime-content">
                     <div class="cookingTime-info1">
                         <span>조리 시간을 선택해주세요</span>
-                        <img class="cookingTime-reset" src="https://cdn.discordapp.com/attachments/969471931575320587/970561183444762685/w-reset-icon-red.png" alt="">
+                        <img onclick="resetCooking()" class="cookingTime-reset" src="https://cdn.discordapp.com/attachments/969471931575320587/970561183444762685/w-reset-icon-red.png" alt="">
                     </div>
                     <!-- 조리 시간 변경 부분-->
                     <div class="cookingTime_select">
@@ -54,6 +54,8 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" class="billProductListNum">
+                <input type="hidden" class="cookingTime">
             </div>
         </div>
 
@@ -68,23 +70,23 @@
         <div class="content-wrapper">
             <!-- 주문 사이드바 wrapper -->
             <div class="sidebar-wrapper">
-                <div class="reception sideBars sellClicked">
+                <div class="reception sideBars sellClicked" onclick="orderReady(0)">
                     <div class="reception-content">
                         <p>접수 대기</p>
-                        <p>4</p>
+                        <p class="preparedOrder">4</p>
                         <p class="reception-new">new</p>
                     </div>
                 </div>
-                <div class="process sideBars">
+                <div class="process sideBars" onclick="orderProcessing(1)">
                     <div class="process-content">
                         <p>처리중</p>
-                        <p>4</p>
+                        <p class="processingOrder">4</p>
                     </div>
                 </div>
-                <div class="complete sideBars">
+                <div class="complete sideBars" onclick="orderCompleted(2)">
                     <div class="complete-content">
                         <p>완료</p>
-                        <p>4</p>
+                        <p class="completedOrder">4</p>
                     </div>
                 </div>
                 <div class="orderhistoy">
@@ -96,155 +98,144 @@
             <div class="sidebar-content">
                 <!--접수 대기가 없을 시-->
                 <div class="noorder">
-                    <img src="https://cdn.discordapp.com/attachments/969471931575320587/969481005150908456/7d8afc2c848b9d71.png">
-                    <p>즐거운 하루 보내세요!</p>
                 </div>
 
                 <!-- 접수 대기 목록이 있을 시-->
                 <div class="order-content">
-                    <!-- ajax로 가져올 데이터 접수 대기 -->
-                    <div class="order-list-wrapper">
-                        <div class="order-list">
-                            <!-- 시간&수령 방법-->
-                            <div class="order-info1">
-                                <div class="order-time">
-                                    18:41
-                                </div>
-                                <div class="order-method pickUp">
-                                    포장
-                                </div>
-                            </div>
-                            <!-- 주문 관련 정보 (가격, 메뉴이름, 수량, 주소)-->
-                            <div class="order-info2">
-                                <div class="order-menu">
-                                    <p class="order-price">31,800원</p>
-                                    <p class="order-menuInfo">김치찌개 2개</p>
-                                </div>
-                                <br>
-                                <div class="order-address">
-                                    서울 송파구 방이동 999-9
-                                </div>
-                                <div class="order-phoneNum">
-                                    010-5999-9999
-                                </div>
-                            </div>
+<!--                    &lt;!&ndash; ajax로 가져올 데이터 접수 대기 &ndash;&gt;-->
+<!--                    <div class="order-list-wrapper">-->
+<!--                        <div class="order-list">-->
+<!--                            &lt;!&ndash; 시간&수령 방법&ndash;&gt;-->
+<!--                            <div class="order-info1">-->
+<!--                                <div class="order-time">-->
+<!--                                    18:41-->
+<!--                                </div>-->
+<!--                                <div class="order-method pickUp">-->
+<!--                                    포장-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; 주문 관련 정보 (가격, 메뉴이름, 수량, 주소)&ndash;&gt;-->
+<!--                            <div class="order-info2">-->
+<!--                                <div class="order-menu">-->
+<!--                                    <p class="order-price">31,800원</p>-->
+<!--                                    <p class="order-menuInfo">김치찌개 2개</p>-->
+<!--                                </div>-->
+<!--                                <br>-->
+<!--                                <div class="order-address">-->
+<!--                                    서울 송파구 방이동 999-9-->
+<!--                                </div>-->
+<!--                                <div class="order-phoneNum">-->
+<!--                                    010-5999-9999-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <!-- 주문 수락 및 취소-->
-                            <div class="order-accept">
-                                <button class="order-reception-btn">접수하기</button>
-                                <button class="order-cancel-btn">취소</button>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
+<!--                            &lt;!&ndash; 주문 수락 및 취소&ndash;&gt;-->
+<!--                            <div class="order-accept">-->
+<!--                                <button class="order-reception-btn">접수하기</button>-->
+<!--                                <button class="order-cancel-btn">취소</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <hr>-->
+<!--                    </div>-->
 
-                    <div class="order-list-wrapper">
-                        <div class="order-list">
-                            <div class="order-info1">
-                                <div class="order-time">
-                                    17:41
-                                </div>
-                                <div class="order-method delivery">
-                                    배달
-                                </div>
-                            </div>
+<!--                    <div class="order-list-wrapper">-->
+<!--                        <div class="order-list">-->
+<!--                            <div class="order-info1">-->
+<!--                                <div class="order-time">-->
+<!--                                    17:41-->
+<!--                                </div>-->
+<!--                                <div class="order-method delivery">-->
+<!--                                    배달-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="order-info2">
-                                <div class="order-menu">
-                                    <p class="order-price">31,800원</p>
-                                    <p class="order-menuInfo">김치찌개 2개</p>
-                                </div>
-                                <div class="order-address">
-                                    서울 송파구 방이동 999-9
-                                </div>
-                            </div>
+<!--                            <div class="order-info2">-->
+<!--                                <div class="order-menu">-->
+<!--                                    <p class="order-price">31,800원</p>-->
+<!--                                    <p class="order-menuInfo">김치찌개 2개</p>-->
+<!--                                </div>-->
+<!--                                <div class="order-address">-->
+<!--                                    서울 송파구 방이동 999-9-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="order-accept">
-                                <button>픽업대기</button>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
+<!--                            <div class="order-accept">-->
+<!--                                <button>픽업대기</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <hr>-->
+<!--                    </div>-->
 
-                    <div class="order-list-wrapper">
-                        <div class="order-list">
-                            <div class="order-info1">
-                                <div class="order-time">
-                                    15:41
-                                </div>
-                                <div class="order-method shipping">
-                                    배송
-                                </div>
-                            </div>
+<!--                    <div class="order-list-wrapper">-->
+<!--                        <div class="order-list">-->
+<!--                            <div class="order-info1">-->
+<!--                                <div class="order-time">-->
+<!--                                    15:41-->
+<!--                                </div>-->
+<!--                                <div class="order-method shipping">-->
+<!--                                    배송-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="order-info2">
-                                <div class="order-menu">
-                                    <p class="order-price">31,800원</p>
-                                    <p class="order-menuInfo">김치찌개 2개</p>
-                                </div>
-                                <br>
-                                <div class="order-address">
-                                    서울 송파구 방이동 999-9
-                                </div>
-                                <div class="order-phoneNum">
-                                    010-5999-9999
-                                </div>
-                            </div>
+<!--                            <div class="order-info2">-->
+<!--                                <div class="order-menu">-->
+<!--                                    <p class="order-price">31,800원</p>-->
+<!--                                    <p class="order-menuInfo">김치찌개 2개</p>-->
+<!--                                </div>-->
+<!--                                <br>-->
+<!--                                <div class="order-address">-->
+<!--                                    서울 송파구 방이동 999-9-->
+<!--                                </div>-->
+<!--                                <div class="order-phoneNum">-->
+<!--                                    010-5999-9999-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="order-accept">
-                                <button>배송중</button>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
+<!--                            <div class="order-accept">-->
+<!--                                <button>배송중</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <hr>-->
+<!--                    </div>-->
 
-                    <div class="order-list-wrapper">
-                        <div class="order-list">
-                            <div class="order-info1">
-                                <div class="order-time">
-                                    18:41
-                                </div>
-                                <div class="order-method pickUp">
-                                    포장
-                                </div>
-                            </div>
+<!--                    <div class="order-list-wrapper">-->
+<!--                        <div class="order-list">-->
+<!--                            <div class="order-info1">-->
+<!--                                <div class="order-time">-->
+<!--                                    18:41-->
+<!--                                </div>-->
+<!--                                <div class="order-method pickUp">-->
+<!--                                    포장-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="order-info2">
-                                <div class="order-menu">
-                                    <p class="order-price">31,800원</p>
-                                    <p class="order-menuInfo">김치찌개 2개</p>
-                                </div>
-                                <br>
-                                <div class="order-address">
-                                    서울 송파구 방이동 999-9
-                                </div>
-                                <div class="order-phoneNum">
-                                    010-5999-9999
-                                </div>
-                            </div>
+<!--                            <div class="order-info2">-->
+<!--                                <div class="order-menu">-->
+<!--                                    <p class="order-price">31,800원</p>-->
+<!--                                    <p class="order-menuInfo">김치찌개 2개</p>-->
+<!--                                </div>-->
+<!--                                <br>-->
+<!--                                <div class="order-address">-->
+<!--                                    서울 송파구 방이동 999-9-->
+<!--                                </div>-->
+<!--                                <div class="order-phoneNum">-->
+<!--                                    010-5999-9999-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="order-accept">
-                                <button class="delivery-complete-btn">배송완료</button>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="layout-pagination">
-                        <div class="pagediv">
-                            <a href="#main" class="layout-pagination-button layout-pagination-first-page">맨 처음 페이지로 가기</a>
-                            <a href="#main" class="layout-pagination-button layout-pagination-prev-page">이전 페이지로 가기</a>
-                            <span><!----> <strong class="layout-pagination-button layout-pagination-number __active">1</strong></span>
-                            <a href="#main" class="layout-pagination-button layout-pagination-next-page">다음 페이지로 가기</a>
-                            <a href="#main" class="layout-pagination-button layout-pagination-last-page">맨 끝 페이지로 가기</a>
-                        </div>
-                    </div>
+<!--                            <div class="order-accept">-->
+<!--                                <button class="delivery-complete-btn">배송완료</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <hr>-->
+<!--                    </div>-->
                 </div>
+                <div class="paging" style="text-align: center"></div>
             </div>
-
-
         </div>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="/front/assets/js/sell/pos.js"></script>
 </html>

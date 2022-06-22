@@ -1,0 +1,800 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>라스트프레시 | 장바구니</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="=/front/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/front/assets/css/user/cart&order.css">
+    <link rel="stylesheet" href="/front/assets/css/user/cart.css">
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+</head>
+<style>
+
+    div#wrapper {
+       /* height: 1600px; */
+        overflow: scroll;
+    }
+
+    .finalP{
+        text-align: right;
+    }
+
+    hr.mobileSlicer {
+        margin-top: -25px !important;
+    }
+
+    .noitems{
+        margin-bottom: -139px !important;
+        text-align: center;
+        margin-top: 82px;
+        font-weight: 500;
+        color: #333;
+        font-size: 17px;
+    }
+
+    .btn.noMinus, .btn.noMinus.off {
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-size: 30px 30px;
+        background-position: 50% 50%;
+        opacity: 0.2;
+        cursor: auto;
+    }
+
+    .btn.noMinus.off {
+        background-image: url(https://res.kurly.com/pc/ico/2010/ico_minus_on.svg);
+    }
+
+    .btn.noPlus, .stamper .btn.noPlus.off {
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-size: 30px 30px;
+        background-position: 50% 50%;
+        opacity: 0.2;
+        cursor: auto;
+        margin-left: -5px;
+    }
+
+    .btn.noPlus {
+        background-image: url(https://res.kurly.com/pc/service/common/2009/ico_plus_on.svg);
+    }
+
+</style>
+<body>
+<th:block th:insert="/fragments/header.html :: headFragment"/>
+
+<div id="page-wrapper">
+    <div id="wrapper">
+        <!-- 타이틀 -->
+        <div id="title"><h2 style="font-weight: 500;" class="myCart">장바구니</h2></div>
+
+        <!-- 박스 -->
+        <div name="form">
+            <div>
+                <!-- 왼쪽 | 상품 -->
+                <div class="leftBox">
+                    <div style="height: 74px;">
+
+                      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+                        <input type="checkbox" th:value="${userNum}" id="allCheck" name="productAll"/>
+                        <span class="selectAll" style="margin-left:0;">전체 선택 (<span id="howManyChecks">0</span>/<span id = "totalProduct">0</span>) </span>
+                        <span class="slicer">&nbsp;&nbsp; I</span>
+                        <a style="text-decoration: none; margin-left: -8px;">
+                            <span class="selectAll selectDel" id="deleteAll" th:value="${userNum}">전체 삭제</span></a>
+                    </div>
+
+
+                    <!-- 픽업 -->
+                    <div class="pickupList"></div>
+                   <!-- <hr class="hrSlicer">
+                    <div>
+                        <div style="margin-bottom:60px;">
+                            <img class="deliveryIcon" src = "https://cdn.discordapp.com/attachments/969471931575320587/970768590053720075/shop-2.png">
+                            <span class="deliveryTitle">픽업 상품</span>
+                            <br></div>-->
+                        <!-- 상품 목록 -->
+                        <!--<div class="pickupList"></div>-->
+                      <!--  <th:block th:each="pickUp:${pickUpList}">
+                            <div class="prod" th:object="${pickUp}" style="margin: 40px 0px;">
+                                <input th:checked="*{basketGoOrder == 1}" style="float:left" type="checkbox" name="product" class="chekbox" th:value="*{sellProductDiscountPrice}"/>
+                                <a href="#"><img class="productPic" th:src="'/user/order/display?fileName=' + *{sellProductImageUploadPath} + '/' + *{sellProductThumbnail}"></a>
+                                <span class="productName" th:text="*{sellProductName}"></span>
+                                &lt;!&ndash; 수량 / 가격 / 삭제&ndash;&gt;
+                                <div class="delBtn"><button type="button" class="btn_delete"></button></div>
+                                <div class="price"><input type="text" class="priceNum" th:value="*{sellProductDiscountPrice}" name="sum"  style="width:100px" readonly><span class="won2">원</span></div>
+                                &lt;!&ndash; 수량 완료!!!!!!!! &ndash;&gt;
+                                <div class="stamper count">
+                                    <input type=hidden name="sell_price" value="20000">
+                                    <button type="button" class="btn minus off" data-opt="decrease" th:value="*{sellProductDiscountPrice}">감소</button>
+                                    <input type="text" name="amount" class="num amount2" th:value="*{basketQuantity}">
+                                    <button type="button" class="btn plus" data-opt="increase" th:value="*{sellProductDiscountPrice}">추가</button>
+                                </div>
+                            </div>
+                            <hr class="productSlice ">
+                        </th:block>
+
+                    </div>
+                    <br>-->
+
+                    <!-- 배달 -->
+                    <div class="deliveryList"></div>
+                   <!-- <hr style="border-top: solid 1px black; margin: 1em 0 1em 0;" class="mobileSlicer">
+                    <div>
+                        <div style="margin-bottom:60px;">
+                            <img class="deliveryIcon" src = "https://cdn.discordapp.com/attachments/932592448335671310/971193990831570984/rider-11.png">
+                            <span class="deliveryTitle">배달 상품</span>
+                            <br></div>
+                        &lt;!&ndash; 상품 목록 &ndash;&gt;
+                        <th:block th:each="delivery:${deliveryList}">
+                            <div class="prod" th:object="${delivery}" style="margin: 40px 0px;">
+                                <input th:checked="*{basketGoOrder == 1}" style="float:left" type="checkbox" name="product" class="chekbox" th:value="*{sellProductDiscountPrice}"/>
+                                <a href="#"><img class="productPic" th:src="'/user/order/display?fileName=' + *{sellProductImageUploadPath} + '/' + *{sellProductThumbnail}"></a>
+                                <span class="productName" th:text="*{sellProductName}"></span>
+                                &lt;!&ndash; 수량 / 가격 / 삭제&ndash;&gt;
+                                <div class="delBtn"><button type="button" class="btn_delete"></button></div>
+                                <div class="price"><input type="text" class="priceNum" th:value="*{sellProductDiscountPrice}" name="sum"  style="width:100px" readonly><span class="won2">원</span></div>
+                                &lt;!&ndash; 수량 완료!!!!!!!! &ndash;&gt;
+                                <div class="stamper count">
+                                    <input type=hidden name="sell_price" value="20000">
+                                    <button type="button" class="btn minus off" data-opt="decrease" th:value="*{sellProductDiscountPrice}">감소</button>
+                                    <input type="text" name="amount" class="num amount2" th:value="*{basketQuantity}">
+                                    <button type="button" class="btn plus" data-opt="increase" th:value="*{sellProductDiscountPrice}">추가</button>
+                                </div>
+                            </div>
+                            <hr class="productSlice ">
+                        </th:block>
+                    </div>
+                    <br>-->
+
+                    <!-- 배송 -->
+                    <div class="shippingList"></div>
+                    <hr style="border-top: solid 1px black; margin: 1em 0 1em 0;" class="mobileSlicer">
+                   <!-- <div>
+                        <div style="margin-bottom:60px;">
+                            <img class="deliveryIcon" src = "https://cdn.discordapp.com/attachments/932592448335671310/971193912834269264/ship-2-2.png">
+                            <span class="deliveryTitle">배송 상품</span>
+                            <br></div>
+                        &lt;!&ndash; 상품 목록 &ndash;&gt;
+                        <th:block th:each="shipping:${shippingList}">
+                            <div class="prod" th:object="${shipping}" style="margin: 40px 0px;">
+                                <input th:checked="*{basketGoOrder == 1}" style="float:left" type="checkbox" name="product" class="chekbox" th:value="*{sellProductDiscountPrice}"/>
+                                <a href="#"><img class="productPic" th:src="'/user/order/display?fileName=' + *{sellProductImageUploadPath} + '/' + *{sellProductThumbnail}"></a>
+                                <span class="productName" th:text="*{sellProductName}"></span>
+                                &lt;!&ndash; 수량 / 가격 / 삭제&ndash;&gt;
+                                <div class="delBtn"><button type="button" class="btn_delete"></button></div>
+                                <div class="price"><input type="text" class="priceNum" th:value="*{sellProductDiscountPrice}" name="sum"  style="width:100px" readonly><span class="won2">원</span></div>
+                                &lt;!&ndash; 수량 완료!!!!!!!! &ndash;&gt;
+                                <div class="stamper count">
+                                    <input type=hidden name="sell_price" value="20000">
+                                    <button type="button" class="btn minus off" data-opt="decrease" th:value="*{sellProductDiscountPrice}">감소</button>
+                                    <input type="text" name="amount" class="num amount2" th:value="*{basketQuantity}">
+                                    <button type="button" class="btn plus" data-opt="increase" th:value="*{sellProductDiscountPrice}">추가</button>
+                                </div>
+                            </div>
+                            <hr class="productSlice ">
+                        </th:block>
+                    </div>-->
+
+                </div>
+                <!-- 오른쪽 | 금액 -->
+                <div class="rightBox">
+                    <div class =rightBoxContainer>
+                        <div class="inner_result" style="top: 60px;">
+                            <div class="amount_view">
+                                <dl class="amount">
+                                    <dt class="tit">상품금액</dt>
+                                    <dd class="finalPrice finalP">
+                                        <span class="num" id="sumProduct">0</span>
+                                       <span class="won">원</span>
+                                    </dd>
+                                </dl>
+
+                                <hr style="margin: 1em 0 1em 0;">
+                                <dl class="amount lst">
+                                    <dt class="tit">결제예정금액</dt>
+                                    <dd class="finalPrice finalP">
+                                        <span class="num final" id="sumOrderProduct">0</span>
+                                        <span class="won">원</span>
+                                        <input type="hidden" value="0" id="finalPrice" name="finalPrice">
+                                    </dd>
+                                </dl>
+                            </div>
+                           <!-- <div class="btn_submit">-->
+                                <div>
+                                <a href="javascript:goOrder();">
+                                <button class="btn2 disabled">주문하기</button></a></div>
+                            <div class="notice">
+                                <span class="txt mobileTxt"><span class="ico">·</span> [배송준비중] 이전까지 주문 취소 가능합니다.</span>
+                                <span class="txt2 mobileTxt"><span class="ico">·</span> [마이페이지 &gt; 주문내역 상세페이지] 에서 직접 취소하실 수 &nbsp; 있습니다.</span>
+                            </div>
+                            <br><br>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<th:block th:insert="/fragments/footer.html :: footFragment"/>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/front/assets/js/user/orderCart.js"></script>
+<script th:inline="javascript">
+
+    let orderService = (function(){
+
+
+
+        //장바구니 목록 pickUp
+        function getPickUpList(param, callback, error) {
+            $.getJSON("/user/cart/orderCart/pickUp/" + userNum, function (data){
+                if (callback) {callback(data);}
+            }).fail(function (xhr, status, er) {
+                if (error) {error(er);}
+            });
+        }
+
+        //장바구니 목록 delivery
+        function getDeliveryList(param, callback, error) {
+            $.getJSON("/user/cart/orderCart/delivery/" + userNum, function (data){
+                if (callback) {callback(data);}
+            }).fail(function (xhr, status, er) {
+                if (error) {error(er);}
+            });
+        }
+
+        //장바구니 목록 shipping
+        function getShippingList(param, callback, error) {
+            $.getJSON("/user/cart/orderCart/shipping/" + userNum, function (data){
+                if (callback) {callback(data);}
+            }).fail(function (xhr, status, er) {
+                if (error) {error(er);}
+            });
+        }
+
+        //상품 삭제
+        function remove(basketNum, callback, error) {
+            $.ajax({
+                type: "DELETE",
+                url: "/user/cart/orderCart/" + basketNum,
+                success: function (result) {
+                    if (callback) {callback(result);}
+                },
+                error: function (xhr, status, er) {
+                    if (error) {error(er);}
+                }
+            });
+        }
+
+        //수량 수정 add
+        function quantityAdd(basketNum, callback, error) {
+            $.ajax({
+                type: "PATCH",
+                url: "/user/cart/orderCart/add/" + basketNum,
+               // data: JSON.stringify(basketNum),
+               // contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    if (callback) {callback(result);}
+                },
+                error: function (xhr, status, er) {
+                    if (error) {error(er);}
+                }
+            });
+        }
+
+        //수량 수정 subtract
+        function quantitySubtract(basketNum, callback, error) {
+            $.ajax({
+                type: "PATCH",
+                url: "/user/cart/orderCart/subtract/" + basketNum,
+                success: function (result) {
+                    if (callback) {callback(result);}
+                },
+                error: function (xhr, status, er) {
+                    if (error) {error(er);}
+                }
+            });
+        }
+
+        //checked
+        function check(basketNum, callback, error) {
+            $.ajax({
+                type: "PATCH",
+                url: "/user/cart/orderCart/check/" + basketNum,
+                success: function (result) {
+                    if (callback) {callback(result);}
+                },
+                error: function (xhr, status, er) {
+                    if (error) {error(er);}
+                }
+            });
+        }
+
+
+        function checkAll(userNum, callback, error) {
+            $.ajax({
+                type: "PATCH",
+                url: "/user/cart/orderCart/checkAll/" + userNum,
+                success: function (result) {
+                    if (callback) {callback(result);}
+                },
+                error: function (xhr, status, er) {
+                    if (error) {error(er);}
+                }
+            });
+        }
+
+
+        function unCheckAll(userNum, callback, error) {
+            $.ajax({
+                type: "PATCH",
+                url: "/user/cart/orderCart/unCheckAll/" + userNum,
+                success: function (result) {
+                    if (callback) {callback(result);}
+                },
+                error: function (xhr, status, er) {
+                    if (error) {error(er);}
+                }
+            });
+        }
+
+        function removeAll(userNum, callback, error) {
+            $.ajax({
+                type: "DELETE",
+                url: "/user/cart/orderCart/removeAll/" + userNum,
+                success: function (result) {
+                    if (callback) {callback(result);}
+                },
+                error: function (xhr, status, er) {
+                    if (error) {error(er);}
+                }
+            });
+        }
+
+        function count(userNum, callback, error) {
+            $.ajax({
+                type: "GET",
+                url: "/user/cart/orderCart/count/" + userNum,
+                success: function(number){
+                    if(callback){
+                        callback(number);
+                    }
+                },
+                error: function(xhr, status, er){
+                    if(error){
+                        error(er);
+                    }
+                }
+            });
+        }
+
+        return {getPickUpList: getPickUpList, getDeliveryList: getDeliveryList, getShippingList: getShippingList, remove: remove, count:count,
+            quantityAdd: quantityAdd, quantitySubtract:quantitySubtract, check:check, checkAll:checkAll, unCheckAll:unCheckAll, removeAll:removeAll}
+    })();
+
+
+    let userNum = [[${userNum}]];
+    const pickupList = $(".pickupList");
+    const deliveryList = $(".deliveryList");
+    const shippingList = $(".shippingList");
+
+    showPickUpList();
+    showDeliveryList();
+    showShippingList();
+    doTotal();
+
+
+    function goOrder() {
+        if($("input:checkbox[name=product]:checked").length == 0){
+            alert("선택된 상품이 없습니다.");
+            return ;
+        }else {
+            location.href = '/user/order/order?userNum=' + userNum;
+        }
+    };
+
+    function showPickUpList(){
+       // console.log("enter showPicUPList");
+        orderService.getPickUpList({
+            userNum : userNum
+        }, function(list){
+            let str = "";
+      //      console.log("enter");
+            if(list == null || list.length == 0){
+                pickupList.html("");
+                return;
+            }else{
+                str += "<hr class='mobileSlicer hrSlicer'>";
+                str += "<div><div style='margin-bottom:60px;'>";
+                str += "<img class='deliveryIcon' src = 'https://cdn.discordapp.com/attachments/969471931575320587/970768590053720075/shop-2.png'>";
+                str += "<span class='deliveryTitle'>픽업 상품</span><br></div>";
+            }
+
+            $.each(list, function(index, item) {
+                str += "<div class='prod' style='margin: 40px 0px;'>";
+                if(item.basketGoOrder == 1){
+                    str += "<input id='" + item.basketNum +"' style='float:left' type='checkbox' name='product' class='chekbox' value='" + item.sellProductDiscountPrice + "' checked/>";
+                }else{
+                    str += "<input id='" + item.basketNum +"' style='float:left' type='checkbox' name='product' class='chekbox' value='" + item.sellProductDiscountPrice + "'/>";
+                }
+                str += "<a href='#'><img class='productPic' src='/user/order/display?fileName=" + item.sellProductImageUploadPath + "/"  + item.sellProductThumbnail + "'></a>";
+                str += "<span class='productName'>" + item.sellProductName + "</span>";
+                str += "<div class='delBtn'><button type='button' class='btn_delete' value='" + item.basketNum +"'></button></div>";
+                str += "<div class='price'><input type='text' class='priceNum' value='" + (item.sellProductDiscountPrice * item.basketQuantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "' name='sum' style='width:100px' readonly><span class='won2'>원</span></div>";
+                str += "<div class='stamper count'>";
+                if(item.basketQuantity == 1){
+                    str += "<button type='button' id='" + item.basketNum +"' class='btn off noMinus' data-opt='decrease' value='" + item.sellProductDiscountPrice + "'>감소</button>";
+                }else{
+                    str += "<button type='button' id='" + item.basketNum +"' class='btn minus off' data-opt='decrease' value='" + item.sellProductDiscountPrice + "'>감소</button>";
+                }
+                str += "<input type='text' name='amount' class='num amount2' value='" +item.basketQuantity +"'>";
+              if(item.sellProductStock == item.basketQuantity){
+                  str += "<button type='button' id='" + item.basketNum +"' class='btn noPlus' data-opt='increase' value='" + item.sellProductDiscountPrice + "'>추가</button>";
+              }else{
+                  str += "<button type='button' id='" + item.basketNum +"' class='btn plus' data-opt='increase' value='" + item.sellProductDiscountPrice + "'>추가</button>";
+              }
+                str += "</div></div><hr class='productSlice'>";
+
+            });
+           str +="</div><br>";
+            pickupList.html(str);
+            $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+            $('#totalProduct').text($("input:checkbox[name=product]").length);
+            doTotal();
+
+           if($("input:checkbox[name=product]:checked").length == document.getElementsByName('product').length){$("#allCheck").prop('checked', true);
+           }else{ $("#allCheck").prop('checked', false);}
+
+        })
+    }
+
+
+    function showDeliveryList(){
+       // console.log("enter deliveryList");
+        orderService.getDeliveryList({
+            userNum : userNum
+        }, function(list){
+            let str = "";
+       //     console.log("enter");
+            if(list == null || list.length == 0){
+                deliveryList.html("");
+                return;
+            }else{
+                str += "<hr class='mobileSlicer' style='border-top: solid 1px black; margin: 1em 0 1em 0;'>";
+                str += "<div><div style='margin-bottom:60px;'>";
+                str += "<img class='deliveryIcon' src = 'https://cdn.discordapp.com/attachments/932592448335671310/971193990831570984/rider-11.png'>";
+                str += "<span class='deliveryTitle'>배달 상품</span><br></div>";
+            }
+
+            $.each(list, function(index, item) {
+                str += "<div class='prod' style='margin: 40px 0px;'>";
+                if(item.basketGoOrder == 1){
+                    str += "<input id='" + item.basketNum +"' style='float:left' type='checkbox' name='product' class='chekbox' value='" + item.sellProductDiscountPrice + "' checked/>";
+                }else{
+                    str += "<input id='" + item.basketNum +"' style='float:left' type='checkbox' name='product' class='chekbox' value='" + item.sellProductDiscountPrice + "'/>";
+                }
+                str += "<a href='#'><img class='productPic' src='/user/order/display?fileName=" + item.sellProductImageUploadPath + "/"  + item.sellProductThumbnail + "'></a>";
+                str += "<span class='productName'>" + item.sellProductName + "</span>";
+                str += "<div class='delBtn'><button type='button' class='btn_delete' value='" + item.basketNum +"'></button></div>";
+                str += "<div class='price'><input type='text' class='priceNum' value='" + (item.sellProductDiscountPrice * item.basketQuantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "' name='sum' style='width:100px' readonly><span class='won2'>원</span></div>";
+                str += "<div class='stamper count'>";
+                if(item.basketQuantity == 1){
+                    str += "<button type='button' id='" + item.basketNum +"' class='btn off noMinus' data-opt='decrease' value='" + item.sellProductDiscountPrice + "'>감소</button>";
+                }else{
+                    str += "<button type='button' id='" + item.basketNum +"' class='btn minus off' data-opt='decrease' value='" + item.sellProductDiscountPrice + "'>감소</button>";
+                }
+                str += "<input type='text' name='amount' class='num amount2' value='" +item.basketQuantity +"'>";
+                if(item.sellProductStock == item.basketQuantity){
+                    str += "<button type='button' id='" + item.basketNum +"' class='btn noPlus' data-opt='increase' value='" + item.sellProductDiscountPrice + "'>추가</button>";
+                }else{
+                    str += "<button type='button' id='" + item.basketNum +"' class='btn plus' data-opt='increase' value='" + item.sellProductDiscountPrice + "'>추가</button>";
+                }
+                str += "</div></div><hr class='productSlice'>";
+
+            });
+            str +="</div><br>";
+            deliveryList.html(str);
+            $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+            $('#totalProduct').text($("input:checkbox[name=product]").length);
+            doTotal();
+
+            if($("input:checkbox[name=product]:checked").length == document.getElementsByName('product').length){$("#allCheck").prop('checked', true);
+            }else{ $("#allCheck").prop('checked', false);}
+        })
+    }
+
+
+    function showShippingList(){
+        // console.log("enter deliveryList");
+        orderService.getShippingList({
+            userNum : userNum
+        }, function(list){
+            let str = "";
+         //   console.log("enter");
+            if(list == null || list.length == 0){
+                shippingList.html("");
+                return;
+            }else{
+                str += "<hr class='mobileSlicer' style='border-top: solid 1px black; margin: 1em 0 1em 0;'>";
+                str += "<div><div style='margin-bottom:60px;'>";
+                str += "<img class='deliveryIcon' src = 'https://cdn.discordapp.com/attachments/932592448335671310/971193912834269264/ship-2-2.png'>";
+                str += "<span class='deliveryTitle'>배송 상품</span><br></div>";
+            }
+
+            $.each(list, function(index, item) {
+                str += "<div class='prod' style='margin: 40px 0px;'>";
+                if(item.basketGoOrder == 1){
+                    str += "<input id='" + item.basketNum +"' style='float:left' type='checkbox' name='product' class='chekbox' value='" + item.sellProductDiscountPrice + "' checked/>";
+                }else{
+                    str += "<input id='" + item.basketNum +"' style='float:left' type='checkbox' name='product' class='chekbox' value='" + item.sellProductDiscountPrice + "'/>";
+                }
+                str += "<a href='#'><img class='productPic' src='/user/order/display?fileName=" + item.sellProductImageUploadPath + "/"  + item.sellProductThumbnail + "'></a>";
+                str += "<span class='productName'>" + item.sellProductName + "</span>";
+                str += "<div class='delBtn'><button type='button' class='btn_delete' value='" + item.basketNum +"'></button></div>";
+                str += "<div class='price'><input type='text' class='priceNum' value='" + (item.sellProductDiscountPrice * item.basketQuantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "' name='sum' style='width:100px' readonly><span class='won2' >원</span></div>";
+                str += "<div class='stamper count'>";
+                if(item.basketQuantity == 1){
+                    str += "<button type='button' id='" + item.basketNum +"' class='btn off noMinus' data-opt='decrease' value='" + item.sellProductDiscountPrice + "'>감소</button>";
+                }else{
+                    str += "<button type='button' id='" + item.basketNum +"' class='btn minus off' data-opt='decrease' value='" + item.sellProductDiscountPrice + "'>감소</button>";
+                }
+                str += "<input type='text' name='amount' class='num amount2' value='" +item.basketQuantity +"'>";
+                if(item.sellProductStock == item.basketQuantity){
+                    str += "<button type='button' id='" + item.basketNum +"' class='btn noPlus' data-opt='increase' value='" + item.sellProductDiscountPrice + "'>추가</button>";
+                }else{
+                    str += "<button type='button' id='" + item.basketNum +"' class='btn plus' data-opt='increase' value='" + item.sellProductDiscountPrice + "'>추가</button>";
+                }
+                str += "</div></div><hr class='productSlice'>";
+
+            });
+            str +="</div><br>";
+            shippingList.html(str);
+            $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+            $('#totalProduct').text($("input:checkbox[name=product]").length);
+            doTotal();
+
+            if($("input:checkbox[name=product]:checked").length == document.getElementsByName('product').length){$("#allCheck").prop('checked', true);
+            }else{ $("#allCheck").prop('checked', false);}
+        })
+    }
+
+    //remove one item
+    $(".pickupList").on("click", ".btn_delete", function(e){
+        e.preventDefault();
+        let basketNum = $(this).val();
+        orderService.remove(basketNum, function(result){
+            alert("상품이 삭제되었습니다.");
+            showPickUpList();
+        })
+    });
+
+    $(".deliveryList").on("click", ".btn_delete", function(e){
+        e.preventDefault();
+        let basketNum = $(this).val();
+        orderService.remove(basketNum, function(result){
+            alert("상품이 삭제되었습니다.");
+            showDeliveryList();
+        })
+    });
+
+    $(".shippingList").on("click", ".btn_delete", function(e){
+        e.preventDefault();
+        let basketNum = $(this).val();
+        orderService.remove(basketNum, function(result){
+            alert("상품이 삭제되었습니다.");
+            showShippingList();
+        })
+    });
+
+
+    //add one item
+    $(".pickupList").on("click", ".plus", function(e){
+        e.preventDefault();
+        let basketNum = $(this).attr('id');
+        orderService.quantityAdd(basketNum, function(result){
+            showPickUpList();
+        })
+    });
+
+    $(".deliveryList").on("click", ".plus", function(e){
+        e.preventDefault();
+        let basketNum = $(this).attr('id');
+        orderService.quantityAdd(basketNum, function(result){
+            showDeliveryList();
+        })
+    });
+
+    $(".shippingList").on("click", ".plus", function(e){
+        e.preventDefault();
+        let basketNum = $(this).attr('id');
+        orderService.quantityAdd(basketNum, function(result){
+            showShippingList();
+        })
+    });
+
+
+
+    //subtract one item
+    $(".pickupList").on("click", ".minus", function(e){
+        e.preventDefault();
+        let basketNum = $(this).attr('id');
+        orderService.quantitySubtract(basketNum, function(result){
+            showPickUpList();
+        })
+    });
+
+    $(".deliveryList").on("click", ".minus", function(e){
+        e.preventDefault();
+        let basketNum = $(this).attr('id');
+        orderService.quantitySubtract(basketNum, function(result){
+            showDeliveryList();
+        })
+    });
+
+    $(".shippingList").on("click", ".minus", function(e){
+        e.preventDefault();
+        let basketNum = $(this).attr('id');
+        orderService.quantitySubtract(basketNum, function(result){
+            showShippingList();
+        })
+    });
+
+    //check checked status
+    $(".pickupList").on("click", ".chekbox", function(e){
+        e.preventDefault();
+        let basketNum = $(this).attr('id');
+        orderService.check(basketNum, function(result){
+            showPickUpList();
+
+           // $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+           // $('#totalProduct').text($("input:checkbox[name=product]").length);
+        })
+    });
+
+    $(".deliveryList").on("click", ".chekbox", function(e){
+        e.preventDefault();
+        let basketNum = $(this).attr('id');
+        orderService.check(basketNum, function(result){
+            showDeliveryList();
+         //   $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+          //  $('#totalProduct').text($("input:checkbox[name=product]").length);
+        })
+    });
+
+    $(".shippingList").on("click", ".chekbox", function(e){
+        e.preventDefault();
+        let basketNum = $(this).attr('id');
+        orderService.check(basketNum, function(result){
+            showShippingList();
+         //   $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+         //   $('#totalProduct').text($("input:checkbox[name=product]").length);
+        })
+    });
+
+
+
+
+    $(document).ready(function() {
+        document.getElementById('allCheck').onchange = function () {
+            let userNum = $(this).attr('value');
+            const checkboxes
+                = document.getElementsByName('product');
+            if (document.getElementById('allCheck').checked === false) { // check -> unchecked
+                checkboxes.forEach((checkbox) => {
+                    checkbox.checked = false;
+                    orderService.unCheckAll(userNum, function(result){});
+                    $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+               //     $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+                //    $('#totalProduct').text($("input:checkbox[name=product]").length);
+                    doTotal();
+                })
+            } else { // not check -> check
+                checkboxes.forEach((checkbox) => {
+                    checkbox.checked = true;
+                    orderService.checkAll(userNum, function(result){});
+                    $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+             //       $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+              //      $('#totalProduct').text($("input:checkbox[name=product]").length);
+                    doTotal();
+                })
+            }
+        }
+
+        $("#deleteAll").on("click", function(e) {
+            let userNum = $(this).attr('value');
+         //   alert(userNum);
+
+            if (!confirm("정말로 모든 제품을 삭제하시겠습니까?")) {
+                return ;
+            } else {
+                alert("모든 제품이 정상적으로 삭제되었습니다.");
+                orderService.removeAll(userNum, function(result){});
+                location.href = '/user/order/orderCart?userNum=' + userNum;
+            }
+
+          //  doTotal();
+        });
+
+       // $("#totalProduct").text(orderService.);
+
+
+
+        // 체크박스, 콤마, 더하기
+            orderService.count(userNum, function(number) {
+                console.log("yeah");
+                let str = "";
+                if (number != 0) {
+                  //  console.log("here : " + number);
+                    if( $("input:checkbox[name=product]:checked").length == number){
+                    document.getElementById('allCheck').checked === true;
+                     //   $('#totalProduct').text(number);
+
+                    };
+                    return;
+                } else {
+                    str += "<p class='noitems'>장바구니에 담긴 상품이 없습니다</p>";
+                    $(".deliveryList").html(str);
+                   // console.log(str);
+                }
+            })
+
+        doTotal();
+
+        /*div 높이 변화시, 전체 높이 변경*/
+       // let $pageDiv = $('#wrapper');
+
+
+       /*     let height = $('#wrapper').height() + 200;
+            $('#wrapper').css("height", height);
+        ;
+
+        $pageDiv.change(function () {
+            let height = $('#wrapper').height() + 200;
+            $('#wrapper').css("height", height);
+        });*/
+      //  $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+        // $('#totalProduct').text($("input:checkbox[name=product]").length);
+
+    });
+
+
+
+
+
+   /* $("#allCheck").on("onchange", function(e){
+        e.preventDefault();
+        let userNum = $(this).attr('value');
+        const checkboxes
+            = document.getElementsByName('product');
+
+        if(document.getElementById('allCheck').checked === true){
+            alert("not checked");
+        }else{
+            alert("checked");
+        }
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.checked = selectAll.checked;
+            $('#howManyChecks').text($("input:checkbox[name=product]:checked").length);
+            doTotal();
+        })
+
+
+    });*/
+
+
+
+
+    // check = go order
+    // total price
+    // sum price
+
+</script>
+</html>

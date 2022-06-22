@@ -1,0 +1,1660 @@
+img.mainNewImg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+.np{
+
+    margin-bottom: 245px !important;
+}
+/* ------------슬라이더 배너--------------*/
+[name="slide"] {
+    display: none;
+}
+
+.slidebox {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    transition: all .35s;
+}
+
+.slidebox img {
+    max-width: 100%;
+}
+
+.slidebox .slidelist {
+    white-space: nowrap;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.slidebox .slideitem {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    transition: all .35s !important;
+}
+
+.slidebox .slideitem label {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+    cursor: pointer;
+}
+
+label.left {
+    left: 330px;
+    background-image: url('https://s3.ap-northeast-2.amazonaws.com/res.kurly.com/kurly/ico/2021/arrow_banner_left_52_52.svg');
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+label.right {
+    right: 330px;
+    background-image: url('https://s3.ap-northeast-2.amazonaws.com/res.kurly.com/kurly/ico/2021/arrow_banner_right_52_52.svg');
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+/* 페이징 스타일 */
+.paginglist {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.paginglist > li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.paginglist > li > label {
+    display: block;
+    padding: 10px 30px;
+    border-radius: 10px;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.paginglist > li > label {
+    background: #333;
+}
+
+[id="slide01"]:checked ~ .slidelist .slideitem {
+    transform: translateX(0);
+    animation: slide01 20s infinite !important;
+}
+
+[id="slide02"]:checked ~ .slidelist .slideitem {
+    transform: translateX(-100%);
+    animation: slide02 20s infinite !important;
+}
+
+[id="slide03"]:checked ~ .slidelist .slideitem {
+    transform: translateX(-200%);
+    animation: slide03 20s infinite !important;
+}
+
+[id="slide04"]:checked ~ .slidelist .slideitem {
+    transform: translateX(-300%);
+    animation: slide04 20s infinite !important;
+}
+
+@keyframes slide01 {
+    0% {
+        left: 0%;
+    }
+    23% {
+        left: 0%;
+    }
+    25% {
+        left: -100%;
+    }
+    48% {
+        left: -100%;
+    }
+    50% {
+        left: -200%;
+    }
+    73% {
+        left: -200%;
+    }
+    75% {
+        left: -300%;
+    }
+    98% {
+        left: -300%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+@keyframes slide02 {
+    0% {
+        left: 0%;
+    }
+    23% {
+        left: 0%;
+    }
+    25% {
+        left: -100%;
+    }
+    48% {
+        left: -100%;
+    }
+    50% {
+        left: -200%;
+    }
+    73% {
+        left: -200%;
+    }
+    75% {
+        left: 100%;
+    }
+    98% {
+        left: 100%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+@keyframes slide03 {
+    0% {
+        left: 0%;
+    }
+    23% {
+        left: 0%;
+    }
+    25% {
+        left: -100%;
+    }
+    48% {
+        left: -100%;
+    }
+    50% {
+        left: 200%;
+    }
+    73% {
+        left: 200%;
+    }
+    75% {
+        left: 100%;
+    }
+    98% {
+        left: 100%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+@keyframes slide04 {
+    0% {
+        left: 0%;
+    }
+    23% {
+        left: 0%;
+    }
+    25% {
+        left: 300%;
+    }
+    48% {
+        left: 300%;
+    }
+    50% {
+        left: 200%;
+    }
+    73% {
+        left: 200%;
+    }
+    75% {
+        left: 100%;
+    }
+    98% {
+        left: 100%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+/* ------------슬라이더 배너 끝--------------*/
+/* ---------------본문-------------------*/
+.mainWrapper {
+    text-align: center;
+    margin: 0 auto;
+    width: 56em;
+}
+
+.imgBox {
+    width: 249px;
+    height: 320px;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 9px;
+}
+
+.newProduct {
+    margin-bottom: 88px;
+}
+
+.mainTitle {
+    color: rgb(51, 51, 51);
+    font-size: 28px;
+    line-height: 1.15;
+    letter-spacing: -0.26px;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.titleBtn {
+    vertical-align: top;
+    max-width: 100%;
+}
+
+.mainNewBox {
+    text-align: left;
+    float: left;
+    margin-right: 1.4%;
+    position: relative;
+    height: 321px;
+}
+
+.mainNewBoxLast {
+    text-align: left;
+}
+
+.innerCart {
+    position: absolute;
+    z-index: 300;
+    display: block;
+    right: 16px;
+    bottom: 16px;
+    width: 45px;
+    top: 256px;
+    height: 45px;
+}
+
+.mainNewImg {
+    width: 100%;
+    object-fit: cover;
+}
+
+.mainNewImg:hover {
+    object-fit: cover;
+    transition: all 0.3s ease-in-out 0s !important;
+    transform: scale(1.04);
+}
+
+div.mainNewTxt p, div.mainNewTxtLast p {
+    padding: 0;
+    margin: 0;
+}
+
+.mainNewTxt {
+    width: 250px;
+}
+
+.mainNewTxtLast {
+    display: contents;
+}
+
+.mainNewTxtTitle {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.mainNewTxtPrice {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.mainNewTxtOriginPrice {
+    color: rgb(153, 153, 153);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: line-through;
+    margin-top: 2px;
+}
+
+.newATag {
+    text-decoration: none;
+    color: #333333;
+}
+
+/* -----------미니 배너-------- */
+.miniBanner {
+    margin-bottom: 125px;
+
+}
+.mini1{
+    margin-top: 206px;
+}
+
+/* -----------오늘 마감-------- */
+.imgLastChanceBox {
+    width: 339px;
+    height: 436.38px;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 9px;
+}
+
+.lastChance {
+    text-align: left;
+}
+
+.mainLastBoxTxt {
+    text-align: left;
+    width: 300px;
+    float: left;
+    margin-right: 1.4%;
+}
+
+.lastIcon {
+    width: 33px;
+    float: left;
+    padding-top: 4px;
+}
+
+.lastChanceTxt {
+    font-size: 16px;
+    font-weighffdsft: normal;
+    line-height: 1.45;
+    letter-spacing: -0.2px;
+    margin-top: -17px;
+    margin-bottom: 30px;
+}
+
+.lastChanceDate {
+    color: #333333;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: initial;
+}
+
+.mainLastBox {
+    text-align: left;
+    float: right;
+    margin-left: 1.5%;
+    position: relative;
+    height: 436px ;
+}
+
+.innerLatChanceCart {
+    position: absolute;
+    z-index: 300;
+    display: block;
+    right: 16px;
+    bottom: 16px;
+    width: 45px;
+    top: 369px;
+    height: 45px;
+}
+
+.upLeftLabel {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.sticker {
+    padding: 0px 8px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 32px;
+    opacity: 0.9;
+    background-color: #ff786e;
+    opacity: 0.9;
+}
+
+.stickerText {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.mainLastTxt {
+    width: 330px;
+}
+
+.mainLastTxtPrice {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.mainLastDescription {
+    color: rgb(153, 153, 153);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 2px;
+}
+
+.mainLastTxtTitle {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 3px;
+}
+
+/* -----------메인-------------*/
+
+
+a.link {
+    text-decoration: none;
+}
+
+
+
+/* 장바구니 모달창*/
+
+#cartPut .cart_result, #cartPut .cart_option.off, #cartPut .cart_option .tit_cart, #cartPut .cart_option .box_select, #cartPut .cart_option .bar_open, #cartPut .cart_option .view_function {
+    display: none;
+}
+
+#cartPut .cart_type3 {
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    width: 440px;
+    max-height: 600px;
+    margin-left: -220px;
+    border-radius: 12px;
+    background-color: #fff;
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+}
+
+#cartPut .cart_option {
+    background-color: #fff;
+}
+
+#cartPut * {
+    font-family: noto sans;
+    color: #333;
+    letter-spacing: 0;
+}
+
+
+#cartPut .cart_type3 .inner_option {
+    padding: 0 30px;
+}
+
+#cartPut .cart_type3 .btn_close1 {
+    display: none;
+}
+
+.cart_modal_footer {
+    display: flex;
+    align-items: center;
+    padding: 20px 0 30px;
+}
+
+#cartPut .cart_type3 .base_button.half {
+    width: 50%;
+}
+
+#cartPut .base_button {
+    width: 432px;
+    height: 56px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    color: #fff;
+    background-color: #DA291C;
+    border: 1px solid #DA291C;
+    cursor: pointer;
+}
+
+.cart_modal_footer button:not(:first-of-type) {
+    margin-left: 8px;
+}
+
+button {
+    outline: none;
+}
+
+#cartPut .cart_type3 .list_goods {
+    width: 380px;
+}
+
+.secondBanner {
+    margin-top: 242px;
+}
+
+#cartPut .cart_type3 .list_nopackage {
+    padding-top: 30px;
+    min-height: 148px;
+}
+
+#cartPut .cart_type3 .list {
+    overflow: hidden;
+    overflow-y: auto;
+    width: 400px;
+    max-height: 355px;
+    min-height: 120px;
+}
+
+#cartPut .cart_option .list {
+    overflow: hidden;
+    padding-bottom: 1px;
+    margin-left: -16px;
+}
+
+#cartPut .cart_type3 .list_nopackage li {
+    border: 0;
+}
+
+#cartPut .cart_type3 .list li {
+    width: 380px;
+    padding: 11px 0;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+
+
+#cartPut .cart_option .list .btn_position {
+    display: block;
+    position: relative;
+}
+
+#cartPut .cart_type3 .list .name {
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+#cartPut .cart_option .list .name {
+    display: block;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: -.6px;
+    font-weight: 500;
+}
+
+#cartPut .cart_type3 .list .option {
+    padding-top: 7px;
+}
+
+#cartPut .cart_option .list .option {
+    overflow: hidden;
+}
+
+#cartPut .cart_option .list .btn_del {
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: -1px;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    background: url(https://res.kurly.com/pc/ico/2010/ico_cartput_del_24x25.svg) no-repeat 50% 50%;
+    background-size: 24px 25px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+
+
+#cartPut .cart_option .list .count {
+    overflow: hidden;
+    float: left;
+    width: 88px;
+    height: 30px;
+    border: 1px solid #dddfe1;
+    border-radius: 3px;
+}
+
+#cartPut .cart_type3 .list .price {
+    float: left;
+    padding: 7px 0 0;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+#cartPut .cart_option .list .price {
+    font-weight: 700;
+    text-align: right;
+}
+
+#cartPut .cart_option .list .down.on {
+    background-image: url(https://res.kurly.com/pc/ico/2010/ico_minus_on.svg);
+}
+
+#cartPut .cart_option .list .down {
+    background: #fff url(https://res.kurly.com/pc/ico/2010/ico_minus.svg) no-repeat 50% 50%;
+    background-size: 30px 30px;
+}
+
+#cartPut .cart_option .list .btn {
+    overflow: hidden;
+    float: left;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+li.on{
+    list-style:none;
+}
+#cartPut .cart_option .list .inp {
+    float: left;
+    width: 32px;
+    height: 30px;
+    margin-right: -1px;
+    padding: 0 0 4px;
+    border: 0;
+    background-color: #fff;
+    font-size: 14px;
+    color: #000;
+    line-height: 18px;
+    text-align: end;
+}
+
+#cartPut .cart_option .list .up.on {
+    background-image: url(https://res.kurly.com/pc/ico/2010/ico_plus_on.svg);
+}
+
+#cartPut .cart_option .list .up {
+    float: right;
+    margin-left: -1px;
+    background: #fff url(https://res.kurly.com/pc/ico/2010/ico_plus.svg) no-repeat 50% 50%;
+    background-size: 30px 30px;
+}
+
+#cartPut .cart_type3 .list .dc_price {
+    padding-right: 4px;
+    font-weight: 800;
+}
+
+#cartPut .cart_option .total .price {
+    overflow: hidden;
+    text-align: right;
+}
+
+#cartPut .cart_type3 .total .txt_point {
+    padding-top: 6px !important;
+    margin-bottom: 0;
+}
+
+#cartPut .cart_option .total .txt_point {
+    display: block;
+    padding-top: 14px;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+    text-align: right;
+}
+
+#cartPut .cart_type3 .total .tit {
+    float: left;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -.67px;
+    vertical-align: 0;
+}
+
+#cartPut .cart_option .total .tit {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    vertical-align: 2px;
+}
+
+#cartPut .cart_type3 .total .sum {
+    float: right;
+    margin-top: -1px;
+}
+
+#cartPut .cart_type3 .total .num {
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -1px;
+}
+
+#cartPut .cart_option .total .num {
+    padding-left: 8px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 32px;
+}
+
+#cartPut .cart_type3 .total .won {
+    padding-left: 0;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -.67px;
+    vertical-align: 3px;
+}
+
+#cartPut .cart_option .total .won {
+    padding-left: 2px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    vertical-align: -1px;
+}
+
+#cartPut .base_button.cancel {
+    color: #333 !important;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.bg_loading {
+    position: fixed;
+    z-index: 9998;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .5;
+}
+
+.loading_show {
+    position: fixed;
+    z-index: 10000;
+    top: 50%;
+    left: 50%;
+    margin: -16px 0 0 -16px;
+    width: 32px;
+    height: 32px;
+    background: url(https://res.kurly.com/pc/img/1909/img_loading_128x128.gif) no-repeat 50% 50%;
+    background-size: 16px 16px;
+}
+
+#cartPut .cart_type3 .list .btn_position {
+    display: none;
+}
+
+#cartPut .cart_type3 .list .count {
+    float: right;
+    margin-right: 18px;
+}
+#pickUpB{
+    height: 22px;
+    margin-right: 6px;
+    padding: 0 8px;
+    border-radius: 4px;
+    background-color: black;
+    font-weight: 700;
+    font-size: 12px;
+    color: #666;
+    line-height: 22px;
+    vertical-align: middle;
+    opacity: 0.2;
+}
+#deliveryB{
+    height: 22px;
+    margin-right: 6px;
+    padding: 0 8px;
+    border-radius: 4px;
+    background-color:black;
+    font-weight: 700;
+    font-size: 12px;
+    color: #666;
+    line-height: 22px;
+    vertical-align: middle;
+    opacity: 0.2;
+}
+#shippingB{
+    height: 22px;
+    margin-right: 6px;
+    padding: 0 8px;
+    border-radius: 4px;
+    background-color: black;
+    font-weight: 700;
+    font-size: 12px;
+    color: #666;
+    line-height: 22px;
+    vertical-align: middle;
+    opacity: 0.2;
+}
+.receiveMethod{
+    padding: 22px 0 0 154px;
+}
+.receiveMethodMsg{
+    padding-right: 4px;
+    font-weight: 800;
+    font-family: noto sans;
+    color: #333;
+    letter-spacing: 0;
+}
+.receiveMethodMsgWrap{
+    font-weight: 700;
+    text-align: right;
+    float: left;
+    padding: 7px 0 0;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+.newPro{
+    display: flex; justify-content: space-around ;
+}
+
+
+/*-----------반응형---------------------------------------------------*/
+@media screen and (max-width:768px) {
+    .newPro{
+        display: flex;
+        justify-content: center !important;
+        flex-wrap: wrap;
+        margin: 0 339px 0 -82px;
+    }
+    .np {
+         margin-bottom: 30px !important;
+    }
+
+    /* ------------슬라이더 배너--------------*/
+    [name="slide"] {display: none;}
+
+    .slidebox {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 0;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        transition: all .35s;
+    }
+
+    .slidebox img {max-width: 100%;}
+
+    .slidebox .slidelist {
+        white-space: nowrap;
+        font-size: 0;
+        overflow: hidden;
+    }
+
+    .slidebox .slideitem {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        transition: all .35s !important;
+    }
+
+    .slidebox .slideitem label {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 20px;
+        cursor: pointer;
+        display: none;
+    }
+
+    label.left {
+        left: 330px;
+        background-image: url('https://s3.ap-northeast-2.amazonaws.com/res.kurly.com/kurly/ico/2021/arrow_banner_left_52_52.svg');
+        background-position: center center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    label.right {
+        right: 330px;
+        background-image: url('https://s3.ap-northeast-2.amazonaws.com/res.kurly.com/kurly/ico/2021/arrow_banner_right_52_52.svg');
+        background-position: center center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    /*푸터 */
+    #myFooterMOBILE {
+        margin-top: 262px;
+    }
+
+
+    /*슬라이더 배너 */
+
+    .slidebox img {
+        height: 400px;
+        object-fit: none;
+        max-width: 236%;
+
+    }
+
+    /* 페이징 스타일 */
+    .paginglist {
+        text-align: center;
+        padding: 30px 0;
+    }
+
+
+
+
+    .paginglist > li {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 10px;
+    }
+
+    .paginglist > li > label {
+        display: block;
+        padding: 10px 30px;
+        border-radius: 10px;
+        background: #ccc;
+        cursor: pointer;
+    }
+
+    .slidebox {
+        margin-top: -44px;
+    }
+
+    .paginglist > li > label {background: #333;}
+
+    [id="slide01"]:checked ~ .slidelist .slideitem {
+        transform: translateX(0);
+        animation: slide01 20s infinite !important;
+    }
+
+    [id="slide02"]:checked ~ .slidelist .slideitem {
+        transform: translateX(-100%);
+        animation: slide02 20s infinite !important;
+    }
+
+    [id="slide03"]:checked ~ .slidelist .slideitem {
+        transform: translateX(-200%);
+        animation: slide03 20s infinite !important;
+    }
+
+    [id="slide04"]:checked ~ .slidelist .slideitem {
+        transform: translateX(-300%);
+        animation: slide04 20s infinite !important;
+    }
+
+    @keyframes slide01 {
+        0% {left: 0%;}
+        23% {left: 0%;}
+        25% {left: -100%;}
+        48% {left: -100%;}
+        50% {left: -200%;}
+        73% {left: -200%;}
+        75% {left: -300%;}
+        98% {left: -300%;}
+        100% {left: 0%;}
+    }
+    @keyframes slide02 {
+        0% {left: 0%;}
+        23% {left: 0%;}
+        25% {left: -100%;}
+        48% {left: -100%;}
+        50% {left: -200%;}
+        73% {left: -200%;}
+        75% {left: 100%;}
+        98% {left: 100%;}
+        100% {left: 0%;}
+    }
+    @keyframes slide03 {
+        0% {left: 0%;}
+        23% {left: 0%;}
+        25% {left: -100%;}
+        48% {left: -100%;}
+        50% {left: 200%;}
+        73% {left: 200%;}
+        75% {left: 100%;}
+        98% {left: 100%;}
+        100% {left: 0%;}
+    }
+    @keyframes slide04 {
+        0% {left: 0%;}
+        23% {left: 0%;}
+        25% {left: 300%;}
+        48% {left: 300%;}
+        50% {left: 200%;}
+        73% {left: 200%;}
+        75% {left: 100%;}
+        98% {left: 100%;}
+        100% {left: 0%;}
+    }
+    /* ------------슬라이더 배너 끝--------------*/
+    /* ---------------본문-------------------*/
+    .mainWrapper {
+        text-align: left;
+        margin: 0 auto;
+        width: 56em;
+    }
+
+    .imgBox {
+        width: 174px;
+        height: 223px;
+        overflow: hidden;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .newProduct {
+        margin-bottom: -279px;
+    }
+
+    .mainTitle {
+        color: rgb(51, 51, 51);
+        font-size: 17px;
+        line-height: 1.15;
+        letter-spacing: -0.26px;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 24px;
+        margin-left: 13px;
+    }
+
+    .titleBtn {
+        vertical-align: top;
+        max-width: 100%;
+        display:none;
+    }
+
+    .mainNewBox {
+        width: 170px;
+        text-align: left;
+        float: left;
+        margin-right: 0%;
+        position: relative;
+        margin-left: 13px;
+        margin-bottom: 50px;
+        height: 218px;
+    }
+
+    .mainNewBoxLast {
+        text-align: left;
+    }
+
+    .innerCart {
+        position: absolute;
+        z-index: 300;
+        display: block;
+        right: 7px;
+        bottom: 16px;
+        width: 38px;
+        top: 173px;
+        height: 38px;
+    }
+
+    .mainNewImg {
+        width: 100%;
+        object-fit: cover;
+        height: 282px;
+    }
+
+    .mainNewImg:hover {
+        object-fit: cover;
+        transition: all 0.3s ease-in-out 0s !important;
+        transform: scale(1.04);
+    }
+
+    div.mainNewTxt p, div.mainNewTxtLast p {
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .mainNewTxt {
+        width: 250px;
+    }
+
+    .mainNewTxtLast {
+        display: contents;
+    }
+
+    .mainNewTxtTitle {
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 8px;
+    }
+
+    .mainNewTxtPrice {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .mainNewTxtOriginPrice {
+        color: rgb(153, 153, 153);
+        font-size: 12px !important;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration: line-through;
+        margin-top: 2px;
+    }
+
+    .newATag {
+        text-decoration: none;
+        color: #333333;
+    }
+
+    /* -----------미니 배너-------- */
+    .miniBanner {
+        margin-bottom: 30px;
+    }
+    .mini1{
+        margin-top:-27px;
+    }
+    /* -----------오늘 마감-------- */
+    .imgLastChanceBox {
+        width: 220px;
+        height: 283.38px;
+        overflow: hidden;
+        display: block;
+        margin-bottom: 9px;
+    }
+
+    .lastChance {
+        text-align: left;
+    }
+
+    .mainLastBoxTxt {
+        text-align: left;
+        width: 300px;
+        float: left;
+        margin-right: 1.4%;
+    }
+    .mainLastBox{
+        height: 267px;
+    }
+    .lastIcon {
+        width: 24px;
+        float: left;
+        padding-top: 4px;
+        margin-left: 15px;
+    }
+
+    .lastChanceTxt {
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.45;
+        letter-spacing: -0.2px;
+        margin-top: -22px;
+        margin-bottom: 2px;
+        margin-left: 14px;
+    }
+
+    .lastChanceDate {
+        color: #333333;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 33px;
+    }
+
+    .mainLastBox {
+        text-align: left;
+        float: left;
+        margin-left: -16.5%;
+        margin-right: 169px;
+        position: relative;
+    }
+
+    .innerLatChanceCart {
+        position: absolute;
+        z-index: 300;
+        display: block;
+        right: 11px;
+        bottom: 16px;
+        width: 40px;
+        top: 222px;
+        height: 40px;
+    }
+
+    .upLeftLabel {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .sticker {
+        padding: 0px 8px;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        height: 32px;
+        opacity: 0.9;
+        background-color: #ff786e;
+        opacity: 0.9;
+    }
+
+    .stickerText {
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .mainLastTxt {
+        width: 218px;
+    }
+
+    .mainLastTxtPrice {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .mainLastDescription {
+        color: rgb(153, 153, 153);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 2px;
+    }
+
+    .mainLastTxtTitle {
+        font-size: 15px;
+        font-weight: 400;
+        margin-bottom: 3px;
+    }
+
+    /* -----------메인-------------*/
+
+
+    a.link {
+        text-decoration: none;
+    }
+
+
+
+    /* 장바구니 모달창*/
+
+    #cartPut .cart_result, #cartPut .cart_option.off, #cartPut .cart_option .tit_cart, #cartPut .cart_option .box_select, #cartPut .cart_option .bar_open, #cartPut .cart_option .view_function {
+        display: none;
+    }
+
+    #cartPut .cart_type3 {
+        position: fixed;
+        z-index: 9999;
+        left: 50%;
+        top: 50%;
+        width: 440px;
+        max-height: 600px;
+        margin-left: -220px;
+        border-radius: 12px;
+        background-color: #fff;
+        -webkit-transform: translate(0,-50%);
+        -ms-transform: translate(0,-50%);
+        transform: translate(0,-50%);
+    }
+
+    #cartPut .cart_option {
+        background-color: #fff;
+    }
+
+    #cartPut * {
+        font-family: noto sans;
+        color: #333;
+        letter-spacing: 0;
+    }
+
+
+    #cartPut .cart_type3 .inner_option {
+        padding: 0 30px;
+    }
+
+    #cartPut .cart_type3 .btn_close1 {
+        display: none;
+    }
+
+    .cart_modal_footer {
+        display: flex;
+        align-items: center;
+        padding: 20px 0 30px;
+    }
+
+    #cartPut .cart_type3 .base_button.half {
+        width: 50%;
+    }
+
+    #cartPut .base_button {
+        width: 432px;
+        height: 56px;
+        border: none;
+        border-radius: 3px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: normal;
+        color: #fff;
+        background-color: #DA291C;
+        border: 1px solid #DA291C;
+        cursor: pointer;
+    }
+
+    .cart_modal_footer button:not(:first-of-type) {
+        margin-left: 8px;
+    }
+
+    button {
+        outline: none;
+    }
+
+    #cartPut .cart_type3 .list_goods {
+        width: 380px;
+    }
+
+
+
+    #cartPut .cart_type3 .list_nopackage {
+        padding-top: 30px;
+        min-height: 148px;
+    }
+
+    #cartPut .cart_type3 .list {
+        overflow: hidden;
+        overflow-y: auto;
+        width: 400px;
+        max-height: 355px;
+        min-height: 120px;
+    }
+
+    #cartPut .cart_option .list {
+        overflow: hidden;
+        padding-bottom: 1px;
+        margin-left: -16px;
+    }
+
+    #cartPut .cart_type3 .list_nopackage li {
+        border: 0;
+    }
+
+    #cartPut .cart_type3 .list li {
+        width: 380px;
+        padding: 11px 0;
+        border-bottom: 1px solid #f4f4f4;
+    }
+
+
+
+    #cartPut .cart_option .list .btn_position {
+        display: block;
+        position: relative;
+    }
+
+    #cartPut .cart_type3 .list .name {
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+
+    #cartPut .cart_option .list .name {
+        display: block;
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: -.6px;
+        font-weight: 500;
+    }
+
+    #cartPut .cart_type3 .list .option {
+        padding-top: 7px;
+    }
+
+    #cartPut .cart_option .list .option {
+        overflow: hidden;
+    }
+
+    #cartPut .cart_option .list .btn_del {
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        top: -1px;
+        width: 24px;
+        height: 24px;
+        border: 0;
+        background: url(https://res.kurly.com/pc/ico/2010/ico_cartput_del_24x25.svg) no-repeat 50% 50%;
+        background-size: 24px 25px;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -9999px;
+    }
+
+
+
+    #cartPut .cart_option .list .count {
+        overflow: hidden;
+        float: left;
+        width: 88px;
+        height: 30px;
+        border: 1px solid #dddfe1;
+        border-radius: 3px;
+    }
+
+    #cartPut .cart_type3 .list .price {
+        float: left;
+        padding: 7px 0 0;
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+
+    #cartPut .cart_option .list .price {
+        font-weight: 700;
+        text-align: right;
+    }
+
+    #cartPut .cart_option .list .down.on {
+        background-image: url(https://res.kurly.com/pc/ico/2010/ico_minus_on.svg);
+    }
+
+    #cartPut .cart_option .list .down {
+        background: #fff url(https://res.kurly.com/pc/ico/2010/ico_minus.svg) no-repeat 50% 50%;
+        background-size: 30px 30px;
+    }
+
+    #cartPut .cart_option .list .btn {
+        overflow: hidden;
+        float: left;
+        width: 28px;
+        height: 28px;
+        border: 0;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -9999px;
+    }
+
+    #cartPut .cart_option .list .inp {
+        float: left;
+        width: 30px;
+        height: 30px;
+        margin-right: -1px;
+        padding: 0 0 4px;
+        border: 0;
+        background-color: #fff;
+        font-size: 14px;
+        color: #000;
+        line-height: 18px;
+        text-align: center;
+    }
+
+    #cartPut .cart_option .list .up.on {
+        background-image: url(https://res.kurly.com/pc/ico/2010/ico_plus_on.svg);
+    }
+
+    #cartPut .cart_option .list .up {
+        float: right;
+        margin-left: -1px;
+        background: #fff url(https://res.kurly.com/pc/ico/2010/ico_plus.svg) no-repeat 50% 50%;
+        background-size: 30px 30px;
+    }
+
+    #cartPut .cart_type3 .list .dc_price {
+        padding-right: 4px;
+        font-weight: 800;
+    }
+
+    #cartPut .cart_option .total .price {
+        overflow: hidden;
+        text-align: right;
+    }
+
+    #cartPut .cart_type3 .total .txt_point {
+        padding-top: 6px !important;
+        margin-bottom: 0;
+    }
+
+    #cartPut .cart_option .total .txt_point {
+        display: block;
+        padding-top: 14px;
+        font-size: 14px;
+        color: #666;
+        line-height: 20px;
+        text-align: right;
+    }
+
+    #cartPut .cart_type3 .total .tit {
+        float: left;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -.67px;
+        vertical-align: 0;
+    }
+
+    #cartPut .cart_option .total .tit {
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 20px;
+        vertical-align: 2px;
+    }
+
+    #cartPut .cart_type3 .total .sum {
+        float: right;
+        margin-top: -1px;
+    }
+
+    #cartPut .cart_type3 .total .num {
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: -1px;
+    }
+
+    #cartPut .cart_option .total .num {
+        padding-left: 8px;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    #cartPut .cart_type3 .total .won {
+        padding-left: 0;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -.67px;
+        vertical-align: 3px;
+    }
+
+    #cartPut .cart_option .total .won {
+        padding-left: 2px;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 20px;
+        vertical-align: -1px;
+    }
+
+    #cartPut .base_button.cancel {
+        color: #333 !important;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+
+    .bg_loading {
+        position: fixed;
+        z-index: 9998;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: .5;
+    }
+
+    .dontHesitate{
+        /*display:none;*/
+    }
+
+    .secondLastBox{
+        display:none;
+    }
+
+    .loading_show {
+        position: fixed;
+        z-index: 10000;
+        top: 50%;
+        left: 50%;
+        margin: -16px 0 0 -16px;
+        width: 32px;
+        height: 32px;
+        background: url(https://res.kurly.com/pc/img/1909/img_loading_128x128.gif) no-repeat 50% 50%;
+        background-size: 16px 16px;
+    }
+
+    #cartPut .cart_type3 .list .btn_position {
+        display: none;
+    }
+
+    #cartPut .cart_type3 .list .count {
+        float: right;
+        margin-right: 18px;
+    }
+
+    .secondBanner {
+
+        margin-bottom: 10px;     margin-top: 168px;
+    }
+
+    .mainNew {
+        width: 192px;    }
+
+    .mainNewBox {
+        margin-left: 24px;
+    }
+
+    p.mainNewTxtTitle {
+        width: 145px;
+    }
+
+    .mainNewBox2{
+        margin-left: 24px !important;
+    }
+
+    .gnb_sub {
+        top: 105px !important;
+    }
+
+    ul.gnb_menu.cate {
+        height: 452px;
+    }
+
+    .mainNew {
+        height: 380px;
+    }
+
+}
+
+
+
+/*-----------------------------------------------반응형 끝*/
+
+
+

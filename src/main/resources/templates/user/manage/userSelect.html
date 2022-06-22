@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+    <link rel="stylesheet" href="/front/assets/css/user/userSelect.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>라스트프레시 | 회원가입 구분</title>
+</head>
+
+<body>
+<th:block th:insert="/fragments/headerWithout.html :: headWithoutFragment"/>
+
+<div class="data_method">
+    <form th:action="@{/user/manage/userSelect}" th:method="post" name="selectForm">
+        <th:block th:if="${userKakao}">
+            <input type="hidden" name="userKakao" th:value="${userKakao}">
+        </th:block>
+        <div class="toggleBtn">
+            <h2 class="tit_section" id="titFocusMethod">회원가입 구분</h2>
+            <a class="open-icon" href="#">
+                <img src="https://res.kurly.com/mobile/ico/2106/ico_drop_up.svg">
+            </a>
+        </div>
+        <div class="joinBox">
+            <table class="goodsinfo_table tbl_left before">
+                <tbody>
+                <tr class="joinControl">
+                    <!--            <th style="margin-top: 10px;">회원가입 선택</th>-->
+                    <td>
+                        <div class="radio-group">
+                            <input type="radio" id="card" name="selector" value="일반회원"><label for="card" class="myLabel" style="background-color:#DA291C ; color:white;">일반회원</label>
+                            <input type="radio" id="bank" name="selector" value="판매자"><label for="bank" class="myLabel">판매자</label>
+                            <input type="radio" id="phone" name="selector" value="라이더"><label for="phone" class="myLabel">라이더</label>
+                        </div>
+                    </td>
+                    <td class="txt_notice" colspan="2">
+                        <div class="joinComent">
+                            <ul>
+                                <li class="noticeLi" style="margin-top: 79px; font-size: 14px"> 원하시는 회원 유형을 선택 후 가입하기 버튼을 눌러주세요</li>
+                                <li class="noticeLi" style="margin-top: -54px; font-size: 22px">※ LastFresh에 오신것을 환영합니다.</li>
+                            </ul>
+                            <div style="clear:both; margin-bottom: -13px;"></div>
+                            <div class="buyBtn" style="text-align: center; margin: 0 auto; font-size:15px">
+                                <input type="submit" value="가입하기" onclick="sendSelect()" class="btn_payment">
+                            </div>
+                        </div>
+                        <div class="join_note main_bg">
+                            <img src="https://cdn.discordapp.com/attachments/969471931575320587/974129929711149056/20220512_104802.png" alt="">
+                            <div>
+                                <h4 class="tit">회원가입 유의사항</h4>
+                                <p class="tit_in">LastFresh의 서비스를 사용하기 원하시면 회원가입을 이어서 진행해주세요 </p>
+                            </div>
+                        </div>
+                        <!--                <div class="global_txt">-->
+                        <!--                    <p style="margin-left: 41px;">-->
+                        <!--                        You can also join us at our English/Chinese page!<br> <span class="cn">您还可以在英文/中文网站注册!</span>-->
+                        <!--                    </p>-->
+                        <!--                    <p class="btn_zone">-->
+                        <!--                        <a href="#" class="bg_area main_bg btn">ENGLISH</a>-->
+                        <!--                        <a href="#" class="bg_area main_bg btn cn">中文</a>-->
+                        <!--                    </p>-->
+                        <!--                </div>-->
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
+<th:block th:insert="/fragments/footerWithout.html :: footWithoutFragment"/>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--th문을 console로 뽑을때 쓰는 문법-->
+<script th:inline="javascript">
+    let userkakao =[[${userKakao}]];
+    console.log(userkakao);
+</script>
+<script src="/front/assets/js/user/userSelect.js"></script>
+
+</html>

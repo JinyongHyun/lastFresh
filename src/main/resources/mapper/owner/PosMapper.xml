@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lastfresh.mapper.owner.PosMapper">
+    <select id="getPreparingList" resultType="posDTO">
+        select tbp.BILL_PRODUCT_LIST_NUM, tbp.SELL_PRODUCT_NUM, tbp.BILL_ORDER_NUM,
+        tbp.USER_NUM as USER_NUM, tbp.BILL_PRODUCT_QUANTITY, tbp.BILL_PRODUCT_PRICE,
+        tbp.BILL_DELIVERY_METHOD, tbp.BILL_STATUS, tbp.BILL_COOKING_TIME,
+        tsp.USER_NUM as SELL_USER_NUM, DATE_FORMAT(tb.BILL_ORDER_DATE,'%Y-%m-%d') as Bill_ORDER_DATE,
+        DATE_FORMAT(tb.BILL_ORDER_DATE,'%H:%i') as Bill_ORDER_DATE_TIME, tb.BILL_DELIVERY_ADDRESS,
+        tb.BILL_DELIVERY_ADDRESS_DETAIL, tb.BILL_DELIVERY_ADDRESS_POST_NUM, tsp.SELL_PRODUCT_NAME,
+        tu.USER_PHONE, tsp.SELL_PRODUCT_DELIVERY_METHOD, tsp.SELL_PRODUCT_SHIPPING_METHOD,
+        tsp.SELL_PRODUCT_PICKUP
+        from tbl_bills_product tbp
+        left join tbl_sell_product tsp
+        on tbp.SELL_PRODUCT_NUM = tsp.SELL_PRODUCT_NUM
+        left join TBL_BILLS tb
+        on tbp.BILL_ORDER_NUM = tb.BILL_ORDER_NUM
+        left join tbl_user tu
+        on tb.USER_NUM = tu.USER_NUM
+        <if test="billStatus.status1 != null">
+            where tbp.BILL_STATUS = 0
+        </if>
+        <if test="billStatus.status2 != null">
+            where tbp.BILL_STATUS = 1 OR tbp.BILL_STATUS = 2 OR tbp.BILL_STATUS = 4
+        </if>
+        <if test="billStatus.status3 != null">
+            where tbp.BILL_STATUS = 3 OR tbp.BILL_STATUS = -1
+        </if>
+        and tsp.USER_NUM = #{userNum}
+        ORDER BY 1 DESC limit #{criteria.limit}, 4
+    </select>
+    
+    <select id="getTotalPreparing" resultType="_int">
+        select count(tbp.BILL_PRODUCT_LIST_NUM)
+        from tbl_bills_product tbp
+        left join tbl_sell_product tsp
+        on tbp.SELL_PRODUCT_NUM = tsp.SELL_PRODUCT_NUM
+        <if test="billStatus.status1 != null">
+            where tbp.BILL_STATUS = 0
+        </if>
+        <if test="billStatus.status2 != null">
+            where tbp.BILL_STATUS = 1 OR tbp.BILL_STATUS = 2 OR tbp.BILL_STATUS = 4
+        </if>
+        <if test="billStatus.status3 != null">
+            where tbp.BILL_STATUS = 3 OR tbp.BILL_STATUS = -1
+        </if>
+        and tsp.USER_NUM = #{userNum}
+    </select>
+
+    <!--주문 접수-->
+    <update id="updateBillStatus">
+        UPDATE TBL_BILLS_PRODUCT
+        SET BILL_COOKING_TIME = #{billCookingTime}, BILL_STATUS = 1
+        WHERE BILL_PRODUCT_LIST_NUM = #{billProductListNum}
+    </update>
+
+    <!--픽업 접수-->
+    <update id="updateBillStatusPickUp">
+        UPDATE TBL_BILLS_PRODUCT
+        SET BILL_STATUS = 3
+        WHERE BILL_PRODUCT_LIST_NUM = #{billProductListNum}
+    </update>
+
+    <!-- 자가라이더시 준비중 클릭 -> 배송중 -->
+    <update id="updateBillStatusSelfReady">
+        UPDATE TBL_BILLS_PRODUCT
+        SET BILL_STATUS = 2
+        WHERE BILL_PRODUCT_LIST_NUM = #{billProductListNum}
+    </update>
+
+    <!--주문 취소-->
+    <update id="updateBillStatusCancel">
+        UPDATE TBL_BILLS_PRODUCT
+        SET BILL_STATUS = -1
+        WHERE BILL_PRODUCT_LIST_NUM = #{billProductListNum}
+    </update>
+
+    <!--상품 재고 복귀-->
+    <update id="updateSellStatusRestore">
+        UPDATE TBL_SELL_PRODUCT
+        SET SELL_PRODUCT_STATUS = 0, SELL_PRODUCT_STOCK = SELL_PRODUCT_STOCK + #{billProductQuantity}
+        WHERE SELL_PRODUCT_NUM = #{sellProductNum}
+    </update>
+
+    <!--유저넘버, 상품 넘버 가져오기 BY 주문 상품 넘버-->
+    <select id="getUserNumAndSellProductNumByBillProductNum" resultType="BillProductDTO">
+        SELECT tb.USER_NUM as userNum, sell_product_num
+        FROM tbl_bills_product tbp
+        join tbl_bills tb
+        on tbp.BILL_ORDER_NUM = tb.BILL_ORDER_NUM
+        WHERE BILL_PRODUCT_LIST_NUM = #{billProductListNum}
+    </select>
+</mapper>

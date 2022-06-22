@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>라스트프레시 | 아이디 찾기</title>
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+    <link rel="stylesheet" href="/front/assets/css/user/userFindId.css">
+</head>
+<body>
+<th:block th:insert="/fragments/header.html :: headFragment"/>
+<div class="wrapper">
+    <div class="title">아이디 찾기</div>
+    <div class="find_box">
+        <div class="verificationText">
+            <button selected="" type="button" class="hp_verification" onclick="showphonediv()">휴대폰 인증</button>
+            <button type="button" class="email_verification" onclick="showemaildiv()">이메일 인증</button>
+        </div>
+        <form class="sendInfo">
+            <div class="css-1blp8ou el059co3">
+                <div class="Id_box">
+                    <label for="id" class="Id_label">이름</label>
+                    <div class="input_wrapper">
+                        <input type="text" data-testid="input-box" id="id" name="id" value="" placeholder="이름을 입력해 주세요" class="input_info">
+                        <span id="result" style="font-size:0.7em"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="css-1blp8ou el059co3">
+                <div class="Id_box phone_box">
+                    <label for="phone" class="Id_label">휴대폰 번호</label>
+                    <div class="input_wrapper">
+                        <input type="tel" data-testid="input-box" id="phone" name="phone" value="" placeholder="휴대폰 번호를 입력해 주세요" class="input_info">
+                        <span id="result_phone" style="font-size:0.7em"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="css-1blp8ou el059co3">
+                <div class="email_box" style="padding-bottom: 12px; margin-top: 10px;">
+                    <label for="phone" class="Id_label">이메일</label>
+                    <div class="input_wrapper">
+                        <input type="tel" data-testid="input-box" value="" id="input_email" placeholder="이메일을 입력하세요" class="input_info">
+                        <span id="result_email" style="font-size:0.7em"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="authentication_number">
+                <!--  <div class="css-1blp8ou el059co3" id="el059co3" style="display: none">
+                      <div class="input_wrapper" id="certified">
+                          <input type="tel" data-testid="input-box" id="inputCertifiedNumber" name="phone" value="" placeholder="인증번호 입력" class="input_info">
+                      </div>
+                  </div>-->
+                <div class="css-1blp8ou el059co3" id="el059co4" style="display: none">
+                    <div class="input_wrapper" id="certified1">
+                        <input type="tel" data-testid="input-box" id="inputCertifiedPhone" name="phone" value="" placeholder="인증번호 입력" class="input_info">
+                    </div>
+                </div>
+                <!--<div class="accept_wrapper check1">
+                    <p class="accept_button email_box" type="submit" disabled="" radius="4">
+                        <span class="accept_text">확인</span>
+                    </p>
+                </div>-->
+                <div class="accept_wrapper check" id="check">
+                    <p class="accept_button phone_box" type="button" disabled="" radius="4">
+                        <span class="accept_text">확인</span>
+                    </p>
+                </div>
+            </div>
+            <!-- <div class="css-1blp8ou el059co3">
+                 <div class="input_wrapper" id="findId" style="display: none">
+                     <input type="tel" data-testid="input-box" id="findId_css1" value="dge04200" placeholder="" class="input_info">
+                 </div>
+             </div>
+             <div class="css-1blp8ou el059co3">
+                 <div class="input_wrapper" id="findId1" style="display: none">
+                     <p type="tel" data-testid="input-box"  id="findId_css" class="input_info">
+                     </p>
+                 </div>
+             </div>-->
+
+            <div class="accept_wrapper" id="emailCheck" style="display: block">
+                <p class="accept_button email_box"  type="submit" disabled="" radius="4">
+                    <span class="accept_text">확인</span>
+                </p>
+            </div>
+            <div class="accept_wrapper" id="phoneCheck" onclick="find1()" style="display: block">
+                <p class="accept_button phone_box" type="submit" disabled="" radius="4">
+                    <span class="accept_text">인증번호 받기</span>
+                </p>
+            </div>
+
+        </form>
+        <div class="bg_loading" id="bgLoading" style="display: none;">
+            <div class="loading_show"></div>
+        </div>
+    </div>
+    <div class="cartPut"> <!-- 아이디 수정해주세요 : CSS 주의-->
+        <div class="cart_option1 cartList cart_type3 off" style="opacity: 0;">
+            <div class="region_select modal">
+                <div class="css-140915z e1lv8394">
+                    <div class="css-6mht10 e1lv8393">
+                        <div class="css-1ymrnwr e1lv8392">
+                            고객님의 LastFresh 계정을 찾았습니다.
+                            <div class="css-1jlgal3 e1lv8391">아이디 확인 후 로그인해 주세요.</div>
+                        </div>
+                        <ul class="css-14o5m2r ewnnxio4">
+                            <li class="css-1qp8f6i ewnnxio3">
+                                <img class="css-ate73y e1raycba0" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxjaXJjbGUgZmlsbD0iI0Y1RjVGNSIgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIi8+CiAgICAgICAgPHBhdGggZD0iTTIwIDE5YzQuNjUzIDAgOC41IDMuNDc2IDguNSA3LjcyIDAgLjQzLS4zNDYuNzgtLjc3My43OEgxMi4yNzNhLjc3Ni43NzYgMCAwIDEtLjc3My0uNzhjMC00LjI4NSAzLjgyNC03LjcyIDguNS03Ljcyem0wLTguNWEzLjQgMy40IDAgMSAxIDAgNi44IDMuNCAzLjQgMCAwIDEgMC02Ljh6IiBzdHJva2U9IiNDQ0MiIGZpbGw9IiNDQ0MiLz4KICAgIDwvZz4KPC9zdmc+Cg==">
+                                <div class="css-yzpdz ewnnxio2">
+                                    <p class="css-1kkr6j1 ewnnxio1" id="findId_css" type="tel"></p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="css-gyfngb e1lv8390">
+                            <a class="css-qsvy0v e4nu7ef2" type="button" href="/user/manage/userFindPw">
+                                <span class="css-1dqhxzp e4nu7ef1">비밀번호 찾기</span>
+                            </a>
+                            <a class="css-hwhn8c e4nu7ef2" type="button" href="/user/manage/userLogin">
+                                <span class="css-1dqhxzp e4nu7ef1">로그인</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:insert="/fragments/footer.html :: footFragment"/>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/front/assets/js/user/userFind.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</html>
+
+
+
+
+

@@ -1,0 +1,420 @@
+/*리뷰 작성*/
+input:focus-visible {
+    outline-offset: 0px;
+}
+*{font-family: 'Noto Sans KR', sans-serif;}
+td, th {
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    border: 0;
+}
+
+img, video, canvas {
+    max-width: 100%;
+}
+
+.page_myPage.myPage_type1 .page_section {
+    float: right;
+    width: 820px;
+}
+
+.page_myPage .head_aticle {
+    padding: 5px 0 34px;
+}
+
+.page_myPage .head_aticle .tit {
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+
+.head_section.layer_type {
+    position: relative;
+}
+
+.section_write .layer_type .link a {
+    overflow: hidden;
+    position: absolute;
+    right: 9px;
+    top: -30px;
+    padding-right: 15px;
+    background: url(https://res.kurly.com/pc/ico/1806/ico_question.png) no-repeat 100% 4px;
+    font-size: 12px;
+    color: #949296;
+    line-height: 20px;
+}
+
+.section_write .layer {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: -30px;
+    width: 432px;
+    height: 383px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px 0 #dddfe1;
+}
+
+.section_write .tit_layer {
+    font-size: 16px;
+    font-weight: 700;
+    color: #666;
+    line-height: 24px;
+}
+
+.section_write .desc_layer {
+    padding-top: 20px;
+    font-size: 12px;
+    color: #666;
+    line-height: 22px;
+}
+
+.section_write .list_layer {
+    padding-top: 22px;
+}
+
+.section_write .list_layer li {
+    font-size: 14px;
+    color: #666;
+    line-height: 22px;
+}
+
+.section_write .layer .btn_ok {
+    display: block;
+    width: 150px;
+    height: 34px;
+    margin: 14px auto 0;
+    border: 0;
+    background-color: #DA291C;
+    font-size: 14px;
+    color: #fff;
+    line-height: 32px;
+    letter-spacing: -.3px;
+}
+
+.section_write .layer .btn_close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 17px;
+    height: 17px;
+    border: 0;
+    background: url(https://res.kurly.com/pc/ico/1806/ico_layer_close.png) no-repeat 0 0;
+}
+
+.section_write .goods_info {
+    overflow: hidden;
+    padding: 20px 15px;
+    border-top: 2px solid #333;
+}
+
+.section_write .goods_info .thumb {
+    float: left;
+    width: 80px;
+    margin-right: 25px;
+}
+
+.section_write .goods_info .desc {
+    display: table;
+    height: 104px;
+    vertical-align: middle;
+}
+
+.section_write .goods_info .desc .inner_desc {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.section_write .goods_info .name_main {
+    padding-top: 4px;
+    font-size: 16px;
+    color: #000;
+    line-height: 24px;
+}
+
+.section_write .write_board .tbl {
+    border-bottom: 1px solid #dddfe1;
+}
+
+.page_myPage .tbl {
+    width: 100%;
+}
+
+.section_write .write_board th {
+    border-top: 1px solid #dddfe1;
+    background-color: #f7f7f7;
+    font-size: 12px;
+    color: #666;
+}
+
+.section_write .write_board td {
+    padding: 10px 0 10px 10px;
+    border-top: 1px solid #dddfe1;
+}
+
+.section_write .write_board .inp {
+    width: 100%;
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid #dddfe1;
+    font-size: 12px;
+    color: #000;
+    line-height: 18px;
+    outline: none;
+}
+
+.section_write .write_board .inp.on {
+    border: 1px solid #514859;
+}
+
+.section_write .write_board .field_cmt {
+    padding: 8px 10px 9px;
+    border: 1px solid #dddfe1;
+}
+
+.section_write .write_board .field_cmt.on {
+    border: 1px solid #514859;
+}
+
+.section_write .write_board textarea {
+    overflow: hidden;
+    width: 100%;
+    min-height: 202px;
+    border: 0;
+    resize: none;
+    font-size: 12px;
+    color: #000;
+    line-height: 18px;
+    outline: none;
+}
+
+.section_write .write_board .txt_count {
+    font-size: 12px;
+    color: #949296;
+    line-height: 18px;
+    text-align: right;
+}
+
+.section_write .write_board .photo_add {
+    padding-right: 100px;
+    height: 100px;
+}
+
+.section_write .write_board .btn_upload {
+    position: relative;
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 10px 0;
+    border: 1px solid #dddfe1;
+}
+
+.section_write .write_board .file_upload {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.section_write .write_board .file_count {
+    position: relative;
+}
+
+.section_write .write_board .file_count .txt_count {
+    position: absolute;
+    right: 11px;
+    top: 0;
+}
+
+.section_write .write_board .photo_notice {
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+}
+
+.section_write .btn_reg.btn_disabled {
+    border: 1px solid #DA291C;
+    background-color: #fff;
+    color: #DA291C;
+}
+
+.section_write .btn_reg {
+    display: block;
+    width: 200px;
+    height: 48px;
+    margin: 0 auto;
+    border: 1px solid #DA291C;
+    background-color: #DA291C;
+    font-size: 14px;
+    color: #fff;
+    line-height: 46px;
+    margin-top: 50px;
+}
+
+.page_aticle .tbl th, .page_aticle .tbl td {
+    word-break: break-all;
+}
+.btnIcon{
+    display: block;
+    -webkit-user-select: none;
+    margin: 27px auto;
+    transition: background-color 300ms;
+    height: 28px;
+}
+@media screen and (max-width: 1000px) {
+    .link_back {
+        left: 0;
+        top: 0;
+        width: 150px;
+        height: 90px;
+        background: url(https://res.kurly.com/mobile/service/common/2006/ico_navi_back.svg?v=1) no-repeat 6px 81%;
+        background-size: 134px 141px;
+    }
+
+    .head_aticle {
+        display: flex;
+        font-size: 31px;
+        padding: 0px !important;
+    }
+
+    .section_review .tab_menu {
+        overflow: inherit;
+    }
+
+    .section_review .list_before {
+        padding-top: 69px;
+    }
+
+    .page_myPage.myPage_type1 .page_section {
+        width: 100%;
+    }
+
+    .page_myPage .head_aticle .tit {
+        height: 36px;
+        font-weight: 700;
+        font-size: 57px;
+        line-height: 36px;
+        color: #333;
+        letter-spacing: -.5px;
+        padding: 13px 0 0 261px;
+    }
+
+    .page_myPage.myPage_type1 {
+        padding-top: 44px;
+    }
+
+    .thumb {
+        display: none;
+    }
+
+    .name_main {
+        font-weight: bold !important;
+        font-size: 36px !important;
+    }
+
+    th {
+        display: none;
+    }
+
+    .section_write .write_board .inp {
+        height: 117px;
+        font-size: 45px;
+    }
+
+    .section_write .write_board textarea {
+        width: 100%;
+        font-size: 33px;
+        line-height: 69px;
+        height: 642px;
+    }
+
+    .page_myPage .tbl {
+        width: 99%;
+    }
+
+    .section_write .goods_info {
+        overflow: hidden;
+        padding: 20px 15px;
+        border-top: 8px solid #ff786e;
+    }
+
+    .section_write .write_board .txt_count {
+        padding: 0 13px 23px 0;
+    }
+
+    .snb_my {
+        display: none;
+        font-size: 29px;
+    }
+
+    .section_write .write_board .txt_count {
+        font-size: 32px;
+    }
+
+    .section_write .write_board .photo_notice {
+        font-size: 32px;
+        color: #666;
+        line-height: 67px;
+        margin: 266px 0 0 0;
+        padding: 0 16px 0 16px;
+    }
+
+    .section_write .write_board .btn_upload {
+        width: 260px;
+        height: 260px;
+    }
+
+    .head_section.layer_type {
+        display: none;
+    }
+
+    .photo_add {
+        display: inline;
+    }
+
+    .btnIcon {
+        display: block;
+        -webkit-user-select: none;
+        margin: 99px auto;
+        transition: background-color 300ms;
+        height: 63px;
+    }
+    .section_write .btn_reg {
+        display: block;
+        width: 95%;
+        height: 148px;
+        margin: 0 auto;
+        border: 1px solid #DA291C;
+        background-color: #ff786e !important;
+        font-size: 61px;
+        font-weight: bold;
+        color: #fff !important;
+        line-height: 46px;
+        margin-top: 80px;
+    }
+}
+textarea::placeholder {
+    color: #aaaaaa;
+}
+
+text::placeholder {
+    color: #aaaaaa;
+}

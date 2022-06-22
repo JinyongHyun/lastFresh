@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lastfresh.mapper.user.ReviewMapper">
+    <insert id="insert">
+        INSERT INTO TBL_REVIEW
+        (SELL_PRODUCT_NUM, USER_NUM, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_DATE)
+        VALUES(#{productNum}, #{userNum}, '', '', now())
+    </insert>
+
+    <select id="getUnWritten" resultType="reviewVO">
+        SELECT * FROM TBL_REVIEW
+        WHERE REVIEW_TITLE = "" AND USER_NUM=#{userNum}
+    </select>
+
+    <select id="getWritten" resultType="reviewVO">
+        SELECT * FROM TBL_REVIEW
+        WHERE REVIEW_TITLE != "" AND USER_NUM=#{userNum}
+    </select>
+
+    <update id="update">
+        UPDATE TBL_REVIEW
+        SET REVIEW_TITLE=#{reviewTitle}, REVIEW_CONTENT=#{reviewContent}, REVIEW_DATE=now()
+        WHERE REVIEW_NUM=#{reviewNum}
+    </update>
+
+    <delete id="delete">
+        delete from TBL_REVIEW
+          WHERE REVIEW_NUM=#{reviewNum}
+    </delete>
+
+    <select id="readReview" resultType="ReviewVO">
+        SELECT REVIEW_NUM, SELL_PRODUCT_NUM, USER_NUM, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_DATE
+        FROM TBL_REVIEW
+        WHERE REVIEW_NUM = #{reviewNum}
+    </select>
+
+    <select id="getReviewList" resultType="ReviewDTO">
+        SELECT
+          T.*, U.USER_ID
+        FROM  TBL_REVIEW T
+        inner join tbl_user U
+        on U.USER_NUM = T.USER_NUM
+        WHERE SELL_PRODUCT_NUM = #{sellProductNum} and REVIEW_TITLE!=''
+        ORDER BY REVIEW_NUM desc
+         limit #{criteriaProduct.limit},6
+    </select>
+    <!--    <delete id="delete">-->
+    <!--    </delete>-->
+
+    <!--    <update id="update">-->
+    <!--    </update>-->
+
+
+    <select id="getTotal" resultType="_int">
+        SELECT COUNT(SELL_PRODUCT_NUM) FROM TBL_REVIEW WHERE SELL_PRODUCT_NUM = ${sellProductNum}
+    </select>
+</mapper>

@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>라스트프레시 | 메인페이지</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/front/assets/css/main.css">
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+    <link rel="stylesheet" href="/front/assets/css/main/mainLastFresh.css">
+</head>
+<style>
+
+    #navMOBILE ul {
+        padding: 10px 0 !important;
+    }
+
+    .myLi a {
+        color: #333;
+    }
+</style>
+<body class="homepage is-preload">
+<th:block th:insert="/fragments/header.html :: headFragment"/>
+
+<div id="page-wrapper">
+
+    <!-- header -->
+
+    <!-- 슬라이더 배너-->
+    <section id="siderBanner">
+        <div class="slidebox">
+            <input type="radio" name="slide" id="slide01" checked>
+            <input type="radio" name="slide" id="slide02">
+            <input type="radio" name="slide" id="slide03">
+            <input type="radio" name="slide" id="slide04">
+            <ul class="slidelist">
+                <li class="slideitem">
+                    <div>
+                        <label for="slide04" class="left"></label>
+                        <label for="slide02" class="right"></label>
+                        <a><img src="https://img-cf.kurly.com/banner/main/pc/img/9cac0ce1-b86c-467e-9d85-1239eb11de4e"></a>
+                    </div>
+                </li>
+                <li class="slideitem">
+                    <div>
+                        <label for="slide01" class="left"></label>
+                        <label for="slide03" class="right"></label>
+                        <a><img src="https://cdn.discordapp.com/attachments/733016627054116960/973559551762780180/-_-001_15.png"></a>
+                    </div>
+                </li>
+                <li class="slideitem">
+                    <div>
+                        <label for="slide02" class="left"></label>
+                        <label for="slide04" class="right"></label>
+                        <a><img src="https://cdn.discordapp.com/attachments/733016627054116960/973558700935618610/-_-001_12.png"></a>
+                    </div>
+                </li>
+                <li class="slideitem">
+                    <div>
+                        <label for="slide03" class="left"></label>
+                        <label for="slide01" class="right"></label>
+                        <a><img src="https://cdn.discordapp.com/attachments/733016627054116960/973552860795133992/-_-001_5.png"></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Main -->
+    <section id="main">
+        <input type="hidden" th:value="${newListPercents}"/>
+        <input type="hidden" th:value="${saleListPercents}"/>
+        <input type="hidden" th:value="${bestReviewListPercents}"/>
+        <div class="mainWrapper">
+            <!-- 신상품 -->
+            <div class="newProduct">
+                <div class="wrapper">
+                    <a href="/product/proNew" style="text-decoration: none;"><h2 class="mainTitle">새로 들어온 상품</h2>
+                        <img class="titleBtn"
+                             src="https://s3.ap-northeast-2.amazonaws.com/res.kurly.com/kurly/ico/2021/arrow_title_32_32.svg"></a>
+                </div>
+                <!-- 신상품 목록 -->
+                <div class="newPro">
+                    <div class="mainNew wrapperMain" th:each="product:${newList}">
+                        <div class="mainNewBox" th:object="${product}">
+                            <p class="pno" type="hidden" style="display:none" th:text="*{sellProductNum}"/>
+                            <p class="stocks" type="hidden" style="display:none" th:text="*{sellProductStock}"/>
+                            <p class="pickUpStatus" type="hidden" style="display:none" th:text="*{sellProductPickup}"/>
+                            <p class="deliveryStatus" type="hidden" style="display:none" th:text="*{sellProductDeliveryMethod}"/>
+                            <p class="shippingStatus" type="hidden" style="display:none" th:text="*{sellProductShippingMethod}"/>
+                            <a class="imgBox" th:href="@{/product/proDetail(sellProductNum=*{sellProductNum})}">
+                                <img class="mainNewImg"
+                                     th:src="'/sell/display?fileName=' + *{sellProductImageUploadPath} + '/' + *{sellProductThumbnail}">
+                            </a>
+                            <a class="toBasket">
+                                <img class="innerCart"
+                                     src="https://cdn.discordapp.com/attachments/969471931575320587/970547008081379378/cart_white_45_45-svg.png">
+                            </a>
+                            <div class="mainNewTxt">
+                                <a class="newATag" th:href="@{/product/proDetail(sellProductNum=*{sellProductNum})}"><p
+                                        class="mainNewTxtTitle productName"
+                                        th:text="*{sellProductName}"></p></a>
+                                <a class="newATag" th:href="@{/product/proDetail(sellProductNum=*{sellProductNum})}">
+                                    <div style="display: flex">
+                                        <span id="percentProduct " class="newListPercent"
+                                              style="color:#FA622F;margin: -1px 7px 0 0;font-weight: bold; font-size: 16px;"></span>
+                                        <p class="mainNewTxtPrice newPrice"
+                                           th:text="|${#numbers.formatInteger(product.sellProductDiscountPrice, 0, 'COMMA')}원|"></p>
+                                        <p class="dcPriceNum"
+                                           style="display: none" type="hidden"
+                                           th:text="*{sellProductDiscountPrice}"/>
+                                    </div>
+                                </a>
+                                <p class="mainNewTxtOriginPrice"
+                                   th:text="|${#numbers.formatInteger(product.sellProductOriginPrice, 0, 'COMMA')}원|"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 미니 배너  -->
+                <div class="miniBanner mini1">
+                    <img style="width: 56em;"
+                         src="https://cdn.discordapp.com/attachments/733016627054116960/973561296752623627/-001_7.png">
+                </div>
+                <!-- 오늘 마감 -->
+                <div class="lastChance">
+                    <div class="mainLastBoxTxt">
+                        <h2 class="mainTitle" style="margin-bottom: 27px;">오늘 마감</h2>
+                        <p class="lastChanceTxt">자정 전까지 한정 특가</p>
+                        <img class="lastIcon"
+                             src="https://cdn.discordapp.com/attachments/969471931575320587/970272217000726578/2022-05-01_7.29.44.png">
+                        <p class="mainNewTxtPrice lastChanceDate" id="lastChanceDate" style="margin-bottom: 35px;"></p>
+                        <p class="lastChanceTxt dontHesitate" style="color:#CCCCCC; font-size:14px;">망설이면 늦어요!</p>
+                    </div>
+
+                    <!-- 오늘 마감 상품 목록 -->
+                    <div class="wrapperMain " th:each="product:${saleList}">
+                        <div class="mainLastBox" th:object="${product}">
+                            <p class="pno" type="hidden" style="display: none" th:text="*{sellProductNum}"/>
+                            <p class="stocks" type="hidden" style="display:none" th:text="*{sellProductStock}"/>
+                            <p class="pickUpStatus" type="hidden" style="display:none" th:text="*{sellProductPickup}"/>
+                            <p class="deliveryStatus" type="hidden" style="display:none" th:text="*{sellProductDeliveryMethod}"/>
+                            <p class="shippingStatus" type="hidden" style="display:none" th:text="*{sellProductShippingMethod}"/>
+                            <a class="imgLastChanceBox imgAll"
+                               th:href="@{/product/proDetail(sellProductNum=*{sellProductNum})}">
+                                <img class="mainNewImg"
+                                     th:src="'/sell/display?fileName=' + *{sellProductImageUploadPath} + '/' + *{sellProductThumbnail}">
+                            </a>
+                            <a class="toBasket">
+                                <img class="innerLatChanceCart"
+                                     src="https://cdn.discordapp.com/attachments/969471931575320587/970547008081379378/cart_white_45_45-svg.png">
+                            </a>
+                            <!-- 오늘 마감 왼쪽 위 라벨 부분 -->
+                            <div class="upLeftLabel">
+                                <div class="sticker">
+                                    <div class="stickerText">일일특가</div>
+                                </div>
+                            </div>
+                            <!--내용-->
+                            <div class="mainLastTxt">
+                                <span class="mainLastDescription" th:text="*{sellProductDescription}"></span>
+                                <a class="newATag" th:href="@{/product/proDetail(sellProductNum=*{sellProductNum})}">
+                                    <p class="mainLastTxtTitle productName" th:text="*{sellProductName}"></p>
+                                </a>
+                                <a class="newATag" th:href="@{/product/proDetail(sellProductNum=*{sellProductNum})}">
+                                    <div style="display: flex;justify-content: space-evenly;width: 230px;margin-left: -13px;">
+                                        <span id="percentProduct saleListPercent"
+                                              style="color:#FA622F;margin: -1px 7px 0 0;font-weight: bold; font-size: 20px;"
+                                              class="saleListPercent"></span>
+                                        <p class="mainLastTxtPrice newPrice"
+                                           th:text="|${#numbers.formatInteger(product.sellProductDiscountPrice, 0, 'COMMA')}원|"></p>
+                                        <p class="dcPriceNum"
+                                           style="display: none" type="hidden"
+                                           th:text="*{sellProductDiscountPrice}"/>
+                                        <span class="mainNewTxtOriginPrice"
+                                              th:text="|${#numbers.formatInteger(product.sellProductOriginPrice, 0, 'COMMA')}원|"></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 미니 배너 -->
+                <div class=" miniBanner">
+                    <img class="secondBanner"
+                         src="https://cdn.discordapp.com/attachments/733016627054116960/973566264649863219/-001_10.png">
+                </div>
+                <!-- 후기 많은 순 -->
+                <div class="newProduct np" style="margin-top:-12px;">
+                    <div class="wrapper">
+                        <h2 class="mainTitle">베스트 후기 상품</h2>
+                    </div>
+
+                    <!-- 신상품 목록 -->
+                    <div class="newPro">
+                        <div class="mainNew wrapperMain" th:each="product:${bestReviewList}">
+                            <div class="mainNewBox" th:object="${product}">
+                                <p class="pno" type="hidden" style="display: none" th:text="*{sellProductNum}"/>
+                                <p class="stocks" type="hidden" style="display:none" th:text="*{sellProductStock}"/>
+                                <p class="pickUpStatus" type="hidden" style="display:none" th:text="*{sellProductPickup}"/>
+                                <p class="deliveryStatus" type="hidden" style="display:none" th:text="*{sellProductDeliveryMethod}"/>
+                                <p class="shippingStatus" type="hidden" style="display:none" th:text="*{sellProductShippingMethod}"/>
+                                <a class="imgBox" th:href="@{/product/proDetail(sellProductNum=*{sellProductNum})}">
+                                    <img class="mainNewImg"
+                                         th:src="'/sell/display?fileName=' + *{sellProductImageUploadPath} + '/' + *{sellProductThumbnail}">
+                                </a>
+                                <a class="toBasket">
+                                    <img class="innerCart"
+                                         src="https://cdn.discordapp.com/attachments/969471931575320587/970547008081379378/cart_white_45_45-svg.png">
+                                </a>
+                                <div class="mainNewTxt">
+                                    <a class="newATag"
+                                       th:href="@{/product/proDetail(sellProductNum=*{sellProductNum})}">
+                                        <p class="mainNewTxtTitle productName" th:text="*{sellProductName}"></p></a>
+                                    <a class="newATag"
+                                       th:href="@{/product/proDetail(sellProductNum=*{sellProductNum})}">
+                                        <div style="display: flex">
+                                            <span id="percentProduct bestReviewListPercent"
+                                                  class="bestReviewListPercent"
+                                                  style="color:#FA622F;margin: -1px 7px 0 0;font-weight: bold; font-size: 16px;"></span>
+                                            <p class="mainNewTxtPrice newPrice"
+                                               th:text="|${#numbers.formatInteger(product.sellProductDiscountPrice, 0, 'COMMA')}원|"></p>
+                                            <p class="dcPriceNum"
+                                               style="display: none" type="hidden"
+                                               th:text="*{sellProductDiscountPrice}"/>
+                                        </div>
+                                    </a>
+                                    <p class="mainNewTxtOriginPrice"
+                                       th:text="|${#numbers.formatInteger(product.sellProductOriginPrice, 0, 'COMMA')}원|"></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal 배경 -->
+            <div class="bg_loading" id="bgLoading" style="display: none;">
+                <div class="loading_show"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- aside-->
+
+    <!-- footer -->
+
+</div>
+
+<!-- 장바구니 모달창 -->
+<div id="cartPut" style="display:none;">
+    <div class="cart_option cartList cart_type3" style="opacity: 1;">
+        <form  method="post" action="/main/productToBasket" class="inner_option">
+            <button type="button" class="btn_close1">레이어닫기</button>
+            <div class="in_option">
+                <div class="list_goods">
+                    <ul class="list list_nopackage">
+                        <li class="on">
+							<span class="btn_position">
+								<button type="button" class="btn_del">
+									<span class="txt">삭제하기</span>
+								</button>
+							</span>
+                            <span class="name"></span>
+                            <div class="option">
+								<span class="count">
+									<button type="button" class="btn down on"onclick='count("minus")'
+                                    >수량내리기</button>
+									<input type="number" readonly="readonly" onfocus="this.blur()"  class="inp basketQuantity">
+									<button type="button" class="btn up on"onclick='count("plus")'
+                                    style="    margin-top: -30px;">수량올리기</button>
+								</span>
+                                <span class="price">
+									<span class="dc_price"></span>
+								</span>
+                            </div>
+                            <div class="option">
+                                <span class="receiveMethod">
+									<button type="button" id="pickUpB"
+                                    >픽업</button>
+									<button type="button" id="deliveryB"
+                                    >배달</button>
+                                    <button type="button" id="shippingB"
+                                    >배송</button>
+								</span>
+                                <span class="receiveMethodMsgWrap">
+									<span class="receiveMethodMsg">옵션 선택:</span>
+								</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="total">
+                    <div class="price">
+                        <strong class="tit">합계</strong>
+                        <span class="sum">
+                                <span class="num"></span>원
+                            </span>
+                    </div>
+                    <p class="txt_point">
+                    </p>
+                </div>
+            </div>
+            <div class="cart_modal_footer">
+                <button type="button" class="base_button cancel half"> 취소</button>
+                <button type="submit" class="base_button submit"> 장바구니 담기</button>
+            </div>
+            <input class="fixedHiddenNum"style="display: none" type="hidden"name="basketPrice"/>
+            <input class="stocksHidden"style="display: none" type="hidden"/>
+
+            <input class="basketQuantity"style="display: none" type="hidden"name="basketQuantity"/>
+            <input class="totalMoneyHidden"style="display: none" type="hidden"/>
+            <input class="receiveMethodHidden"style="display: none" type="hidden"name="basketDeliveryMethod"/>
+            <input class="pnoHidden"style="display: none" type="hidden"name="sellProductNum"/>
+        </form>
+    </div>
+</div>
+
+<th:block th:insert="/fragments/footer.html :: footFragment"/>
+</body>
+<!-- Scripts -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+<script src="/front/assets/js/main/main.js"></script>
+<script th:inline="javascript">
+    $(submit).click(function (e) {
+        let receiveMethod=parseInt($(".receiveMethodHidden").val());
+
+        if(receiveMethod == "0") {
+            alert("옵션을 선택해주세요");
+            return false;
+        }
+        console.log("유져"+window.sessionStorage.getItem("userNumber"));
+        let userNumber = [[${userNumber}]];
+        console.log("유저넘버"+userNumber);
+        if(userNumber == null){
+            alert("로그인 후 이용하실 수 있습니다.");
+            return false;
+        }else {
+            alert("장바구니에 상품을 담았습니다.")
+        }
+    });
+
+    //할인률
+    let newListPercents = [[${newListPercents}]];
+    let saleListPercents = [[${saleListPercents}]];
+    let bestReviewListPercents = [[${bestReviewListPercents}]];
+    $(document).ready(function () {
+        $(".newListPercent").each(function (i, item) {
+            $(this).html(newListPercents[i] + "%");
+        });
+        $(".saleListPercent").each(function (i, item) {
+            $(this).html(saleListPercents[i] + "%");
+        });
+        $(".bestReviewListPercent").each(function (i, item) {
+            $(this).html(bestReviewListPercents[i] + "%");
+        });
+    });
+</script>
+</html>

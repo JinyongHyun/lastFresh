@@ -1,0 +1,603 @@
+/*주문 상세 내역*/
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+.page_myPage.myPage_type1 .page_section {
+    float: right;
+    width: 820px;
+}
+.page_myPage .head_aticle {
+    padding: 5px 0 34px;
+}
+.page_myPage .head_aticle .tit {
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+
+
+*{font-family: 'Noto Sans KR', sans-serif;}
+
+#Type {
+    position: relative;
+    padding: 0 0 21px;
+}
+.section_orderview .head_section .tit {
+    font-size: 20px;
+    color: #333;
+    letter-spacing: -.4px;
+}
+.page_myPage .head_section .tit {
+    font-weight: 700;
+    font-size: 16px;
+    color: gray;
+    line-height: 24px;
+}
+.section_orderview .link_type .link {
+    position: absolute;
+    right: 1px;
+    top: 5px;
+    font-size: 12px;
+    color: #666;
+    text-align: right;
+}
+.section_orderview .link_type .link a {
+    padding-right: 11px;
+    background: url(https://cdn.discordapp.com/attachments/969471931575320587/972087200621690880/590706d067c9b9b2.png) no-repeat 100% 50%;
+    background-size: 6px 9px;
+    font-size: 12px;
+    color: #DA291C;
+    line-height: 22px;
+}
+.orders_form {
+    padding: 0 20px;
+    border-top: 2px solid #333;
+}
+.section_orderview .chk_cart {
+    position: absolute;
+    opacity: 0;
+}
+.orders_form table.tbl_type1 {
+    border-top-style: hidden;
+}
+.section_orderview .tbl_type1 {
+    border-top: 2px solid #333;
+}
+.page_myPage .tbl {
+    width: 100%;
+}
+.section_orderview .tbl_type1 .thumb {
+    padding: 25px 0 24px;
+}
+.page_myPage .tbl th, .page_myPage .tbl td {
+    word-break: break-all;
+}
+.section_orderview .tbl_type1 .thumb a {
+    display: block;
+    overflow: hidden;
+    width: 60px;
+    height: 78px;
+    background-color: #f4f4f4;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.section_orderview .tbl_type1 .info {
+    padding: 20px 0;
+}
+.section_orderview .tbl_type1 .name .link {
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+    line-height: 24px;
+}
+.section_orderview .tbl_type1 .desc {
+    padding-top: 9px;
+    line-height: 20px;
+}
+.section_orderview .tbl_type1 .price {
+    padding-right: 5px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333;
+}
+.section_orderview .tbl_type1 .ea {
+    font-size: 14px;
+    color: #333;
+}
+.section_orderview .tbl_type1 .ea:before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 14px;
+    margin-right: 8px;
+    background-color: #ddd;
+    vertical-align: -2px;
+}
+.section_orderview .tbl_type1 .progress .end, .section_orderview .tbl_type1 .progress.end {
+    color: #333;
+}
+.section_orderview .tbl_type1 .progress {
+    font-weight: 700;
+    font-size: 16px;
+    color: #5f0080;
+    line-height: 24px;
+    text-align: right;
+}
+.section_orderview .tbl_type1 .action {
+    padding-left: 40px;
+}
+.section_orderview .tbl_type1 td {
+    border-bottom: 1px solid #f4f4f4;
+}
+.page_myPage .tbl_type1 td {
+    border-top: 1px solid #f4f4f4;
+}
+.section_orderview .tbl_type1 .btn:first-child {
+    margin-top: 0;
+}
+#After {
+    border: 1px solid #ddddde;
+    background-color: #ddddde;
+    color: #fff;
+    cursor: auto;
+}
+.section_orderview .tbl_type1 .btn_cart {
+    border: 1px solid #DA291C;
+    color: #DA291C;
+}
+.section_orderview .tbl_type1 .btn {
+    display: block;
+    width: 96px;
+    height: 36px;
+    margin-top: 8px;
+    border-radius: 3px;
+    background-color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 32px;
+    text-align: center;
+}
+btn{
+    cursor: pointer;
+}
+.section_orderview .order_cancel {
+    padding: 40px 0 0;
+    text-align: center;
+}
+.section_orderview .order_cancel .inner_cancel {
+    display: inline-block;
+    overflow: hidden;
+    padding-left: 12px;
+}
+/*주문취소 가능시 변경스타일*/
+/*#cartPutAll {*/
+/*    border: 1px solid #5f0080;*/
+/*    background-color: #fff;*/
+/*    color: #5f0080;*/
+/*}*/
+.section_orderview .order_cancel .btn {
+    float: left;
+    width: 200px;
+    height: 56px;
+    padding-bottom: 2px;
+    margin-right: 12px;
+    border: 1px solid #DA291C;
+    border-radius: 3px;
+    background-color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+    line-height: 24px;
+}
+.section_orderview .order_cancel .btn.off {
+    color: #DA291C;
+}
+.section_orderview .order_cancel .cancel_notice {
+    padding-top: 39px;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+}
+.section_orderview .order_delivery {
+    padding-top: 65px;
+}
+.section_orderview .order_delivery .tit {
+    font-weight: 700;
+    font-size: 20px;
+    color: #333;
+}
+.section_orderview .order_delivery .list_status {
+    margin-top: 24px;
+    border-top: 2px solid #333;
+}
+.section_orderview .order_delivery li:last-child {
+    padding-bottom: 28px;
+    border-bottom: 1px solid #f4f4f4;
+}
+.section_orderview .order_delivery li {
+    overflow: hidden;
+    padding: 12px 0;
+    font-size: 16px;
+    color: #333;
+    line-height: 24px;
+}
+.section_orderview .order_delivery .subject {
+    float: left;
+    width: 160px;
+}
+.section_orderview .order_delivery .type {
+    color: #666;
+}
+.section_orderview .order_delivery .state {
+    float: left;
+    width: 464px;
+    font-weight: 700;
+    text-align: right;
+}
+.section_orderview .order_delivery .detail {
+    float: right;
+    /*max-width: 172px;*/
+}
+.section_orderview .order_delivery .detail .maker {
+    float: left;
+    width: 100px;
+    color: #999;
+    text-align: right;
+}
+.section_orderview .order_delivery .detail .search {
+    float: right;
+    margin-left: 13px;
+    color: #DA291C;
+    text-decoration: underline;
+}
+.section_orderview .head_section {
+    padding: 57px 0 38px;
+}
+.section_orderview .head_section .tit {
+    font-size: 20px;
+    color: #333;
+    letter-spacing: -.4px;
+}
+.page_myPage .tbl_type2 {
+    border-top: 2px solid #333;
+    border-bottom: 1px solid #f4f4f4;
+}
+.page_myPage .tbl {
+    width: 100%;
+}
+.section_orderview .tbl_type2 tr:first-child th, .section_orderview .tbl_type2 tr:first-child td {
+    padding-top: 24px;
+}
+.section_orderview .tbl_type2 th {
+    padding-bottom: 24px;
+    font-size: 16px;
+    color: #666;
+    line-height: 24px;
+    text-align: left;
+    vertical-align: top;
+}
+.section_orderview .tbl_type3 td {
+    text-align: right;
+}
+.section_orderview .tbl_type2 td {
+    font-size: 16px;
+    color: #333;
+    line-height: 24px;
+    vertical-align: top;
+}
+#Order-header {
+    display: none;
+}
+#orderCancel2 {
+    display: none;
+}
+/*반응형*/
+@media (max-width: 1000px) {
+    /*#viewOrderList{*/
+    /*    display: none !important;*/
+    /*}*/
+    #snb {
+        display: none;
+    }
+    #header {
+        display: block;
+    }
+    .page_myPage .head_aticle .tit {
+        display: none;
+    }
+    .page_myPage.myPage_type1 .page_section {
+        float: right;
+        width: 100%;
+        margin-top: 30px;
+    }
+    #header {
+        position: fixed;
+        z-index: 200;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 73px;
+        background-color: #fff;
+        text-align: center;
+    }
+    #header .logo .tit {
+        display: block;
+        overflow: hidden;
+        padding: 15px 93px 0;
+        font-weight: 600;
+        font-size: 47px;
+        color: #333;
+        line-height: 44px;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        height: 73px;
+    }
+    #header .link_back {
+        position: absolute;
+        left: 0;
+        top: -5px;
+        width: 116px;
+        height: 87px;
+        background: url(https://res.kurly.com/mobile/service/common/2006/ico_navi_back.svg?v=1) no-repeat 0 50%;
+        background-size: 110px 93px;
+    }
+    .screen_out {
+        display: block;
+        overflow: hidden;
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -9999px;
+    }
+    .section_orderview .order_cancel .cancel_notice {
+        display: none;
+    }
+    .section_orderview .head_section .tit {
+        font-size: 49px;
+        color: #333;
+        letter-spacing: -.4px;
+        padding: 0 20px;
+    }
+    .orders_form {
+        padding: 0 20px;
+        border-top: none;
+    }
+    .section_orderview .order_delivery .tit {
+        font-weight: 700;
+        font-size: 49px;
+        color: #333;
+        padding: 0 20px;
+        border-bottom: 1px solid #f4f4f4;
+    }
+    .section_orderview .order_delivery .list_status {
+        margin-top: 24px;
+        border-top: none;
+        padding: 0 20px;
+        margin-bottom: 30px;
+    }
+    .page_myPage .tbl_type2 {
+        border-top: none;
+        border-bottom: 1px solid #f4f4f4;
+        padding: 0 20px;
+    }
+    #Type {
+        position: relative;
+        padding: 26px 0 38px;
+    }
+    #Type:after {
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        width: 43px;
+        height: 50px;
+        margin-top: -33px;
+        background: url(https://res.kurly.com/mobile/ico/2010/ico_drop_up.svg) no-repeat 100% 0;
+        background-size: 52px 52px;
+    }
+    #Type.on:after {
+        -webkit-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+    #orderCancel1 {
+        display: none;
+    }
+    #orderCancel2 {
+        display: block;
+    }
+    .section_orderview .order_cancel .inner_cancel {
+        display: block;
+        overflow: hidden;
+        padding: 0 20px;
+    }
+    .section_orderview .order_cancel .btn {
+        float: left;
+        width: 100%;
+        height: 56px;
+        padding-bottom: 2px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        background-color: #fff;
+        font-weight: 700;
+        font-size: 38px;
+        color: #333;
+        line-height: 24px;
+    }
+    .section_orderview .tbl_type1 .thumb a {
+        display: block;
+        overflow: hidden;
+        width: 147px;
+        height: 194px;
+        background-color: #f4f4f4;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+    }
+    .section_orderview .tbl_type1 .name .link {
+        font-weight: 700;
+        font-size: 31px;
+        color: #333;
+        line-height: 24px;
+    }
+    .section_orderview .tbl_type1 .price {
+        padding-right: 5px;
+        font-weight: 700;
+        font-size: 30px;
+        color: #333;
+    }
+    .section_orderview .tbl_type1 .ea {
+        font-size: 24px;
+        color: #333;
+    }
+    .section_orderview .tbl_type1 .progress {
+        font-weight: 700;
+        font-size: 25px;
+        color: #5f0080;
+        line-height: 24px;
+        text-align: right;
+        /* display: inline-block; */
+    }
+    .section_orderview .tbl_type1 .btn_cart {
+        display: none;
+    }
+    .section_orderview .tbl_type1 .btn {
+        width: 115px;
+        height: 46px;
+        margin-top: 8px;
+        border-radius: 3px;
+        background-color: #fff;
+        font-weight: 700;
+        font-size: 23px;
+        line-height: 37px;
+        text-align: center;
+    }
+    .section_orderview .tbl_type1 .progress .end1, .section_orderview .tbl_type1 .progress .end2 {
+        color: #333;
+    }
+    .section_orderview .order_delivery li {
+        overflow: hidden;
+        padding: 12px 0;
+        font-size: 30px;
+        color: #333;
+        line-height: 0px;
+    }
+    .section_orderview .order_delivery .subject {
+        float: left;
+        width: 100%;
+    }
+    .section_orderview .order_delivery .state {
+        float: left;
+        width: 100%;
+        font-weight: 700;
+        text-align: right;
+    }
+    .section_orderview .order_delivery .detail {
+        float: right;
+        max-width: 100%;
+    }
+    .section_orderview .order_delivery .detail .maker {
+        float: left;
+        width: 211px;
+        color: #999;
+        text-align: right;
+    }
+    .box_type {
+        border-bottom: 10px solid #f4f4f4;
+        background-color: #fff;
+        counter-increment: box_type;
+    }
+    #Payment {
+        position: relative;
+        border-bottom: 1px solid #f4f4f4;
+    }
+    #Payment:after {
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 73%;
+        width: 43px;
+        height: 50px;
+        margin-top: -33px;
+        background: url(https://res.kurly.com/mobile/ico/2010/ico_drop_up.svg) no-repeat 100% 0;
+        background-size: 52px 52px;
+    }
+    #Payment.on:after {
+        -webkit-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+    .section_orderview .order_delivery {
+        padding-top: 33px;
+    }
+    .section_orderview .head_section {
+        padding: 57px 0 22px;
+    }
+    .section_orderview .tbl_type2 th {
+        padding-bottom: 24px;
+        font-size: 30px;
+        color: #666;
+        line-height: 24px;
+        text-align: left;
+        vertical-align: top;
+    }
+    .section_orderview .tbl_type2 td {
+        font-size: 25px;
+        color: #333;
+        line-height: 24px;
+        vertical-align: top;
+    }
+    #OrderInform {
+        position: relative;
+        border-bottom: 1px solid #f4f4f4;
+    }
+    #OrderInform:after {
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 73%;
+        width: 43px;
+        height: 50px;
+        margin-top: -33px;
+        background: url(https://res.kurly.com/mobile/ico/2010/ico_drop_up.svg) no-repeat 100% 0;
+        background-size: 52px 52px;
+    }
+    #OrderInform.on:after {
+        -webkit-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+    #ShippingInform {
+        position: relative;
+        border-bottom: 1px solid #f4f4f4;
+    }
+    #ShippingInform:after {
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 73%;
+        width: 43px;
+        height: 50px;
+        margin-top: -33px;
+        background: url(https://res.kurly.com/mobile/ico/2010/ico_drop_up.svg) no-repeat 100% 0;
+        background-size: 52px 52px;
+    }
+    #ShippingInform.on:after {
+        -webkit-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+}

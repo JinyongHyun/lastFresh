@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <typeAliases>
+        <typeAlias type="com.example.lastfresh.domain.dto.ProductListDTO" alias="ProductListDTO"/>
+        <typeAlias type="com.example.lastfresh.domain.dto.BillSoldProductDTO" alias="BillSoldProductDTO"/>
+        <typeAlias type="com.example.lastfresh.domain.dto.PosDTO" alias="PosDTO"/>
+        <typeAlias type="com.example.lastfresh.domain.dto.BillProductDTO" alias="BillProductDTO"/>
+        <typeAlias type="com.example.lastfresh.domain.vo.ProductVO" alias="ProductVO"/>
+        <typeAlias type="com.example.lastfresh.domain.dto.ProductDTO" alias="ProductDTO"/>
+        <typeAlias type="com.example.lastfresh.domain.dto.ReviewDTO" alias="ReviewDTO"/>
+        <typeAlias type="com.example.lastfresh.domain.vo.BasketVO" alias="BasketVO"/>
+        <typeAlias type="com.example.lastfresh.domain.dto.BasketDTO" alias="BasketDTO"/>
+        <typeAlias type="com.example.lastfresh.domain.vo.UserVO" alias="UserVO"/>
+        <typeAlias type="com.example.lastfresh.domain.vo.ReviewVO" alias="reviewVO"/>
+        <typeAlias type="com.example.lastfresh.domain.dto.OrderDTO" alias="OrderDTO"/>
+        <typeAlias type="com.example.lastfresh.domain.vo.ReviewVO" alias="ReviewVO"/>
+    </typeAliases>
 </configuration>

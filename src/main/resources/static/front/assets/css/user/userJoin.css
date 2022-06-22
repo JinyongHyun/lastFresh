@@ -1,0 +1,560 @@
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, input, select, textarea, button {
+    line-height: 1;
+    letter-spacing: -.05em;
+    color: #4c4c4c;
+    font-size: 12px;
+    max-width: 100%;
+}
+
+div.body {
+    width: 650px;
+    margin: 0 auto;
+    height: auto;
+}
+
+h2.title {
+    font-weight: 700;
+    font-size: 28px;
+    color: #333;
+    line-height: 35px;
+    text-align: center;
+    letter-spacing: -1px;
+    margin-right: 400px
+}
+
+p.page_line {
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: #666;
+    line-height: 17px;
+    text-align: right;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+span.icon {
+    padding-right: 2px;
+    color: #ee6a7b;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+div.title_page {
+    overflow: hidden;
+    width: 1050px;
+    margin: 0 auto;
+    padding: 50px 0 51px;
+}
+
+table.tbl_comm {
+    width: 100%;
+    border-top: 2px solid #333;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+table.tbl_comm th{
+    padding :unset;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-indent: initial;
+}
+p.sub{
+    margin: unset;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+th {
+    width: 159px;
+    padding: 20px 0 0 20px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    vertical-align: top;
+    text-align: left;
+}
+
+div, th, td, li, dt, dd, p {
+    word-break: break-all;
+}
+
+th {
+    padding-top: 29px;
+}
+
+/*tbl_comm .first td{ padding-top: 19px;}*/
+td {
+    padding-top: 19px;
+}
+
+.body input[type=text], [type=password] {
+    width: 332px;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    border-radius: 3px;
+    background: #fff;
+    outline: none;
+    vertical-align: top;
+}
+
+input {
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-image: initial;
+    color: #4c4c4c;
+    font-size: 12px;
+    max-width: 100%;
+}
+
+a.btn_check {
+    border: 1px solid #DA291C;
+    background-color: #fff;
+    color: #DA291C;
+    display: inline-block;
+    width: 98px;
+    margin-left: 5px;
+    vertical-align: top;
+    height: 44px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    margin: 0;
+    padding-top: 0;
+    cursor: pointer;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.requir {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px
+}
+
+require_bg {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .5;
+}
+
+div.allCheck {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    padding: 0 0 10px
+}
+
+label.check_agree {
+    padding: 12px 0 4px;
+    font-weight: 700;
+    font-size: 18px;
+    display: block;
+}
+
+input[type=checkbox]{
+    /*position: absolute;*/
+    /*z-index: -1;*/
+    /*opacity: 0;*/
+    cursor: pointer;
+}
+/*input[type=checkbox]:checked+.icon{*/
+/*    background: url(https://res.kurly.com/pc/service/common/2006/ico_checkbox_checked.svg) no-repeat 50% 50%;*/
+/*    background-size: 24px 24px;*/
+/*    background-color: red;*/
+/*}*/
+input[type=checkbox]+icon{
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    border: 0;
+    background-size: 24px 24px;
+    vertical-align: -7px;
+}
+
+label {
+    cursor: default;
+}
+
+.agreeicon {
+    background: url(https://res.kurly.com/pc/service/common/2006/ico_checkbox_checked.svg) no-repeat 50% 50%;
+    background-size: 24px 24px;
+}
+
+div.check_view {
+    position: relative;
+
+}
+
+label.check_agree2 {
+    padding: 8px 0;
+    display: block;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.sub {
+    color: #999;
+}
+
+a.link_btn_agree {
+    position: absolute;
+    right: 22px;
+    top: 0;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #DA291C;
+    line-height: 18px;
+    letter-spacing: 0;
+}
+
+td.td_birth {
+    padding-bottom: 19px
+}
+
+a.link_btn_agree {
+    position: absolute;
+    right: 22px;
+    top: 0;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #DA291C;
+    line-height: 18px;
+    letter-spacing: 0;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+div.layer_agreement {
+    display: none;
+    margin-top: -299.5px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 440px;
+    margin: 0 0 0 -220px;
+    border-radius: 12px;
+    background-color: #fff;
+    z-index: 2;
+}
+
+div.inner_layer {
+    position: relative;
+    width: 440px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 12px
+}
+
+h4.tit_layer {
+    padding: 25px 88px 8px 30px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 40px;
+    color: #333;
+    letter-spacing: -1px;
+    margin-top: -40px;
+    margin-left: 41px;
+}
+
+div.box_tbl {
+    overflow-y: scroll;
+    height: 450px;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+    margin-top: 19px;
+    padding: 0 30px;
+}
+
+h3.box_tit {
+    padding-bottom: 20px;
+    font-size: 14px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 3;
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal_body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 600px;
+    padding: 40px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+    transform: translateX(-50%) translateY(-50%);
+}
+.modal_body2 {
+    /*style="width: 560px; height: 310px;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 430px;
+    height: 310px;
+    padding: 40px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+    transform: translateX(-50%) translateY(-50%);
+}
+button.btn_ok{
+    cursor: pointer;
+    position: absolute;
+    right: 24px;
+    top: 30px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background: url(https://res.kurly.com/pc/ico/1908/ico_layer_close.png) no-repeat 0 0;
+}
+tr.agree{
+    border-top: 1px solid;
+    border-bottom:1px solid;
+}
+div.form_footer{
+    padding-top: 40px;
+    text-align: center;
+}
+button.btn_join{
+    width: 240px;
+    height: 70px;
+    font-size: 16px;
+    line-height: 54px;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: top;
+    border-radius: 3px;
+    font-weight: 700;
+    outline: none;
+    border: 1px solid #DA291C;
+    background-color: #DA291C;
+    color: #fff;
+    margin-bottom: 90px;
+}
+
+.box_tbl::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+/*————체크 박스———*/
+
+[type=checkbox] {
+    width: 1.7rem;
+    height: 1.5rem;
+    color: #DA291C;
+    vertical-align: sub;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    outline: 0;
+    flex-grow: 0;
+    border-radius: 50%;
+    background-color: white;
+    transition: background 300ms;
+    cursor: pointer;
+}
+
+[type=checkbox]::before {
+    content: "";
+    color: transparent;
+    display: block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    border: 0;
+    background-color: transparent;
+    background-size: contain;
+    box-shadow: inset 0 0 0 1px #CCD3D8;
+}
+
+[type=checkbox]:checked {
+    background-color: currentcolor;
+}
+
+[type=checkbox]:checked::before {
+    box-shadow: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E %3Cpath d='M15.88 8.29L10 14.17l-1.88-1.88a.996.996 0 1 0-1.41 1.41l2.59 2.59c.39.39 1.02.39 1.41 0L17.3 9.7a.996.996 0 0 0 0-1.41c-.39-.39-1.03-.39-1.42 0z' fill='%23fff'/%3E %3C/svg%3E");
+}
+h4.tit_layer{
+    padding: 25px 88px 8px 30px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 40px;
+    color: #333;
+    letter-spacing: -1px;
+}
+th.tit1{
+    width: auto;
+}
+th.tit2{
+    width: 81px;
+}
+th.tit3{
+    width: 101px;
+}
+.box_tbl th{
+    padding: 7px 8px 8px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
+.box_tbl td{
+    padding: 9px 4px;
+    border: 1px solid #ddd;
+    font-size: 11px;
+    line-height: 17px;
+    text-align: center;
+    vertical-align: middle;
+}
+td.emph{
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/*회원가입 미디어쿼리*/
+@media ( max-width: 768px ) {
+    div.body{
+        width: 420px;
+    }
+    table.tbl_comm {
+        width: 420px;
+    }
+    table.tbl_comm th{
+        padding: 10px 10px 0px 26px;
+        margin: unset;
+    }
+    table.tbl_comm tr{
+        border: none;
+    }
+    div.title_page {
+        width: 420px;
+    }
+    tr{
+        display: grid;
+    }
+
+    .body input[type=text], input[type=password] {
+        width: 256px ;
+    }
+
+    input.media{
+        width: 95% !important;
+    }
+    input.id{
+        margin-left: 10px ;
+    }
+
+    h2.title{
+        margin-right: 0;
+    }
+    [type=checkbox] {
+        width: 1.2rem;
+        height: 1.3rem;
+        margin-left: 7px;
+    }
+    p.sub{
+        display: inline-block;
+        width: 318px;
+        margin-left: 34px;
+    }
+    p.page_line{
+        margin-right: 10px;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    div.media2{
+        width: 405px;
+    }
+
+}

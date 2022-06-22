@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>라스트프레시 | 라이더</title>
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/riderFront/assets/css/rider.css">
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+</head>
+<body>
+<!--<th:block th:insert="/fragments/header.html :: headFragment"/>-->
+<!-- 전체 Wrapper -->
+<div class="sell-wrapper">
+
+    <!-- 주문 접수 Wrapper-->
+    <div class="gnb-wrapper">
+        <div class="gnb-order">
+            Last fresh
+        </div>
+        <div class="modifyBtn" type="button">
+            <a href="" id="modify">
+                <div style="margin: -56px 0 0 4px;">
+                    <img style="height: 61px;"
+                         src="https://cdn.discordapp.com/attachments/969471931575320587/972871638947360838/f1d4532d885acb34.png">
+                </div>
+            </a>
+        </div>
+        <div class="logoutBtn" type="button">
+            <a href="javascript:logout();">
+                <div class="word">로그아웃</div>
+                <div style="margin: -56px 0 0 4px;">
+                    <img style="height: 61px;"
+                         src="https://cdn.discordapp.com/attachments/969471931575320587/970619206687141928/9c14c3a737a0671b.png">
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- menubar Wrapper-->
+    <div class="menu-Bar">
+        <a type="button" href="/rider/riderList" class="menuItem list"> 배달 목록</a>
+        <a type="button" href="/rider/riderMy" class="menuItem myList" style="background: white;color: #2C2929">MY 배달
+            내역</a>
+    </div>
+    <!-- 주문 내용 Wrapper-->
+    <div class="content-wrapper">
+        <!-- 주문 사이드바 wrapper -->
+        <div class="sidebar-wrapper">
+            <div class="logoWrap">
+                <div class="logo">
+                    <p style=" padding: 20px 0 0 0;">Last fresh</p>
+                </div>
+            </div>
+            <a type="button" href="/rider/riderList" class="deliveryList sideItem">
+                <div class="deliveryList-content">
+                    <p>배달 목록</p>
+                </div>
+            </a>
+            <a type="button" href="/rider/riderMy" class="myDeliveryList sideItem"
+               style="color: #2C2929; background: white">
+                <div class="myDeliveryList-content">
+                    <p>MY 배달 내역</p>
+                    <p>4</p>
+                </div>
+            </a>
+            <div class="logoutWrap" type="button">
+                <a href="javascript:logout();">
+                    <div class="logout">
+                        <p>로그아웃</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- 주문 사이드바에 맞는 콘텐츠-->
+        <div class="sidebar-content">
+            <!--접수 대기가 없을 시-->
+            <div class="noorder">
+                <img src="https://cdn.discordapp.com/attachments/969471931575320587/969481005150908456/7d8afc2c848b9d71.png">
+                <p>즐거운 하루 보내세요!</p>
+            </div>
+
+            <!-- 접수 대기 목록이 있을 시-->
+            <div class="order-content">
+                <div class="order-list-wrapper" th:each="myOrder:${myOrders}">
+                    <input type="hidden" th:value="${myOrder.billProductListNum}" name="billProductListNum"/>
+                    <input type="hidden" th:value="${myOrder.billOrderDateTime}" id="billOrderDateTime"/>
+                    <input type="hidden" th:value="${myOrder.billCookingTime}" id="billCookingTime"/>
+                    <hr>
+                    <div class="order-list myDeliveryInfo" th:object="${myOrder}">
+                        <!-- 시간&수령 방법-->
+                        <div class="orderWrap">
+                            <div class="order-timeTit">
+                                픽업가능시간
+                            </div>
+                            <div class="order-info1">
+                                <div class="order-time" id="order-time"></div>
+                                <div id="noEx" class=" noEx" style="display:none;"
+                                     th:text="*{billDeliveryMethod}"></div>
+                                <div class="order-method delivery" style="display:none;">배달</div>
+                                <div class=" order-method shipping" style="display:none;">배송</div>
+                            </div>
+                        </div>
+                        <!-- 주문 관련 정보 (가격, 메뉴이름, 수량, 주소)-->
+                        <div class="order-info2">
+                            <div class="order-menu">
+                                <p class="order-menuInfo" th:text="|*{sellProductName}*{billProductQuantity}개|"/> </p>
+                                <p class="storeName" th:text="*{sellProductPhone}"></p>
+                            </div>
+                            <br>
+                            <div class="addressWrap">
+                                <div class="order-address">
+                                    <div class="addressTitle">출발지:</div>
+                                    <div class="address"
+                                         th:text="|*{sellProductAddress}*{sellProductAddressDetail}*{sellProductAddressPostNum}|"></div>
+                                </div>
+                                <div class="order-address">
+                                    <div class="addressTitle">도착지:</div>
+                                    <div class="address"
+                                         th:text="|*{billDeliveryAddress}*{billDeliveryAddressDetail}*{billDeliveryAddressPostNum}|"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--  주문 수락 및 취소-->
+                        <div class="btnWrap">
+                            <input type="hidden" style="display: none"
+                                   th:value="*{billStatus}" class="billStatus"/>
+                            <div class="order-accept myDeliveryBtn">
+                                <a th:href="@{/rider/upDateStatusToThree(billProductListNum=${myOrder.billProductListNum}, sellProductNum=${myOrder.sellProductNum})}"
+                                   class="btnWrap">
+                                    <input type="button" id="deliveryFinishBtn"
+                                           class="deliveryFinishBtn pc"
+                                           value="전달완료"/>
+                                </a>
+
+                                <input type="button" class="deliveryFinish" id="deliveryFinish"
+                                       style="margin: 5px 74px 0px 149px;" value="완료"/>
+                                <a th:href="@{/rider/upDateStatusToMinus(billProductListNum=${myOrder.billProductListNum})}"
+                                   class="btnWrap">
+                                    <input type="button" id="deliveryCancel"
+                                           class="deliveryCancel" value="접수취소"/>
+                                </a>
+                                <a th:href="@{/rider/upDateStatusToTwo(billProductListNum=${myOrder.billProductListNum})}"
+                                   class="btnWrap">
+                                    <input type="button" id="deliveryStart"
+                                           style="margin: 5px 74px 0px 149px;" class="deliveryStart" value="배달출발"/>
+                                </a>
+                                <div class="callIconBtnWrap" id="callIconBtnWrap">
+                                    <input type="button" class="callIconBtn">
+                                    <a th:href="@{tel:(${myOrder.sellProductPhone})}">
+                                        <div class="callIcon">
+                                            <img class="callImg"
+                                                 src="https://cdn.discordapp.com/attachments/969471931575320587/970637419240108072/4141.png">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--                                <input type="submit" class="deliveryFinishBtn Mobile" value="전달완료">-->
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<th:block th:insert="/fragments/footer.html :: footFragment"/>-->
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/riderFront/assets/js/rider.js"></script>
+<script type="application/javascript"
+        src="https://zelkun.tistory.com/attachment/cfile8.uf@99BB7A3D5D45C065343307.js"></script>
+<script th:inline="javascript">
+
+
+    //완료
+    $(".btnWrap").each(function (i, item) {
+        let billStatuses = $(this).children($("input.billStatus"))
+        let statusVal = billStatuses.val()
+        if (statusVal == 3) {
+            $(this).find("#deliveryFinishBtn").css("display", "none");
+            $(this).find("#deliveryCancel").css("display", "none");
+            $(this).find("#callIconBtnWrap").css("display", "none");
+            $(this).find("#deliveryFinish").css("display", "block");
+            $(this).find("#deliveryStart").css("display", "none");
+        }
+    })
+    //배달진행중
+    $(".btnWrap").each(function (i, item) {
+        let billStatuses = $(this).children($("input.billStatus"))
+        let statusVal = billStatuses.val()
+        if (statusVal == 2) {
+            $(this).find("#deliveryFinishBtn").css("display", "block");
+            $(this).find("#deliveryCancel").css("display", "block");
+            $(this).find("#callIconBtnWrap").css("display", "block");
+            $(this).find("#deliveryFinish").css("display", "none");
+            $(this).find("#deliveryStart").css("display", "none");
+        }
+    })
+    //배달시작전
+    $(".btnWrap").each(function (i, item) {
+        let billStatuses = $(this).children($("input.billStatus"))
+        let statusVal = billStatuses.val()
+        if (statusVal == 4) {
+            $(this).find("#deliveryFinishBtn").css("display", "none");
+            $(this).find("#deliveryCancel").css("display", "none");
+            $(this).find("#callIconBtnWrap").css("display", "none");
+            $(this).find("#deliveryFinish").css("display", "none");
+            $(this).find("#deliveryStart").css("display", "block");
+        }
+    })
+
+</script>
+<script th:inline="javascript">
+    //페이지 이동
+    function goMypage() {
+        // location.href = "/user/myPage/myCheckPw";
+        window.location.href = "/user/myPage/myCheckPw?userNum=" + userNumber;
+    }
+
+    function logout() {
+        location.href = "/user/manage/logout";
+    }
+</script>
+<script th:inline="javascript">
+    let userNumber = [[${session.userNumber}]];
+    console.log(userNumber);
+</script>
+</html>

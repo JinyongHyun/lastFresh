@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>라스트프레시 | 비밀번호 재확인</title>
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+    <link rel="stylesheet" href="/front/assets/css/user/myPageMenuBar.css">
+    <link rel="stylesheet" href="/front/assets/css/user/myCheckPw.css">
+</head>
+<style>
+    .myPage_type1{
+        height: 809px;
+    }
+    @media screen and (max-width: 1000px) {
+        .myPage_type1{
+            height: 0px;
+        }
+    }
+</style>
+<body>
+<th:block th:insert="/fragments/headerWithout.html :: headWithoutFragment"/>
+<div class="page_myPage myPage_type1">
+    <div id="snb" class="snb_my">
+        <th:block th:object="${user}">
+            <h2 th:if="*{userStatus == '1'}" class="tit_snb">마이페이지</h2>
+            <h2 th:if="*{userStatus == '2'}" class="tit_snb">판매자 페이지</h2>
+            <div class="inner_snb">
+                <ul class="list_menu">
+                    <li>
+                        <a th:if="*{userStatus == '1'}" href="javascript:goOrder();">주문 내역</a>
+                        <a th:if="*{userStatus == '2'}" class="menuClicked" href="/sell/sellMain">판매 내역</a>
+                    </li>
+                    <li>
+                        <a th:if="*{userStatus == '1'}" href="javascript:goReview();">상품 후기</a>
+                        <a th:if="*{userStatus == '2'}" href="/sell/sellMenuList">상품 목록</a>
+                    </li>
+                    <li>
+                        <a href="javascript:goInfo();" class="on">개인 정보 수정</a>
+                    </li>
+                </ul>
+            </div>
+        </th:block>
+    </div>
+    <div class="page_section section_myinfo">
+        <div class="head_aticle">
+            <h2 class="tit">개인 정보 수정</h2>
+        </div>
+        <div class="type_form member_join member_pw" id="PW">
+            <div class="field_pw">
+                <h3 class="tit">비밀번호 재확인</h3>
+                <p class="sub">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인해주세요.</p>
+                <form name="confirmForm" th:object="${user}">
+                   <!-- <form name="confirmForm" method="post" th:object="${user}" action="/user/myPage/myCheckPw">-->
+                    <input type="hidden" th:value="*{userNum}" readonly="" name="userNum" class="inp_read">
+                    <table class="tbl_comm">
+                        <tbody><tr class="fst">
+                            <th>아이디</th>
+                            <td>
+                                <input type="text" th:value="*{userId}" readonly="" class="inp_read">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                비밀번호
+                            </th>
+                            <td>
+                               <!-- <input type="hidden" name="mode" id="userPwOrigin" th:value="*{userPw}">-->
+                                <input type="password" name="userPw" id="confirm_password" class="inp_pw">
+                            </td>
+                        </tr>
+                        </tbody></table>
+                    <button type="button" class="btn active submit">확인</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:insert="/fragments/footerWithout.html :: footWithoutFragment"/>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/front/assets/js/user/myPageListMenuSelect.js"></script>
+<script th:inline="javascript">
+    let userNum = [[${user.userNum}]];
+
+    function goReview(){
+        location.href = '/user/myPage/myReviewUnwritten?userNum=' + userNum;
+    }
+
+    function goOrder(){
+        location.href = '/user/myPage/myOrder?userNum=' + userNum;
+    }
+
+    function goInfo(){
+        location.href = '/user/myPage/myCheckPw?userNum=' + userNum;
+    }
+
+
+
+    ///
+
+/*
+
+    $("input[type='submit']").click(function(e){
+        let form = $(document.confirmForm);
+        e.preventDefault();
+       // form.submit();
+    });
+
+*/
+
+
+
+ /*   $(".submit").click(function(e){
+        e.preventDefault();
+        let userPw = [[${user.userPw}]];
+        let userPwInput = document.getElementById('confirm_password').value;
+
+        if (userPwInput != userPw){
+            alert("입력하신 비밀번호가 일치하지 않습니다");
+            return ;
+        }
+        location.href = '/user/myPage/myChangeInfo?userNum=' + userNum;
+    });
+*/
+
+
+    $(".submit").click(function(e){
+        let password = document.getElementById('confirm_password').value;
+
+        console.log(userNum)
+
+        $.ajax({
+            url: "/user/myPage/pwCheck/" + password + "/" + userNum,
+            type: "post",
+            dataType: "json",
+            success: function (result) {
+                if (result.status == "ok") { //matched
+                    location.href = '/user/myPage/myChangeInfo?userNum=' + userNum;
+                } else {
+                    alert("입력하신 비밀번호가 일치하지 않습니다");
+                    return ;
+                }
+            },
+            error: function () {
+                console.log("중복검사 오류");
+            }
+        });
+    });
+
+
+
+
+
+    /*   $(document).ready(function(){
+       if (result != null){
+           alert("회원정보가 수정되었습니다");
+       }
+    });*/
+</script>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>라스트프레시 | 지역선택</title>
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+    <link rel="stylesheet" href="/front/assets/css/product/product.css">
+    <link rel="stylesheet" href="/front/assets/css/product/productMedia.css">
+</head>
+<body class="goods-goods_list ">
+<!--<th:block th:insert="/fragments/header.html :: headWithoutFragment"/>-->
+<th:block th:insert="/fragments/headerWithout.html :: headWithoutFragment"/>
+<div id="wrap">
+    <div id="container">
+        <div id="main">
+            <div id="content">
+                <div class="page_aticle">
+                    <div class="bnCategory_thumb">
+                        <img src="https://img-cf.kurly.com/category/banner/pc/62aa0430-3ec9-4029-842f-36d8c21d9318">
+                    </div>
+                    <div id="lnbMenu" class="lnb_menu">
+                        <div class="inner_lnb">
+                            <h3 class="tit">우리동네 배달</h3>
+                            <ul class="list ">
+                                <li data-start="172" data-and="188">
+                                    <a class="on">전체보기</a>
+                                </li>
+                                <li class="bg"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="goodsList" class="page_section section_goodslist">
+                        <div class="list_ability">
+                            <!--                                <div class="areabutton">-->
+                            <!--                                    <img src="/front/assets/css/images/위치아이콘.png" class="imgIcon">-->
+                            <!--                                    지역을 선택해주세요-->
+                            <!--                                </div>-->
+                            <div class="sort_menu">
+                                <div>
+                                    <p class="count">
+                                        <span class="inner_count" th:text="|총 ${getTotalAddressCategory}개|"></span>
+                                    </p>
+                                    <div class="select_type">
+                                        <a class="name_select">추천순</a>
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                        <ul class="list">
+                                            <form action="/product/proAddressList" th:object="${criteriaProduct}" name="selectPriceListForm">
+                                                <input type="hidden" th:field="*{pageNum}">
+                                                <input type="hidden" th:field="*{amount}">
+                                                <input type="hidden" name="type">
+                                            </form>
+                                            <li class>
+                                                <a class="selectPrice on" th:if="${check == '낮은가격'}">낮은가격</a>
+                                                <a class="selectPrice" th:unless="${check == '낮은가격'}">낮은가격</a>
+                                                <div class="recommend">
+                                                    <!---->
+                                                    <!---->
+                                                    <div id="layerRecommend" class="layer_recommend">
+                                                        <p class="desc">
+                                                            "검색어 적합성과 소비자 인기도(판매량, 판매금액,"
+                                                            <br>
+                                                            "조회수 등)를 종합적으로 고려한 순서입니다."
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class>
+                                                <a class="selectPrice on" th:if="${check == '높은가격'}">높은가격</a>
+                                                <a class="selectPrice" th:unless="${check == '높은가격'}">높은가격</a>
+                                                <!---->
+                                            </li>
+                                            <li class>
+                                                <a class="selectPrice on" th:if="${check == '신상품'}">신상품</a>
+                                                <a class="selectPrice" th:unless="${check == '신상품'}">신상품</a>
+                                            </li>
+                                            <li class>
+                                                <a class="areabutton">지역선택</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list_goods">
+                            <div class="inner_listgoods">
+                                <ul class="list">
+                                    <th:block th:each="product:${proAddressListList}">
+                                        <input type="hidden" th:text="*{sellProductNum}"/>
+                                        <li th:object="${product}">
+                                        <div class="item">
+                                            <div class="thumb">
+                                                <a class="img" th:href="@{/product/proDetail(sellProductNum=*{sellProductNum})}">
+                                                    <img th:src="'/sell/display?fileName=' + *{sellProductImageUploadPath} + '/' + *{sellProductThumbnail}">
+                                                    <!--                                                        <img src="https://img-cf.kurly.com/shop/data/goods/1649919206285l0.jpg" alt="푸짐하게 즐기는 대용량 동태탕">-->
+                                                </a>
+                                                <div class="group_btn">
+                                                    <button type="button" class="btn btn_cart">
+                                                        <span class="screen_out" th:text="*{sellProductNum}"></span>
+                                                    </button>
+                                                    <!---->
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                            <a class="info">
+                                                <input type="hidden" th:value="${newListPercents}"/>
+                                                <span class="name" th:text="*{sellProductName}"></span>
+                                                <span class="cost">
+                                                        <span class="dc dcList" th:text="|*{(sellProductOriginPrice-sellProductDiscountPrice)*100 / sellProductOriginPrice}%|">20%</span>
+                                                        <span class="price" th:text="|${#numbers.formatInteger(product.sellProductDiscountPrice, 0, 'COMMA')}원|"></span>
+                                                        <span class="priceList" th:text="*{sellProductDiscountPrice}" style="display: none" type="hidden"></span>
+                                                        <span class="original" th:text="|${#numbers.formatInteger(product.sellProductOriginPrice, 0, 'COMMA')}원|"></span>
+                                                    <!--                                                        <span class="originalList" th:text="*{sellProductOriginPrice}" style="display: none"></span>-->
+                                                    <!---->
+                                                    </span>
+                                                <span class="desc" th:text="*{sellProductDescription}"></span>
+                                                <span class="tag">
+                                                         <span class="ico1 limit tag_type2" th:style="${product.sellProductDeliveryMethod == '0' ? 'display:none;' : 'display:inline-block;'}">배달</span>
+                                                    </span>
+                                            </a>
+                                        </div>
+                                        </li>
+                                    </th:block>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="layout-pagination" th:object="${ProductPageDTO}">
+                            <div class="pagediv">
+                                <a href="#main" class="layout-pagination-button layout-pagination-first-page layout-pagination-number" th:href="1">맨 처음 페이지로 가기</a>
+                                <a href="#main" class="layout-pagination-button layout-pagination-prev-page layout-pagination-number" th:if="*{prev}" th:href="*{startPage - 1}">이전 페이지로 가기</a>
+                                <th:block th:each="num:${#numbers.sequence(ProductPageDTO.getStartPage(), ProductPageDTO.getEndPage())}">
+                                    <a class="layout-pagination-button layout-pagination-number pagination-number" th:if="${ProductPageDTO.criteriaProduct.getPageNum() == num}">
+                                        <code id="nowPage" th:text="${num}"></code>
+                                    </a>
+                                    <a class="layout-pagination-button layout-pagination-number pagination-number" th:unless="${ProductPageDTO.criteriaProduct.getPageNum() == num}" th:href="${num}">
+                                        <code th:text="${num}"></code>
+                                    </a>
+                                </th:block>
+                                <a href="#main" class="layout-pagination-button layout-pagination-next-page layout-pagination-number" th:if="*{next}" th:href="*{endPage + 1}">다음 페이지로 가기</a>
+                                <a href="#main" class="layout-pagination-button layout-pagination-last-page layout-pagination-number" th:href="*{realEnd}">맨 끝 페이지로 가기</a>
+                            </div>
+                            <div class="small-width" style="text-align: center; display: none;" >
+                                <a class="changePage" th:if="*{criteriaProduct.pageNum > 1}" th:href="*{criteriaProduct.pageNum - 1}"><code>&lt;</code></a>
+                                <code th:text="*{criteriaProduct.pageNum}"></code>
+                                <a class="changePage" th:if="*{criteriaProduct.pageNum < realEnd}" th:href="*{criteriaProduct.pageNum + 1}"><code>&gt;</code></a>
+                            </div>
+                            <form action="/product/proDelivery" th:object="${criteriaProduct}" name="pageForm">
+                                <input type="hidden" th:field="*{pageNum}">
+                                <input type="hidden" th:field="*{amount}">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg_loading" id="bgLoading" style="display: none;">
+                    <div class="loading_show"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cartPut">
+    <div class="cart_option cartList cart_type3 off" style="opacity: 0;">
+        <div class="inner_option">
+            <button type="button" class="btn_close1" >레이어닫기</button>
+            <!---->
+            <div class="in_option">
+                <div class="list_goods">
+                    <!---->
+                    <!---->
+                    <!---->
+                    <ul class="list list_nopackage">
+                        <li class="on">
+                                <span class="btn_position">
+                                    <button type="button" class="btn_del">
+                                        <span class="txt">삭제하기</span>
+                                    </button>
+                                </span>
+                            <span class="name">
+                                 <!---->
+                                 [프레시지] 자이언트 살이꽉찬 동태탕 (3~4인분)
+                                <!---->
+                                </span>
+                            <!---->
+                            <div class="option">
+                                    <span class="count">
+                                        <button type="button" class="btn down on">수량내리기</button>
+                                        <input type="number" readonly="readonly" onfocus="this.blur()" class="inp">
+                                        <button type="button" class="btn up on">수량내리기</button>
+                                    </span>
+                                <span class="price">
+                                        <span class="dc_price">15,900원</span>
+                                    </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!---->
+                <!---->
+                <div class="total">
+                    <div class="price">
+                        <strong class="tit">합계</strong>
+                        <span class="sum">
+                                <span class="num">20,900</span>
+                                <span class="won">원</span>
+                            </span>
+                    </div>
+                    <p class="txt_point">
+                    </p>
+                </div>
+            </div>
+            <!---->
+            <div class="cart_modal_footer">
+                <button type="button" class="base_button cancel half"> 취소 </button>
+                <button type="button" class="base_button half"> 장바구니 담기 </button>
+            </div>
+            <!---->
+        </div>
+    </div>
+</div>
+<div class="cartPut"> <!-- 아이디 수정해주세요 : CSS 주의-->
+    <div class="cart_option1 cartList cart_type3 off" style="opacity: 0;">
+        <div class="region_select modal">
+            <select id="sido" name="sido" class="base_button1 cancel2 half" style="background-color: white; cursor:pointer;">
+                <option value="" >'시/도'를 선택해주세요</option>
+            </select>
+            <select id="sigugun" name="sigugun" class="base_button1 cancel2 half" style="background-color: white; cursor:pointer;">
+                <option value="" >'시/군/구'를 선택해주세요</option>
+            </select>
+            <select id="dong" name="dong" class="base_button1 cancel2 half" style="background-color: white; cursor:pointer;">
+                <option value="">'동'을 선택해주세요</option>
+            </select>
+            <div>
+                <!---->
+                <div class="cart_modal_footer">
+                    <button type="button" class="base_button1 cancel1 half" onclick="filter()"> 확인 </button>
+                </div>
+                <!---->
+            </div>
+        </div>
+    </div>
+</div>
+<!--<th:block th:insert="/fragments/header.html :: footWithoutFragment"/>-->
+<th:block th:insert="/fragments/footerWithout.html :: footWithoutFragment"/>
+</body>
+<script type="application/javascript" src="https://zelkun.tistory.com/attachment/cfile8.uf@99BB7A3D5D45C065343307.js"></script>
+<script th:inline="javascript">
+    let pageNum = [[${criteriaProduct.pageNum}]]
+    console.log(pageNum);
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/front/assets/js/product/product.js"></script>
+<!--<script src="/front/assets/js/product/proDeliveryStatus.js"></script>-->
+<script src="/front/assets/js/product/proPage.js"></script>
+<script th:inline="javascript">
+    $("a.selectPrice").on("click",function (e) {
+        e.preventDefault();
+        $("a.selectPrice").removeClass("on");
+        $(this).addClass("on");
+
+
+        $("input[name='type']").val($(this).text());
+        $("form[name='selectPriceListForm']").submit();
+    })
+    function filter() {
+        let sidoIdx=hangjungdong.sido.findIndex(i=>i.sido==$("#sido").val());
+        let sigugunIdx=hangjungdong.sigugun.findIndex(i=>i.sigugun==$("#sigugun").val()&&i.sido==$("#sido").val());
+        let dongIdx=hangjungdong.dong.findIndex(i=>i.dong==$("#dong").val()&&i.sigugun==$("#sigugun").val()&&i.sido==$("#sido").val());
+
+        let sido = hangjungdong.sido[sidoIdx].codeNm;//시
+        let sigungu = hangjungdong.sigugun[sigugunIdx].codeNm;//시군구
+        let dong = hangjungdong.dong[dongIdx].codeNm;//동
+
+        window.location.href = "/product/proAddressList?sido=" + sido+"&sigungu=" + sigungu +"&dong=" + dong;
+
+    }
+</script>
+</html>

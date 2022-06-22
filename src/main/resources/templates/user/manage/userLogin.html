@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+    <link rel="stylesheet" href="/front/assets/css/user/userLogin.css">
+    <title>라스트프레시 | 로그인</title>
+
+</head>
+<body>
+<!--<div th:if="${session.userNumber==0}">-->
+<!--    <th:Object th:text="${session.userNumber}"/>-->
+
+<!--    <script>-->
+<!--        alert("아이디 또는 비밀번호를 다시 확인하세요")-->
+<!--    </script>-->
+<!--</div>-->
+
+<th:block th:insert="/fragments/header.html :: headFragment"/>
+<div id="main">
+    <div id="content">
+
+        <div id="qnb" class="quick-navigation">
+        </div>
+        <div class="section_login">
+            <h3 class="tit_login">로그인</h3>
+            <div class="write_form">
+                <div class="write_view login_view">
+
+                    <form th:action="@{/user/manage/userLogin}" th:method="post" name="loginForm">
+                        <input class="input" value="" type="text" name="userId" size="20" tabindex="1" placeholder="아이디를 입력해주세요">
+                        <input class="input" type="password" name="userPw" size="20" tabindex="2" placeholder="비밀번호를 입력해주세요">
+                        <div class="checkbox_save">
+                            <label class="label_checkbox checked">
+                                <input type="checkbox" id="chk_security" name="chk_security" value="y" checked="checked"
+                                       onchange="if( this.checked){$(this).parent().addClass('checked')}else{$(this).parent().removeClass('checked')} ">
+
+                            </label>
+
+                            <div class="login_search">
+                                <a class="link" onclick="KurlyTrackerLink('/member/find/id', 'select_find_id')"
+                                   href="/user/manage/userFindId">
+                                    아이디 찾기
+                                </a>
+                                <span class="bar"></span>
+                                <a class="link"
+                                   onclick="KurlyTrackerLink('/member/find/password', 'select_find_password')"
+                                   href="/user/manage/userFindPw">
+                                    비밀번호 찾기
+                                </a>
+                            </div>
+                        </div>
+                        <button onclick="sendLogin()" class="btn_type1" type="button">
+                            <span class="txt_type">로그인</span>
+                        </button>
+                    </form>
+                    <a class="btn_type2 btn_member"
+
+                       href="/user/manage/userSelect">
+                        <span class="txt_type">회원가입</span>
+                    </a>
+
+                    <!--미디어 쿼리-->
+                    <div class="media_login_search">
+                        <a class="link" onclick="KurlyTrackerLink('/member/find/id', 'select_find_id')"
+                           href="/user/manage/userFindId">
+                            아이디 찾기
+                        </a>
+                        <span class="bar"></span>
+                        <a class="link"
+                           onclick="KurlyTrackerLink('/member/find/password', 'select_find_password')"
+                           href="/user/manage/userFindPw">
+                            비밀번호 찾기
+                        </a>
+                    </div>
+
+                    <div class="kakao_text">
+                        <h2>
+                            카카오로 <span>간편하게 시작</span>하세요.
+                        </h2>
+                    </div>
+                    <a href="#" id="userKakao">
+                        <img class="kakao_img" src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" width="358"/>
+                    </a>
+
+                    <!--RestAPI-->
+                    <!--                    <a href="https://kauth.kakao.com/oauth/authorize?client_id=cef762addd4feb67be52cfbee6c6ef04&redirect_uri=http://localhost:11111/user/auth/kakao/callback&response_type=code">-->
+                    <!--                        <img class="kakao_img" src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" width="358"/>-->
+                    <!--                    </a>-->
+                    <br>
+                    <!--                    <a href="/logout">로그아웃</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:insert="/fragments/footer.html :: footFragment"/>
+
+</body>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="/front/assets/js/user/userLogin.js"></script>
+<script th:inline="javascript">
+
+    let msg =[[${msg}]]
+    console.log(msg);
+    if(msg) {
+        alert("아이디 또는 비밀번호를 다시 확인하세요")
+    }
+</script>
+
+<script>
+    // 카카오로그인===================================
+    Kakao.init('5f4d1ae11a3b60e8962da349854f336d');
+
+    function kakaoLogin() {
+        //1. 로그인 시도
+        Kakao.Auth.login({
+            success : function(authObj) {
+
+                //2. 로그인 성공시, API 호출
+                Kakao.API.request({
+                    url : '/v2/user/me',
+                    success : function(res) {
+                        var ac = res.kakao_account;
+                        var id = res.id;
+//               확인 출력
+                        console.log(ac.email);
+                        console.log(ac.profile.nickname);
+                        console.log('카카오id : ' + id)
+
+//               id/email/nickname db저장해서 사용하기
+                        scope: 'account_email';
+                        alert('성공'); //확인
+                        location.href ="/user/manage/userSelect?userKakao="+id;
+                    }
+                })
+                var token = authObj.access_token;
+            },
+            fail : function(err) {
+                alert(JSON.stringify(err));
+            }
+        });
+    }
+    const login = document.querySelector('#userKakao');
+    login.addEventListener('click', kakaoLogin);
+</script>
+
+
+</html>

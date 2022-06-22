@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lastfresh.mapper.user.BasketMapper">
+   <select id="getListByUserNum" resultType="BasketVO">
+        SELECT BASKET_NUM, USER_NUM, SELL_PRODUCT_NUM, BASKET_QUANTITY, BASKET_DELIVERY_METHOD FROM TBL_BASKET
+        WHERE USER_NUM = #{userNum}
+        AND BASKET_GO_ORDER = 1
+   </select>
+
+    <select id="getListByDTO" resultType="BasketDTO">
+        select BASKET_NUM, B.USER_NUM, B.SELL_PRODUCT_NUM, BASKET_QUANTITY, BASKET_DELIVERY_METHOD, SELL_PRODUCT_NAME, SELL_PRODUCT_DISCOUNT_PRICE, SELL_PRODUCT_THUMBNAIL, SELL_PRODUCT_IMAGE_UPLOAD_PATH, SELL_PRODUCT_STOCK
+        from TBL_BASKET B
+        LEFT JOIN TBL_SELL_PRODUCT P ON B.SELL_PRODUCT_NUM = P.SELL_PRODUCT_NUM
+        WHERE B.USER_NUM = #{userNum}
+        AND B.BASKET_GO_ORDER = 1
+   </select>
+
+    <select id="getListPickUp" resultType="BasketDTO">
+        select BASKET_NUM, B.USER_NUM, B.SELL_PRODUCT_NUM, BASKET_QUANTITY, BASKET_DELIVERY_METHOD, BASKET_GO_ORDER, SELL_PRODUCT_NAME, SELL_PRODUCT_DISCOUNT_PRICE, SELL_PRODUCT_THUMBNAIL, SELL_PRODUCT_IMAGE_UPLOAD_PATH, SELL_PRODUCT_STOCK
+        from TBL_BASKET B
+        LEFT JOIN TBL_SELL_PRODUCT P ON B.SELL_PRODUCT_NUM = P.SELL_PRODUCT_NUM
+        WHERE B.USER_NUM = #{userNum}
+        AND BASKET_DELIVERY_METHOD = 1
+   </select>
+
+    <select id="getListDelivery" resultType="BasketDTO">
+        select BASKET_NUM, B.USER_NUM, B.SELL_PRODUCT_NUM, BASKET_QUANTITY, BASKET_DELIVERY_METHOD, BASKET_GO_ORDER, SELL_PRODUCT_NAME, SELL_PRODUCT_DISCOUNT_PRICE, SELL_PRODUCT_THUMBNAIL, SELL_PRODUCT_IMAGE_UPLOAD_PATH, SELL_PRODUCT_STOCK
+        from TBL_BASKET B
+        LEFT JOIN TBL_SELL_PRODUCT P ON B.SELL_PRODUCT_NUM = P.SELL_PRODUCT_NUM
+        WHERE B.USER_NUM = #{userNum}
+        AND BASKET_DELIVERY_METHOD = 2
+   </select>
+
+    <select id="getListShipping" resultType="BasketDTO">
+       select BASKET_NUM, B.USER_NUM, B.SELL_PRODUCT_NUM, BASKET_QUANTITY, BASKET_DELIVERY_METHOD, BASKET_GO_ORDER, SELL_PRODUCT_NAME, SELL_PRODUCT_DISCOUNT_PRICE, SELL_PRODUCT_THUMBNAIL, SELL_PRODUCT_IMAGE_UPLOAD_PATH, SELL_PRODUCT_STOCK
+        from TBL_BASKET B
+        LEFT JOIN TBL_SELL_PRODUCT P ON B.SELL_PRODUCT_NUM = P.SELL_PRODUCT_NUM
+        WHERE B.USER_NUM = #{userNum}
+        AND BASKET_DELIVERY_METHOD = 3
+   </select>
+
+    <delete id="removeItems">
+        delete from TBL_BASKET
+        WHERE USER_NUM = #{userNum}
+        AND BASKET_GO_ORDER = 1
+    </delete>
+
+    <delete id="remove">
+        delete from TBL_BASKET
+        WHERE BASKET_NUM = #{basketNum}
+    </delete>
+
+    <update id="addQuantity">
+        UPDATE LastFresh.TBL_BASKET
+        SET BASKET_QUANTITY=BASKET_QUANTITY+1
+        WHERE BASKET_NUM=#{basketNum}
+    </update>
+
+    <update id="subtractQuantity">
+        UPDATE LastFresh.TBL_BASKET
+        SET BASKET_QUANTITY=BASKET_QUANTITY-1
+        WHERE BASKET_NUM=#{basketNum}
+    </update>
+
+    <update id="check">
+        update TBL_BASKET
+        set BASKET_GO_ORDER
+            = (
+               case BASKET_GO_ORDER
+               WHEN 1 THEN 0
+               WHEN 0 THEN 1
+               END
+               )
+        WHERE BASKET_NUM=#{basketNum}
+    </update>
+
+    <update id="checkAll">
+        update TBL_BASKET
+        set BASKET_GO_ORDER = 1
+        WHERE USER_NUM=#{userNum}
+    </update>
+
+    <update id="unCheckAll">
+        update TBL_BASKET
+        set BASKET_GO_ORDER = 0
+        WHERE USER_NUM=#{userNum}
+    </update>
+
+    <delete id="removeAll">
+        delete from TBL_BASKET
+        WHERE USER_NUM = #{user_num}
+    </delete>
+
+    <select id="count" resultType="_int">
+      SELECT COUNT(1) FROM TBL_BASKET
+    WHERE USER_NUM =#{user_num}
+   </select>
+
+    <update id="decreaseStock">
+        UPDATE TBL_SELL_PRODUCT S
+        inner join TBL_BASKET B on S.SELL_PRODUCT_NUM = B.SELL_PRODUCT_NUM
+        SET  S.SELL_PRODUCT_STOCK =
+        CASE B.BASKET_GO_ORDER
+        WHEN 1 THEN S.SELL_PRODUCT_STOCK - B.BASKET_QUANTITY
+        ELSE S.SELL_PRODUCT_STOCK END
+        WHERE B.USER_NUM = #{userNum};
+    </update>
+
+    <update id="soldOut">
+        UPDATE TBL_SELL_PRODUCT
+        SET SELL_PRODUCT_STATUS = -1
+        WHERE SELL_PRODUCT_STOCK = 0;
+    </update>
+
+    <update id="restock">
+        UPDATE TBL_SELL_PRODUCT
+        SET SELL_PRODUCT_STATUS = 0
+        WHERE SELL_PRODUCT_STOCK != 0;
+    </update>
+ <!--   <delete id="delete">
+    </delete>
+-->
+  <!--  <select id="select" resultType="">
+    </select>-->
+</mapper>

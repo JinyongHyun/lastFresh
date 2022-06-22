@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>라스트프레시 | 주문내역</title>
+  <link rel="stylesheet" href="/front/assets/css/user/myPageMenuBar.css" />
+  <link rel="stylesheet" href="/front/assets/css/user/myOrderDetail.css" />
+  <link rel="stylesheet" href="/front/assets/css/fragments.css">
+</head>
+<style>
+  .myPage_type1{
+    height: 1750px;
+  }
+  @media screen and (max-width: 1000px) {
+    .myPage_type1{
+      height: 0px;
+    }
+  }
+
+  .deliveryBtn {
+    background: #03A9F4 !important;
+    color: white;
+    font-weight: 700 !important;
+    padding: 2px 9px;
+    margin-left: 12px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  .shippingBtn {
+    background: #FFC107 !important;
+    color: white;
+    font-weight: 700 !important;
+    padding: 2px 9px;
+    margin-left: 12px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .pickupBtn {
+    background: #8BC34A !important;
+    color: white;
+    font-weight: 700 !important;
+    padding: 2px 9px;
+    margin-left: 12px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  button.btn.btn_cart.ga_tracking_event2 {
+    border: 1px solid #ddd;
+    color: #ddd;
+    cursor:auto;
+  }
+</style>
+<body>
+<th:block th:insert="/fragments/headerWithout.html :: headWithoutFragment"/>
+<div class="page_myPage myPage_type1">
+  <div id="snb" class="snb_my">
+    <h2 class="tit_snb">마이페이지</h2>
+    <div class="inner_snb">
+      <ul class="list_menu">
+        <li>
+          <a href="javascript:goOrder();" class="on">주문 내역</a>
+        </li>
+        <li>
+          <a href="javascript:goReview();">상품 후기</a>
+        </li>
+        <li>
+          <a href="javascript:goInfo();">개인 정보 수정</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+    <div class="page_section section_orderview">
+    <div class="head_aticle">
+      <h2 class="tit">주문 내역 상세</h2>
+    </div>
+    <div class="box_type">
+      <div class="head_section link_type on" id="Type">
+        <h3 class="tit">주문번호 <span class="tit orderNum" th:text="${billOrderNum}"></span></h3>
+      </div>
+      <form class="orders_form" name="frmOrdView" method="post">
+        <input type="hidden" name="mode" />
+        <input type="checkbox" name="include" checked="checked" value="" class="chk_cart"/>
+        <table class="tbl tbl_type1">
+          <colgroup>
+            <col style="width: 80px" />
+            <col style="width: auto" />
+            <col style="width: 100px" />
+            <col style="width: 136px" />
+          </colgroup>
+          <tbody>
+          <th:block th:each="product:${bill.products}">
+                <tr th:object="${product}">
+                  <td class="thumb">
+                  <!--  <a href="#" style="
+                            background-image: url(//img-cf.kurly.com/shop/data/goods/1604379287477s0.jpg);
+                          "></a>-->
+                    <a th:href="'/product/proDetail?sellProductNum=' + *{productVO.sellProductNum}" > <img th:src="'/user/order/display?fileName=' + *{productVO.sellProductImageUploadPath} + '/' + *{productVO.sellProductThumbnail}">
+                    </a>
+                  </td>
+                  <td class="info">
+                    <div class="name">
+                      <a href="#" class="link" th:text="*{productVO.sellProductName}"></a>
+                      <span class="deliveryBtn" th:if="*{billDeliveryMethod == '2'}"> 배달 </span>
+                      <span class="shippingBtn" th:if="*{billDeliveryMethod == '3'}" > 배송 </span>
+                      <span class="pickupBtn" th:if="*{billDeliveryMethod == '1'}"> 픽업 </span>
+                    </div>
+                    <div class="desc">
+                      <span class="price" th:text="|*{#numbers.formatInteger(billProductPrice * billProductQuantity, 0, 'COMMA')}원|"></span>
+                      <span class="ea" th:text="|*{billProductQuantity}개|"></span>
+                    </div>
+                  </td>
+                  <!-- (0: 대기중  1:준비중(수락 시) 2:배송중 3:배송완료 -1:취소) -->
+                  <td class="progress end" th:if="*{billStatus == '0'}">접수 대기중</td>
+                  <td class="progress end" th:if="*{billStatus == '1'}">준비중</td>
+                  <td class="progress end" th:if="*{billStatus == '2'} and *{billDeliveryMethod == '2'}">배달중</td>
+                  <td class="progress end" th:if="*{billStatus == '2'} and *{billDeliveryMethod == '3'}">배송중</td>
+                  <td class="progress end" th:if="*{billStatus == '2'} and *{billDeliveryMethod == '1'}">픽업 대기중</td>
+                  <td class="progress end" th:if="*{billStatus == '3'} and *{billDeliveryMethod == '2'}">배달 완료</td>
+                  <td class="progress end" th:if="*{billStatus == '3'} and *{billDeliveryMethod == '3'}">배송 완료</td>
+                  <td class="progress end" th:if="*{billStatus == '3'} and *{billDeliveryMethod == '1'}">픽업 완료</td>
+                  <td class="progress end" th:if="*{billStatus == '-1'}">주문 취소</td>
+                  <td class="action">
+                    <a class="btn btn_after ga_tracking_event" id="After" th:if="*{billStatus == '3'}">완료</a>
+                    <button type="button" class="btn btn_cart ga_tracking_event" th:onclick="|cancelOrder(*{billProductListNum})|" th:if="*{billStatus == '0'}">주문 취소</button>
+                    <button type="button" class="btn btn_cart ga_tracking_event2" disabled th:if="*{billStatus == '-1'}">취소 완료</button>
+                    <button type="button" class="btn btn_cart ga_tracking_event2" disabled th:unless="*{billStatus == '0'} or *{billStatus == '3'} or *{billStatus == '-1'}">주문 취소</button>
+
+                  </td>
+                </tr>
+          </th:block>
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <!--<div id="orderCancel1" class="order_cancel">
+          <span class="inner_cancel">
+            <button type="button" class="btn btn_cancel off" onclick="cancelAll();">
+              전체 상품 주문 취소
+            </button>
+          </span>
+      <p class="cancel_notice">
+        주문 취소는 ‘준비중’ 이전 상태일 경우에만 가능합니다.
+       &lt;!&ndash; (0: 대기중  1:준비중(수락 시) 2:배송중 3:배송완료 -1:취소) &ndash;&gt;
+      </p>
+    </div>-->
+
+    <div class="box_type">
+      <div class="head_section on" id="Payment">
+        <h3 class="tit">결제정보</h3>
+      </div>
+      <th:block th:object="${bill}">
+      <table class="tbl tbl_type2 tbl_type3 PaymentShow">
+        <colgroup>
+          <col style="width: 160px" />
+          <col style="width: auto" />
+        </colgroup>
+
+        <tbody>
+        <tr>
+          <th>상품금액</th>
+          <td><span id="paper_goodsprice" th:text="|*{#numbers.formatInteger(billTotalPrice, 0, 'COMMA')}원|"></span></td>
+        </tr>
+        <tr>
+          <th>결제금액</th>
+          <td><span id="paper_settlement" th:text="|*{#numbers.formatInteger(billTotalPrice, 0, 'COMMA')}원|"></span></td>
+        </tr>
+        </tbody>
+      </table>
+      </th:block>
+    </div>
+    <div class="box_type">
+      <div class="head_section on" id="OrderInform">
+        <h3 class="tit">주문정보</h3>
+      </div>
+      <table class="tbl tbl_type2 OrderInformShow">
+        <colgroup>
+          <col style="width: 160px" />
+          <col style="width: auto" />
+        </colgroup>
+        <tbody>
+        <th:block th:object="${user}">
+        <tr>
+          <th>주문 번호</th>
+          <td class="orderNum" th:text="${billOrderNum}"></td>
+        </tr>
+
+        <tr>
+          <th>주문자명</th>
+          <td th:text="*{userName}"></td>
+        </tr>
+        <tr>
+          <th>보내는 분</th>
+          <td th:text="*{userName}"></td>
+        </tr>
+        </th:block>
+        <th:block th:object="${bill}">
+        <tr>
+          <th>결제일시</th>
+          <td class="orderDate" th:text="*{billOrderDate}"></td>
+        </tr>
+        </th:block>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box_type">
+      <div class="head_section on" id="ShippingInform">
+        <h3 class="tit">배송 정보</h3>
+      </div>
+      <table class="tbl tbl_type2 ShippingInformShow">
+        <colgroup>
+          <col style="width: 160px" />
+          <col style="width: auto" />
+        </colgroup>
+        <tbody>
+        <th:block th:object="${user}">
+        <tr>
+          <th>받는 분</th>
+          <td th:text="*{userName}"></td>
+        </tr>
+        <tr>
+          <th>핸드폰</th>
+          <td th:text="*{userPhone}"></td>
+        </tr>
+        </th:block>
+        <th:block th:object="${bill}">
+        <tr>
+          <th>주소</th>
+          <td th:text="'(' + *{billDeliveryAddressPostNum} + ') ' + *{billDeliveryAddress} + ' ' + *{billDeliveryAddressDetail}"></td>
+        </tr>
+        </th:block>
+        </tbody>
+      </table>
+    </div>
+   <!-- <div id="orderCancel2" class="order_cancel">
+          <span class="inner_cancel">
+            <button type="button" class="btn btn_cancel off" onclick="cancelAll();">
+              전체 상품 주문 취소
+            </button>
+          </span>
+      <p class="cancel_notice">
+        주문 취소는 ‘준비중’ 이전 상태일 경우에만 가능합니다.
+      </p>
+    </div>-->
+  </div>
+</div>
+<th:block th:insert="/fragments/footerWithout.html :: footWithoutFragment"/>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/front/assets/js/user/myOrderDetail.js"></script>
+<script src="/front/assets/js/user/myPageListMenuSelect.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+  let userNum = [[${userNum}]];
+  let billOrderNum = [[${billOrderNum}]];
+
+  function goReview(){
+    location.href = '/user/myPage/myReviewUnwritten?userNum=' + userNum;
+  }
+
+  function goOrder(){
+    location.href = '/user/myPage/myOrder?userNum=' + userNum;
+  }
+
+  function goInfo(){
+    location.href = '/user/myPage/myCheckPw?userNum=' + userNum;
+  }
+
+  // 주문번호 처리
+  $('.orderNum').each(function (){
+    var orderNumber = $(this).text();
+    var result = '';
+    var n = orderNumber.toString();
+
+    if (n.length < 7) {
+      for (var i = 0; i < 7 - n.length; i++)
+        result += '0';
+    }
+    $(this).text(result + n);
+
+  });
+
+  /*div 높이 변화시, 전체 높이 변경*/
+  let $pageDiv = $('.page_section');
+
+  let height = $('.page_section').height() + 150;
+  console.log("higher : " + height);
+  $('.myPage_type1').css("height", height);
+
+
+  $('.orderDate').each(function () {
+    //   console.log("ff : " + $(this).text());
+    var dataOrder = $(this).text();
+    var dateSplit = dataOrder.split('.');
+
+
+    var dateInfo = dateSplit[0];
+    //console.log(dateInfo);
+
+    $(this).text(dateInfo);
+  });
+
+
+  function cancelOrder(billProdNum){
+    if (!confirm("정말로 주문을 취소하시겠습니까? \n취소된 주문은 되돌릴 수 없습니다.")) {
+      return ;
+    } else {
+      alert("해당 제품의 주문이 정상적으로 취소되었습니다.");
+      location.href = '/user/myPage/cancelOrder?billProductNum=' + billProdNum + "&userNum=" + userNum + "&billOrderNum=" + billOrderNum;
+    }
+  }
+
+/*  function cancelAll(){
+    if (!confirm("정말로 주문을 전체 취소하시겠습니까? \n취소된 주문은 되돌릴 수 없습니다.")) {
+      return ;
+    } else {
+      alert("전체 제품의 주문이 정상적으로 취소되었습니다.");
+      location.href = '/user/myPage/cancelAll?billOrderNum=' + billOrderNum + "&userNum=" + userNum;
+    }
+  }*/
+
+
+
+  $(document).ready(function() {
+    /*div 높이 변화시, 전체 높이 변경*/
+    let $pageDiv = $('.page_myPage');
+
+
+    let height = $('.section_orderview').height() + 300;
+    $('.page_myPage').css("height", height);
+  });
+
+
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>라스트프레시 | 비밀번호 재설정</title>
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+    <link rel="stylesheet" href="/front/assets/css/user/userNewPw.css">
+</head>
+<body>
+<th:block th:insert="/fragments/header.html :: headFragment"/>
+<div class="setup_Wrapper">
+    <div class="setup_title">비밀번호 재설정</div>
+    <div class="setup_box">
+        <form class="setup_form">
+            <input type="hidden" class="id" th:value="${id}">
+            <div class="css-1blp8ou ex244l61">
+                <div class="regist_form">
+                    <label for="password" class="regist_label">새 비밀번호 등록</label>
+                    <div class="css-176lya2">
+                        <input type="password" data-testid="input-box" id="password" name="password" value="" placeholder="새 비밀번호를 입력해 주세요" class="setup_input">
+                    </div>
+                </div>
+            </div>
+            <div class="css-1blp8ou ex244l61">
+                <div class="regist_form">
+                    <label for="passwordConfirm" class="regist_label">새 비밀번호 확인</label>
+                    <div class="css-176lya2">
+                        <input type="password" data-testid="input-box" id="passwordConfirm" name="passwordConfirm" value="" placeholder="새 비밀번호를 한 번 더 입력해 주세요" class="setup_input">
+                        <span id="result" style="font-size:0.7em"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="setup_checkWrapper">
+                <button class="setup_checkButton" type="submit" disabled="" radius="4"><span
+                        class="setup_checkText">확인</span></button>
+            </div>
+        </form>
+    </div>
+</div>
+<th:block th:insert="/fragments/footer.html :: footFragment"/>
+</body>
+<script src="/front/assets/js/user/userNewPw.js"></script>
+</html>

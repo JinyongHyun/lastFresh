@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Menu List</title>
-    <link rel="stylesheet" href="/front/assets/css/sellMain.css">
+    <title>라스트프레시 | 메뉴 목록</title>
+    <link rel="stylesheet" href="/front/assets/css/sell/sellMain.css">
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="page_myPage myPage_type1">
+<th:block th:insert="/fragments/headerWithout.html :: headWithoutFragment"/>
+<div class="page_myPage myPage_type1 sellMenuList-wrapper">
     <div id="snb" class="snb_my">
         <h2 class="tit_snb">판매자 페이지</h2>
         <div class="inner_snb">
             <ul class="list_menu">
                 <li>
-                    <a  class="menuClicked" href="#">판매 내역</a>
+                    <a href="/sell/sellMain">판매 내역</a>
                 </li>
                 <li>
-                    <a href="#">상품 목록</a>
+                    <a class="menuClicked" href="/sell/sellMenuList">상품 목록</a>
                 </li>
                 <li>
-                    <a href="#">개인 정보 수정</a>
+                    <a th:href="@{/user/myPage/myCheckPw(userNum=${session.userNumber})}">개인 정보 수정</a>
                 </li>
             </ul>
         </div>
@@ -36,312 +38,202 @@
                 <div class="sellHead_section link_type sell-menuList-media Type-wrapper">
                     <h3 class="tit">상품목록</h3>
                     <span class="media-info">상품 등록 및 수정, 삭제는 웹사이트에서만 가능합니다</span>
-                    <button>상품 등록</button>
+                    <button><a href="/sell/sellMenuRegister">상품 등록</a></button>
                 </div>
                 <div class="menuTable-wrapper" name="frmOrdView">
-                    <table class="menuTable">
-                        <colgroup>
-                            <col class="colgroup-span-1" style="width:80px;">
-                            <col class="colgroup-span-2" style="width:100px">
-                            <col class="colgroup-span-3" style="width:auto;">
-                            <col class="colgroup-span-4" style="width:100px;">
-                            <col class="colgroup-span-5" style="width:100px;">
-                            <col class="colgroup-span-6" style="width:140px;">
-                            <col class="colgroup-span-7" style="width:auto;">
-                        </colgroup>
-                        <thead>
-                        <tr class="tHead">
-                            <th class="Thumb">상품 이미지</th>
-                            <th class="method">판매 방법</th>
-                            <th class="Title">상품 이름</th>
-                            <th class="sellPrice">가격</th>
-                            <th class="quantity">재고 수량</th>
-                            <th class="registerDate">판매 기간</th>
-                        </tr>
-                        </thead>
-                        <tbody class="menuRegister-list">
-                        <tr>
-                            <td class="menuThumb">
-                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
-                            </td>
-                            <td class="menuMethod">
-                                <div class="order-method-wrapper">
-                                    <div class="order-method pickUp">
-                                        포장
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuTitle">
-                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuSellPrice">
-                                    <span class="price" th:text="|${#numbers.formatInteger(10900, 0, 'COMMA')}원|"></span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuQuantity">
-                                    <span> 2개 </span>
-                                </div>
-                            </td>
-                            <td class="menuRegisterDate">
-                                2022-12-12
-                            </td>
-                            <td class="menuManging">
-                                <div class="menu-btn-wrapper">
-                                    <button>
-                                        수정
-                                    </button>
-                                    <button>
-                                        삭제
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
+                        <table class="menuTable sellMenuList">
+                            <colgroup>
+                                <col class="colgroup-span-1" style="width:80px;">
+                                <col class="colgroup-span-2" style="width:100px">
+                                <col class="colgroup-span-3" style="width:250px;">
+                                <col class="colgroup-span-4" style="width:100px;">
+                                <col class="colgroup-span-5" style="width:100px;">
+                                <col class="colgroup-span-6" style="width:140px;">
+                                <col class="colgroup-span-7" style="width:auto;">
+                            </colgroup>
+                            <thead>
+                            <tr class="tHead">
+                                <th class="Thumb">상품 이미지</th>
+                                <th class="method">판매 방법</th>
+                                <th class="Title">상품 이름</th>
+                                <th class="sellPrice">가격</th>
+                                <th class="quantity">재고 수량</th>
+                                <th class="registerDate">판매 기간</th>
+                            </tr>
+                            </thead>
+                            <tbody class="menuRegister-list">
 
-                        <tr>
-                            <td class="menuThumb">
-                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
-                            </td>
-                            <td class="menuMethod">
-                                <div class="order-method-wrapper">
-                                    <div class="order-method pickUp">
-                                        포장
-                                    </div>
-                                    <div class="order-method shipping">
-                                        배송
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuTitle">
-                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuSellPrice">
-                                    <span class="price" th:text="|${#numbers.formatInteger(7900, 0, 'COMMA')}원|"></span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuQuantity">
-                                    <span> 2개 </span>
-                                </div>
-                            </td>
-                            <td class="menuRegisterDate">
-                                2022-12-12
-                            </td>
-                            <td class="menuManging">
-                                <div class="menu-btn-wrapper">
-                                    <button>
-                                        수정
-                                    </button>
-                                    <button>
-                                        삭제
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
+                                <th:block th:each="product:${list}">
+                                    <tr th:if="${product.sellProductStatus == '0'}">
+                                        <td class="menuThumb">
+                                            <img th:src="'/sell/display?fileName=' + ${product.sellProductImageUploadPath} + '/' + ${product.sellProductThumbnail}"  width='100px' height='100px'>
+                                        </td>
+                                        <td class="menuMethod">
+                                            <div class="order-method-wrapper">
+                                                <div class="order-method pickUp" th:if="${product.sellProductPickup} == '0'">
+                                                    포장
+                                                </div>
+                                                <div class="order-method delivery" th:if="${product.sellProductDeliveryMethod} != '0'">
+                                                    배달
+                                                </div>
+                                                <div class="order-method shipping" th:if="${product.sellProductShippingMethod} != '0'">
+                                                    배송
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="menuTitle">
+                                                <a href="#" class="link" th:text="${product.sellProductName}"></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="menuSellPrice">
+                                                <span class="price" th:text="|${#numbers.formatInteger(product.sellProductDiscountPrice, 0, 'COMMA')}원|"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="menuQuantity">
+                                                <span th:text="${product.sellProductStock}"></span>
+                                            </div>
+                                        </td>
+                                        <td class="menuRegisterDate" th:text="${product.sellProductExpireDate}">
+                                        </td>
+                                        <td class="menuManging">
+                                            <div class="menu-btn-wrapper">
+                                                <form method="post" action="/sell/modify" id="modifyForm">
+                                                    <button class="product-modify">
+                                                        <a th:href="${product.sellProductNum}">수정</a>
+                                                    </button>
+                                                    <input type="hidden" th:field="${criteria.pageNum}">
+                                                    <input type="hidden" th:field="${criteria.amount}">
+                                                    <input type="hidden" th:field="${criteria.limit}">
+                                                    <input type="hidden" name="sellProductNum">
+                                                </form>
+                                                <form method="post" action="/sell/remove" id="deleteForm">
+                                                    <button class="product-delete">
+                                                        <a class="productMenuRemove" th:href="${product.sellProductNum}">삭제</a>
+                                                    </button>
+                                                    <input type="hidden" th:field="${criteria.pageNum}">
+                                                    <input type="hidden" th:field="${criteria.amount}">
+                                                    <input type="hidden" th:field="${criteria.limit}">
+                                                    <input type="hidden" name="sellProductNum">
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td class="menuThumb">
-                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
-                            </td>
-                            <td class="menuMethod">
-                                <div class="order-method-wrapper">
-                                    <div class="order-method pickUp">
-                                        포장
-                                    </div>
-                                    <div class="order-method delivery">
-                                        배달
-                                    </div>
-                                    <div class="order-method shipping">
-                                        배송
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuTitle">
-                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuSellPrice">
-                                    <span class="price" th:text="|${#numbers.formatInteger(7900, 0, 'COMMA')}원|"></span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuQuantity">
-                                    <span> 2개 </span>
-                                </div>
-                            </td>
-                            <td class="menuRegisterDate">
-                                2022-12-12
-                            </td>
-                            <td class="menuManging">
-                                <div class="menu-btn-wrapper">
-                                    <button>
-                                        수정
-                                    </button>
-                                    <button>
-                                        삭제
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="menuThumb">
-                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
-                            </td>
-                            <td class="menuMethod">
-                                <div class="order-method-wrapper">
-                                    <div class="order-method pickUp">
-                                        포장
-                                    </div>
-                                    <div class="order-method delivery">
-                                        배달
-                                    </div>
-                                    <div class="order-method shipping">
-                                        배송
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuTitle">
-                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuSellPrice">
-                                    <span class="price" th:text="|${#numbers.formatInteger(7900, 0, 'COMMA')}원|"></span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuQuantity">
-                                    <span> 2개 </span>
-                                </div>
-                            </td>
-                            <td class="menuRegisterDate">
-                                2022-12-12
-                            </td>
-                            <td class="menuManging">
-                                <div class="menu-btn-wrapper">
-                                    <button>
-                                        수정
-                                    </button>
-                                    <button>
-                                        삭제
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="menuThumb">
-                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
-                            </td>
-                            <td class="menuMethod">
-                                <div class="order-method-wrapper">
-                                    <div class="order-method pickUp">
-                                        포장
-                                    </div>
-                                    <div class="order-method delivery">
-                                        배달
-                                    </div>
-                                    <div class="order-method shipping">
-                                        배송
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuTitle">
-                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuSellPrice">
-                                    <span class="price" th:text="|${#numbers.formatInteger(7900, 0, 'COMMA')}원|"></span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuQuantity">
-                                    <span> 2개 </span>
-                                </div>
-                            </td>
-                            <td class="menuRegisterDate">
-                                2022-12-12
-                            </td>
-                            <td class="menuManging">
-                                <div class="menu-btn-wrapper">
-                                    <button>
-                                        수정
-                                    </button>
-                                    <button>
-                                        삭제
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="menuThumb">
-                                <img src="https://cdn.discordapp.com/attachments/969471931575320587/970916819336589322/unknown.png" alt="">
-                            </td>
-                            <td class="menuMethod">
-                                <div class="order-method-wrapper">
-                                    <div class="order-method pickUp">
-                                        포장
-                                    </div>
-                                    <div class="order-method delivery">
-                                        배달
-                                    </div>
-                                    <div class="order-method shipping">
-                                        배송
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuTitle">
-                                    <a href="#" class="link">[포크밸리] 한돈 대패 삼겹살 300g (냉동)</a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuSellPrice">
-                                    <span class="price" th:text="|${#numbers.formatInteger(7900, 0, 'COMMA')}원|"></span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="menuQuantity">
-                                    <span> 2개 </span>
-                                </div>
-                            </td>
-                            <td class="menuRegisterDate">
-                                2022-12-12
-                            </td>
-                            <td class="menuManging">
-                                <div class="menu-btn-wrapper">
-                                    <button>
-                                        수정
-                                    </button>
-                                    <button>
-                                        삭제
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        </tbody>
-                    </table>
+                                    <tr th:unless="${product.sellProductStatus == '0'}">
+                                        <td class="menuThumb">
+                                            <img th:src="'/sell/display?fileName=' + ${product.sellProductImageUploadPath} + '/' + ${product.sellProductThumbnail}"  width='100px' height='100px'>
+                                        </td>
+                                        <td class="menuMethod">
+                                            <div class="order-method-wrapper">
+                                                <div class="order-method pickUp" th:if="${product.sellProductPickup} == '1'">
+                                                    포장
+                                                </div>
+                                                <div class="order-method delivery" th:if="${product.sellProductDeliveryMethod} != '0'">
+                                                    배달
+                                                </div>
+                                                <div class="order-method shipping" th:if="${product.sellProductShippingMethod} != '0'">
+                                                    배송
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="menuTitle">
+                                                <a href="#" class="link" th:text="${product.sellProductName}"></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="menuSellPrice">
+                                                <span class="price" th:text="|${#numbers.formatInteger(product.sellProductDiscountPrice, 0, 'COMMA')}원|"></span>
+                                            </div>
+                                        </td>
+                                        <td colspan="3">
+                                            <div class="menuQuantity">
+                                                <h2>판매 종료</h2>
+<!--                                                <span th:text="${product.sellProductStock}"></span>-->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </th:block>
+                            </tbody>
+                        </table>
                 </div>
             </div>
+            <div th:object="${pageDTO}">
+                <div class="big-width" style="text-align: center">
+                    <!--
+                        each문에서 시작값과 끝값을 직접 정하고 싶을 때에는 numbers 객체를 사용한다.
+                        타임리프에서 미리 만들어놓은 필드를 사용할 때 #을 붙여주고,
+                        numbers 안에 있는 sequence()를 통해 원하는 반복횟수를 결정할 수 있다.
+                        th:each="변수명:${#numbers.sequence(시작값, 끝값)"
 
+                        th:if문에 조건식을 작성하면 조건식이 참일 경우 해당 태그가 출력된다.
+                        만약 조건식이 참이 아닐 때를 처리해야 한다면 th:unless를 사용하여 if의 조건식과 동일하게 설정해준다.
+                    -->
+                    <!--이전 버튼-->
+                    <a class="changePage firstPage" th:if="*{startPage != 1}" th:href="1"><code><<</code></a>
+                    <a class="changePage previousPage" th:if="*{prev}" th:href="*{startPage - 1}"><code>&lt;</code></a>
+                    <th:block th:each="num:${#numbers.sequence(pageDTO.getStartPage(), pageDTO.getEndPage())}">
+                            <code class="selectedPage" th:if="${pageDTO.criteria.getPageNum() == num}" th:text="${num}"></code>
+                        <a class="changePage" th:unless="${pageDTO.criteria.getPageNum() == num}" th:href="${num}">
+                            <code th:text="${num}"></code>
+                        </a>
+                    </th:block>
+                    <!--다음 버튼-->
+                    <a class="changePage nextPage" th:if="*{next}" th:href="*{endPage + 1}"><code>&gt;</code></a>
+                    <a class="changePage lastPage" th:if="*{endPage != realEnd}" th:href="*{realEnd}"><code>>></code></a>
+                </div>
+
+
+                <div class="small-width" style="text-align: center;">
+                    <a class="changePage" th:if="*{criteria.pageNum > 1}" th:href="*{criteria.pageNum - 1}">
+                        <img src="https://cdn.discordapp.com/attachments/969471931575320587/978341135581843466/unknown.png" alt="" style="transform: rotate(180deg);">
+                    </a>
+                    <code th:text="*{criteria.pageNum}"></code>
+                    <a class="changePage" th:if="*{criteria.pageNum < realEnd}" th:href="*{criteria.pageNum + 1}">
+                        <img src="https://cdn.discordapp.com/attachments/969471931575320587/978341135581843466/unknown.png" alt="">
+                    </a>
+                </div>
+                <!--th:object는 부모 태그의 object에서 먼저 mapping을 해준다. 따라서 *가 아닌 $로 사용한다.-->
+                <form action="/sell/sellMenuList" th:object="${pageDTO.criteria}" name="pageForm">
+                    <input class="page-pageNum" type="hidden" name="pageNum" th:value="*{pageNum}">
+                    <input class="page-amount" type="hidden" name="amount" th:value="*{amount}">
+                    <input class="page-limit" type="hidden" name="limit" th:value="*{limit}">
+                </form>
+            </div>
         </div>
     </div>
 </div>
+<th:block th:insert="/fragments/footerWithout.html :: footWithoutFragment"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="/front/assets/js/sell/sellMenuList.js"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    let message = [[${result}]];
+    console.log(message);
+    if(message != null) {
+        swal(message);
+    }
+
+    /*]]>*/
+</script>
+<script th:inline="javascript">
+    // let thpageNum = [[${pageDTO.criteria.pageNum}]];
+    // let thamount = [[${pageDTO.criteria.amount}]];
+    // let thlimit = [[${pageDTO.criteria.limit}]];
+    //
+    // let $pageNum = $('input[name=pageNum]').val(thpageNum);
+    // console.log($pageNum);
+    // let $amount = $('input[name=amount]').val(thamount);
+    // console.log($amount);
+    // let $limit = $('input[name=limit]').val(thlimit);
+    // console.log($limit);
+</script>
+<script>
+</script>
 </html>

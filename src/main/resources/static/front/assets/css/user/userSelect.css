@@ -1,0 +1,227 @@
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.data_method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f1f1f1;
+    height: 830px;
+}
+
+.toggleBtn {
+    width: 615px;
+}
+
+.radio-group {
+    margin: 1px 1px;
+    width: 100%;
+}
+
+.user_form * {
+    font-family: 'Noto Sans';
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    text-align: left;
+}
+
+* {
+    list-style: none;
+}
+
+div {
+    display: block;
+}
+
+.tit_section {
+    padding: 74px 0 16px;
+    font-weight: 200 !important;
+    font-size: 38px;
+    color: #333;
+    line-height: 29px;
+    clear: both;
+}
+
+.open-icon {
+    display: none;
+}
+
+.tbl_left {
+    float: left;
+    width: 742px;
+}
+
+.goodsinfo_table {
+    /*border-top: 1px solid #333;*/
+    border-bottom: none;
+}
+
+.goodsinfo_table th {
+    width: 190px;
+    padding: 25px 0 0;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    letter-spacing: -0.32px;
+    vertical-align: top;
+}
+
+.goodsinfo_table td {
+    position: relative;
+    padding: 0;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    vertical-align: top;
+}
+
+.radio-group {
+    display: inline-block;
+    border-radius: 5px;
+    overflow: hidden;
+    border-bottom: 2px solid red;
+    height: 78px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.user_form input[type="radio"] {
+    position: relative;
+    z-index: -1;
+    vertical-align: 0;
+}
+
+/*input[type=radio]:checked + label {*/
+/*    color: white;*/
+/*    background: #DA291C;*/
+/*}*/
+
+input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+}
+
+/*label + input[type=radio] + label {*/
+/*    border-left: solid 1px #ddd;*/
+/*}*/
+
+.myLabel {
+    background-color: white;
+    display: inline-block;
+    cursor: pointer;
+    padding: 39px;
+    margin: 0;
+    width: 133px;
+    margin-right: -4px;
+    font-size: 23px;
+    font-weight: 400;
+    color: #676767;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+input.btn_payment {
+    width: 197px;
+    height: 59px;
+    font-size: 21px;
+    border: none;
+    background-color: #DA291C;
+    color: white;
+    font-weight: 700;
+    margin-top: 100px;
+}
+/*body{*/
+/*    background-color: #f1f1f1;*/
+/*}*/
+ul{
+    margin-top: 50px;
+}
+li{
+    text-align: center;
+}
+.joinBox{
+    width: 635px;
+    background-color: white;
+}
+.joinControl {
+    display: inline-grid;
+}
+.txt_notice {
+    background-color: white;
+    width: 100%;
+    height: 431px;
+}
+
+.main_bg {
+    display: flex;
+    padding-top: 80px;
+    justify-content: center;
+}
+
+.main_bg div {
+    padding-left: 14px;
+}
+
+.main_bg img {
+    width: 50px;
+    height: 50px;
+}
+
+.join_note {
+    height: 72px;
+    background-position: -420px -50px;
+}
+
+.tit {
+    color: #888;
+    font-size: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.tit_in {
+    font-size: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.global_txt {
+    clear: both;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    padding: 20px 0 0;
+    border-top: 1px solid #e5e5e5;
+    text-align: left;
+}
+#join_container #basic p, #join_container #business p {
+    color: #888;
+    line-height: 1.7;
+}
+.global_txt .btn_zone {
+    position: absolute;
+    right: 0;
+    top: 19px;
+    height: 41px;
+}
+.global_txt .btn {
+    width: 91px;
+    height: 41px;
+    background-position: right top;
+    font-size: 12px;
+    text-indent: 0;
+    line-height: 41px;
+    color: #222;
+    text-align: center;
+    text-decoration: none;
+}
+a.bg_area {
+    display: inline-block;
+}
+p.btn_zone {
+    margin-right: 44px;
+}

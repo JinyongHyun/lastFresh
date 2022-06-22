@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lastfresh.mapper.product.ProductMapper">
+    <select id="proAddressListPickup" resultType="ProductVO">
+        select *
+        from TBL_SELL_PRODUCT
+        where SELL_PRODUCT_ADDRESS = #{sellProductAddress}
+        <if test="type.status1 != null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_DISCOUNT_PRICE
+        </if>
+        <if test="type.status2 != null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_DISCOUNT_PRICE desc
+        </if>
+        <if test="type.status3 != null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_NUM desc
+        </if>
+        <if test="type.status1 = null and type.status2 = null and type.status3 = null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_NUM desc
+        </if>
+        limit #{criteriaProduct.limit},6
+    </select>
+
+    <select id="getTotalProListPickup" resultType="_int">
+        select
+COUNT(SELL_PRODUCT_NUM)
+from TBL_SELL_PRODUCT
+where SELL_PRODUCT_ADDRESS = #{sellProductAddress}
+    </select>
+    <select id="proAddressListList" resultType="ProductVO">
+        select *
+        from TBL_SELL_PRODUCT
+        where SELL_PRODUCT_DELIVERY_ADDRESS1 = #{sellProductAddress}
+        or	SELL_PRODUCT_DELIVERY_ADDRESS2 = #{sellProductAddress}
+        or SELL_PRODUCT_DELIVERY_ADDRESS3 = #{sellProductAddress}
+        <if test="type.status1 != null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_DISCOUNT_PRICE
+        </if>
+        <if test="type.status2 != null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_DISCOUNT_PRICE desc
+        </if>
+        <if test="type.status3 != null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_NUM desc
+        </if>
+        <if test="type.status1 = null and type.status2 = null and type.status3 = null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_NUM desc
+        </if>
+        limit #{criteriaProduct.limit},6
+    </select>
+
+    <select id="getTotalAddressCategory" resultType="_int">
+        select
+COUNT(SELL_PRODUCT_NUM)
+from TBL_SELL_PRODUCT
+where SELL_PRODUCT_DELIVERY_ADDRESS1 = #{sellProductAddress}
+or	SELL_PRODUCT_DELIVERY_ADDRESS2 = #{sellProductAddress}
+or SELL_PRODUCT_DELIVERY_ADDRESS3 = #{sellProductAddress}
+    </select>
+
+    <select id="getCategoryList" resultType="ProductVO">
+        select *
+        from TBL_SELL_PRODUCT
+        inner join TBL_PRODUCT_CATEGORY
+        on TBL_SELL_PRODUCT.SELL_PRODUCT_CATEGORY = TBL_PRODUCT_CATEGORY.CATEGORY_NUM
+        where TBL_SELL_PRODUCT.SELL_PRODUCT_CATEGORY = #{categoryNum}
+        <if test="type.status1 != null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_DISCOUNT_PRICE
+        </if>
+        <if test="type.status2 != null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_DISCOUNT_PRICE desc
+        </if>
+        <if test="type.status3 != null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_NUM desc
+        </if>
+        <if test="type.status1 = null and type.status2 = null and type.status3 = null">
+            ORDER BY TBL_SELL_PRODUCT.SELL_PRODUCT_NUM desc
+        </if>
+        limit #{criteriaProduct.limit},6
+    </select>
+
+    <select id="getTotalCategory" resultType="_int">
+       select COUNT(*)
+    from TBL_SELL_PRODUCT
+    inner join TBL_PRODUCT_CATEGORY
+    on TBL_SELL_PRODUCT.SELL_PRODUCT_CATEGORY = TBL_PRODUCT_CATEGORY.CATEGORY_NUM
+    where TBL_SELL_PRODUCT.SELL_PRODUCT_CATEGORY = #{categoryNum}
+    </select>
+
+    <select id="getCategoryNum" resultType="_int">
+        select CATEGORY_NUM from TBL_PRODUCT_CATEGORY
+        where CATEGORY_NAME = #{categoryName}
+    </select>
+
+    <select id="getList" resultType="ProductVO">
+        SELECT * FROM TBL_SELL_PRODUCT
+        <if test="type.status1 != null">
+            ORDER BY SELL_PRODUCT_DISCOUNT_PRICE
+        </if>
+        <if test="type.status2 != null">
+            ORDER BY SELL_PRODUCT_DISCOUNT_PRICE desc
+        </if>
+        <if test="type.status3 != null">
+            ORDER BY SELL_PRODUCT_NUM desc
+        </if>
+        <if test="type.status1 = null and type.status2 = null and type.status3 = null">
+            ORDER BY SELL_PRODUCT_NUM desc
+        </if>
+        limit #{criteriaProduct.limit},6
+    </select>
+
+    <select id="get" resultType="ProductDTO">
+    SELECT SELL_PRODUCT_NUM, tsp.USER_NUM, SELL_PRODUCT_CATEGORY, SELL_PRODUCT_NAME, SELL_PRODUCT_ORIGIN_PRICE, SELL_PRODUCT_DISCOUNT_PRICE, SELL_PRODUCT_EXPIRE_DATE, SELL_PRODUCT_STOCK, SELL_PRODUCT_STATUS, SELL_PRODUCT_PICKUP, SELL_PRODUCT_DELIVERY_METHOD, SELL_PRODUCT_DELIVERY_ADDRESS1, SELL_PRODUCT_DELIVERY_ADDRESS2, SELL_PRODUCT_DELIVERY_ADDRESS3, SELL_PRODUCT_SHIPPING_METHOD, SELL_PRODUCT_ADDRESS, SELL_PRODUCT_ADDRESS_DETAIL, SELL_PRODUCT_ADDRESS_POST_NUM, SELL_PRODUCT_DESCRIPTION, SELL_PRODUCT_PHONE, SELL_PRODUCT_THUMBNAIL, SELL_PRODUCT_IMAGE, SELL_PRODUCT_IMAGE_UPLOAD_PATH, SELL_PRODUCT_IMAGE_UUID, tu.USER_NAME
+    FROM TBL_SELL_PRODUCT tsp
+    JOIN TBL_USER tu
+    ON tsp.USER_NUM = tu.USER_NUM
+    WHERE SELL_PRODUCT_NUM =#{sellProductNum}
+    </select>
+
+    <select id="getTotal" resultType="_int">
+        SELECT COUNT(SELL_PRODUCT_NUM) FROM TBL_SELL_PRODUCT
+    </select>
+
+    <select id="getPickupTotal" resultType="_int">
+       SELECT COUNT(SELL_PRODUCT_NUM) FROM TBL_SELL_PRODUCT WHERE SELL_PRODUCT_PICKUP = 0
+    </select>
+
+    <select id="getPickupList" resultType="ProductVO">
+        SELECT * FROM TBL_SELL_PRODUCT
+        WHERE SELL_PRODUCT_PICKUP =0
+        <if test="type.status1 != null">
+            ORDER BY SELL_PRODUCT_DISCOUNT_PRICE
+        </if>
+        <if test="type.status2 != null">
+            ORDER BY SELL_PRODUCT_DISCOUNT_PRICE desc
+        </if>
+        <if test="type.status3 != null">
+            ORDER BY SELL_PRODUCT_NUM desc
+        </if>
+        <if test="type.status1 = null and type.status2 = null and type.status3 = null">
+            ORDER BY SELL_PRODUCT_NUM desc
+        </if>
+        limit #{criteriaProduct.limit},6
+    </select>
+
+    <select id="getDeliveryTotal" resultType="_int">
+       SELECT COUNT(SELL_PRODUCT_NUM) FROM TBL_SELL_PRODUCT WHERE SELL_PRODUCT_DELIVERY_METHOD in(1,2)
+    </select>
+
+    <select id="getDeliveryList" resultType="ProductVO">
+        SELECT * FROM TBL_SELL_PRODUCT
+        WHERE SELL_PRODUCT_DELIVERY_METHOD in(1,2)
+        <if test="type.status1 != null">
+            ORDER BY SELL_PRODUCT_DISCOUNT_PRICE
+        </if>
+        <if test="type.status2 != null">
+            ORDER BY SELL_PRODUCT_DISCOUNT_PRICE desc
+        </if>
+        <if test="type.status3 != null">
+            ORDER BY SELL_PRODUCT_NUM desc
+        </if>
+        <if test="type.status1 = null and type.status2 = null and type.status3 = null">
+            ORDER BY SELL_PRODUCT_NUM desc
+        </if>
+        limit #{criteriaProduct.limit},6
+    </select>
+
+    <select id="getShippingTotal" resultType="_int">
+       SELECT COUNT(SELL_PRODUCT_NUM) FROM TBL_SELL_PRODUCT WHERE SELL_PRODUCT_SHIPPING_METHOD in(1,2)
+    </select>
+
+    <select id="getShippingList" resultType="ProductVO">
+        SELECT * FROM TBL_SELL_PRODUCT
+        WHERE SELL_PRODUCT_SHIPPING_METHOD in(1,2)
+        <if test="type.status1 != null">
+            ORDER BY SELL_PRODUCT_DISCOUNT_PRICE
+        </if>
+        <if test="type.status2 != null">
+            ORDER BY SELL_PRODUCT_DISCOUNT_PRICE desc
+        </if>
+        <if test="type.status3 != null">
+            ORDER BY SELL_PRODUCT_NUM desc
+        </if>
+        <if test="type.status1 = null and type.status2 = null and type.status3 = null">
+            ORDER BY SELL_PRODUCT_NUM desc
+        </if>
+        limit #{criteriaProduct.limit},6
+    </select>
+
+    <select id="getListByReview" resultType="productVO">
+        select p.SELL_PRODUCT_NUM, p.USER_NUM,p.SELL_PRODUCT_CATEGORY,p.SELL_PRODUCT_NAME,
+         p.SELL_PRODUCT_ORIGIN_PRICE,p.SELL_PRODUCT_DISCOUNT_PRICE,p.SELL_PRODUCT_EXPIRE_DATE,SELL_PRODUCT_STOCK
+         ,p.SELL_PRODUCT_STATUS,p.SELL_PRODUCT_THUMBNAIL,p.SELL_PRODUCT_IMAGE,p.SELL_PRODUCT_IMAGE_UPLOAD_PATH,
+         p.SELL_PRODUCT_IMAGE_UUID, count(r.review_num) review_count
+         from TBL_SELL_PRODUCT p join TBL_REVIEW r
+        on p.SELL_PRODUCT_NUM = r.SELL_PRODUCT_NUM
+        group by p.SELL_PRODUCT_NUM, p.USER_NUM,p.SELL_PRODUCT_CATEGORY,p.SELL_PRODUCT_NAME,
+         p.SELL_PRODUCT_ORIGIN_PRICE,p.SELL_PRODUCT_DISCOUNT_PRICE,p.SELL_PRODUCT_EXPIRE_DATE,SELL_PRODUCT_STOCK
+         ,p.SELL_PRODUCT_STATUS,p.SELL_PRODUCT_THUMBNAIL,p.SELL_PRODUCT_IMAGE,p.SELL_PRODUCT_IMAGE_UPLOAD_PATH,
+         p.SELL_PRODUCT_IMAGE_UUID
+        order by review_count desc limit 4;
+    </select>
+
+    <select id="getImages" resultType="productVO">
+        SELECT SELL_PRODUCT_THUMBNAIL, SELL_PRODUCT_IMAGE, SELL_PRODUCT_IMAGE_UPLOAD_PATH, SELL_PRODUCT_IMAGE_UUID
+        FROM tbl_sell_product
+       where SELL_PRODUCT_NUM= #{SELL_PRODUCT_NUM};
+    </select>
+
+    <insert id="getBasketInfo" >
+        INSERT INTO tbl_basket
+        (USER_NUM, SELL_PRODUCT_NUM, BASKET_QUANTITY, BASKET_DELIVERY_METHOD, BASKET_GO_ORDER)
+        VALUES(	#{USER_NUM}, #{SELL_PRODUCT_NUM}, #{BASKET_QUANTITY}, #{BASKET_DELIVERY_METHOD}, 1);
+    </insert>
+
+    <select id="checkExistenceBasket" resultType="_int">
+         SELECT COUNT(*) FROM TBL_BASKET
+            WHERE USER_NUM=#{userNum} AND SELL_PRODUCT_NUM = #{sellProductNum} AND BASKET_DELIVERY_METHOD = #{basketDeliveryMethod}
+    </select>
+
+    <update id="addQuantityToBasket">
+        UPDATE TBL_BASKET
+        SET BASKET_QUANTITY = BASKET_QUANTITY + #{basketQuantity}
+        WHERE USER_NUM=#{userNum} AND SELL_PRODUCT_NUM = #{sellProductNum} AND BASKET_DELIVERY_METHOD = #{basketDeliveryMethod}
+    </update>
+<!--    <update id="updateReplyCount">-->
+<!--    </update>-->
+</mapper>

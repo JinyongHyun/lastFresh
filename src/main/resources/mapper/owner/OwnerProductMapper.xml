@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lastfresh.mapper.owner.OwnerProductMapper">
+    <select id="getList" resultType="productListDTO">
+        SELECT SELL_PRODUCT_NUM, USER_NUM, SELL_PRODUCT_NAME, SELL_PRODUCT_DISCOUNT_PRICE,
+        SELL_PRODUCT_EXPIRE_DATE, SELL_PRODUCT_STOCK, SELL_PRODUCT_STATUS, SELL_PRODUCT_PICKUP,
+        SELL_PRODUCT_DELIVERY_METHOD, SELL_PRODUCT_SHIPPING_METHOD, SELL_PRODUCT_IMAGE_UPLOAD_PATH, SELL_PRODUCT_THUMBNAIL
+        FROM tbl_sell_product
+        WHERE USER_NUM = #{userNum}
+        ORDER BY 1 DESC limit #{criteria.limit}, 10
+    </select>
+
+    <select id="getTotal" resultType="_int">
+        SELECT COUNT(SELL_PRODUCT_NUM) FROM tbl_sell_product
+        WHERE USER_NUM = #{userNum}
+    </select>
+
+    <delete id="deleteProductMenu">
+        DELETE FROM tbl_sell_product
+        WHERE SELL_PRODUCT_NUM = #{sellProductNum}
+    </delete>
+    
+    <select id="getListAll" resultType="productDTO">
+        SELECT SELL_PRODUCT_NUM, SELL_PRODUCT_CATEGORY, SELL_PRODUCT_NAME, SELL_PRODUCT_ORIGIN_PRICE,
+        SELL_PRODUCT_DISCOUNT_PRICE, SELL_PRODUCT_EXPIRE_DATE, SELL_PRODUCT_STOCK, SELL_PRODUCT_STATUS, SELL_PRODUCT_PICKUP,
+        SELL_PRODUCT_DELIVERY_METHOD, SELL_PRODUCT_DELIVERY_ADDRESS1, SELL_PRODUCT_DELIVERY_ADDRESS2, SELL_PRODUCT_DELIVERY_ADDRESS3,
+        SELL_PRODUCT_SHIPPING_METHOD, SELL_PRODUCT_ADDRESS, SELL_PRODUCT_ADDRESS_DETAIL, SELL_PRODUCT_ADDRESS_POST_NUM, SELL_PRODUCT_DESCRIPTION,
+        SELL_PRODUCT_PHONE, SELL_PRODUCT_THUMBNAIL, SELL_PRODUCT_IMAGE, SELL_PRODUCT_IMAGE_UPLOAD_PATH, SELL_PRODUCT_IMAGE_UUID
+        FROM tbl_sell_product
+        WHERE SELL_PRODUCT_NUM = #{sellProductNum}
+    </select>
+
+    <update id="updateMenu">
+        UPDATE tbl_sell_product
+        SET SELL_PRODUCT_CATEGORY = #{sellProductCategory}, SELL_PRODUCT_NAME = #{sellProductName}, SELL_PRODUCT_ORIGIN_PRICE = #{sellProductOriginPrice}, SELL_PRODUCT_DISCOUNT_PRICE = #{sellProductDiscountPrice},
+        SELL_PRODUCT_EXPIRE_DATE = #{sellProductExpireDate}, SELL_PRODUCT_STOCK = #{sellProductStock}, SELL_PRODUCT_PICKUP = #{sellProductPickup}, SELL_PRODUCT_DELIVERY_METHOD = #{sellProductDeliveryMethod},
+        SELL_PRODUCT_DELIVERY_ADDRESS1 = #{sellProductDeliveryAddress1}, SELL_PRODUCT_DELIVERY_ADDRESS2 = #{sellProductDeliveryAddress2}, SELL_PRODUCT_DELIVERY_ADDRESS3 = #{sellProductDeliveryAddress3}, SELL_PRODUCT_SHIPPING_METHOD = #{sellProductShippingMethod},
+        SELL_PRODUCT_ADDRESS = #{sellProductAddress}, SELL_PRODUCT_ADDRESS_DETAIL = #{sellProductAddressDetail}, SELL_PRODUCT_ADDRESS_POST_NUM = #{sellProductAddressPostNum}, SELL_PRODUCT_DESCRIPTION = #{sellProductDescription}, SELL_PRODUCT_PHONE = #{sellProductPhone},
+        SELL_PRODUCT_THUMBNAIL = #{sellProductThumbnail}, SELL_PRODUCT_IMAGE = #{sellProductImage}, SELL_PRODUCT_IMAGE_UPLOAD_PATH = #{sellProductImageUploadPath}, SELL_PRODUCT_IMAGE_UUID = #{sellProductImageUuid}
+        WHERE SELL_PRODUCT_NUM = #{sellProductNum}
+    </update>
+
+    <!-- 판매 완료된 상품 목록 -->
+    <select id="getListSold" resultType="billSoldProductDTO">
+        select tbp.BILL_PRODUCT_LIST_NUM, tbp.SELL_PRODUCT_NUM, tbp.BILL_ORDER_NUM,
+        tbp.USER_NUM as USER_NUM, tbp.BILL_PRODUCT_QUANTITY, tbp.BILL_PRODUCT_PRICE,
+        tbp.BILL_DELIVERY_METHOD, tbp.BILL_STATUS, tbp.BILL_COOKING_TIME,
+        tsp.USER_NUM as SELL_USER_NUM, DATE_FORMAT(tb.BILL_ORDER_DATE,'%Y-%m-%d') as Bill_ORDER_DATE,
+        DATE_FORMAT(tb.BILL_ORDER_DATE,'%H:%i') as Bill_ORDER_DATE_TIME,
+        tsp.SELL_PRODUCT_THUMBNAIL, tsp.SELL_PRODUCT_IMAGE_UPLOAD_PATH, tb.BILL_DELIVERY_ADDRESS,
+        tb.BILL_DELIVERY_ADDRESS_DETAIL, tb.BILL_DELIVERY_ADDRESS_POST_NUM, tsp.SELL_PRODUCT_NAME, tu.USER_PHONE
+        from tbl_bills_product tbp
+        left join tbl_sell_product tsp
+        on tbp.SELL_PRODUCT_NUM = tsp.SELL_PRODUCT_NUM
+        left join TBL_BILLS tb
+        on tbp.BILL_ORDER_NUM = tb.BILL_ORDER_NUM
+        left join tbl_user tu
+        on tb.USER_NUM = tu.USER_NUM
+        where tbp.BILL_STATUS = 3 and tsp.USER_NUM = #{userNum}
+        ORDER BY 1 DESC limit #{criteria.limit}, 10
+    </select>
+
+    <!-- 판맨 완료된 상품 총개수-->
+    <select id="getTotalSold" resultType="_int">
+        select count(tbp.BILL_PRODUCT_LIST_NUM)
+        from tbl_bills_product tbp
+        left join tbl_sell_product tsp
+        on tbp.SELL_PRODUCT_NUM = tsp.SELL_PRODUCT_NUM
+        where tbp.BILL_STATUS = 3 and tsp.USER_NUM = #{userNum}
+    </select>
+
+
+
+    <!-- 마감기한 지난 상품 status 업데이트-->
+    <update id="updateExpireProduct">
+        UPDATE tbl_sell_product
+        SET SELL_PRODUCT_STATUS = -1
+        <![CDATA[
+        WHERE SELL_PRODUCT_EXPIRE_DATE < DATE_FORMAT(NOW(),'%Y-%m-%d')
+        ]]>
+    </update>
+
+<!--    어제 생성된 상품 조회-->
+    <select id="getOldFiles" resultType="productDTO">
+        SELECT SELL_PRODUCT_NUM, SELL_PRODUCT_THUMBNAIL, SELL_PRODUCT_IMAGE, SELL_PRODUCT_IMAGE_UPLOAD_PATH, SELL_PRODUCT_IMAGE_UUID
+        FROM TBL_SELL_PRODUCT
+        WHERE SELL_PRODUCT_IMAGE_UPLOAD_PATH = DATE_FORMAT(DATE_ADD(now(),interval - 1 DAY), '%Y/%m/%d');
+    </select>
+    
+</mapper>

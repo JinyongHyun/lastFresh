@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>라스트프레시 | 작성가능한 후기</title>
+    <link rel="stylesheet" href="/front/assets/css/fragments.css">
+    <link rel="stylesheet" href="/front/assets/css/user/myPageMenuBar.css">
+    <link rel="stylesheet" href="/front/assets/css/user/myReviewUnwritten.css">
+</head>
+<style>
+    .myPage_type1{
+        height: 921px;
+    }
+    @media screen and (max-width: 1000px) {
+        .myPage_type1{
+            height: 0px;
+        }
+    }
+
+    .description{
+        padding-bottom: 4px;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 500;
+        color: #666;
+        cursor: pointer;
+    }
+
+    #noReviews{
+        text-align: center;
+        margin-top: 100px;
+        font-weight: 500;
+        color: #333;
+    }
+</style>
+<body>
+<th:block th:insert="/fragments/headerWithout.html :: headWithoutFragment"/>
+<div class="page_myPage myPage_type1">
+    <div id="snb" class="snb_my">
+        <h2 class="tit_snb">마이페이지</h2>
+        <div class="inner_snb">
+            <ul class="list_menu">
+                <li>
+                    <a href="javascript:goOrder();">주문 내역</a>
+                </li>
+                <li>
+                    <a href="javascript:goReview();" class="on">상품 후기</a>
+                </li>
+                <li>
+                    <a href="javascript:goInfo();">개인 정보 수정</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page_section section_review">
+        <div id="reviewView">
+            <ul class="tab_menu">
+                <li class="on">
+                    <a href="#">
+                        작성가능 후기
+                    </a>
+                </li>
+                <li class="">
+                    <a href="javascript:goReview();">
+                        작성완료 후기
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="viewBeforeList" class="before_view">
+            <ul class="list_before">
+
+
+                <th:block th:each="review:${list}">
+
+                    <div th:object="${review}">
+                     <li class="myli" th:if="*{reviewTitle==''}">
+
+                         <div>
+
+                   <!-- <strong class="tit_item">
+                        <span class="emph">주문번호</span>
+                        <span th:text="*{productVO.}"></span>
+                    </strong>-->
+                                <div class="item"><a href="#" class="thumb">
+                                    <img th:src="'/user/order/display?fileName=' + *{productVO.sellProductImageUploadPath} + '/' + *{productVO.sellProductThumbnail}">
+                                </a>
+                                    <div class="name">
+                                        <div class="inner_name">
+                                            <p th:href="*{productVO.sellProductNum}" class="description productName" th:text="*{productVO.sellProductDescription}"></p>
+                                            <a th:href="*{productVO.sellProductNum}" class="main_name productName" th:text="*{productVO.sellProductName}"></a>
+                                        </div>
+                                    </div>
+                                    <div class="date">
+                                        <div class="inner_date">
+                                            <div class="in_date">
+                                                <span class="start reviewDate" th:text="*{reviewDate}"></span>
+                                                <span class="end"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a th:href="*{reviewNum}" class="btn_write">후기쓰기</a>
+                                </div>
+                         </div>
+                        </li>
+                    </div>
+                </th:block>
+
+                <p id="noReviews"></p>
+        </div>
+    </div>
+</div>
+<th:block th:insert="/fragments/footerWithout.html :: footWithoutFragment"/>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/front/assets/js/user/myPageListMenuSelect.js"></script>
+<script th:inline="javascript">
+    let userNum = [[${userNum}]];
+
+    function goReview(){
+        location.href = '/user/myPage/myReviewUnwritten?userNum=' + userNum;
+    }
+
+    function goOrder(){
+        location.href = '/user/myPage/myOrder?userNum=' + userNum;
+    }
+
+    function goInfo(){
+        location.href = '/user/myPage/myCheckPw?userNum=' + userNum;
+    }
+
+    function goReview(){
+        location.href = '/user/myPage/myReviewWritten?userNum=' + userNum;
+    }
+
+    // 날짜 처리
+    $('.reviewDate').each(function () {
+        //   console.log("ff : " + $(this).text());
+        var dataOrder = $(this).text();
+        var dateSplit = dataOrder.split(' ');
+
+        var timeSplit = dateSplit[0].split('-');
+        var dateInfo = timeSplit[1] + "월" + timeSplit[2] + "일 배송완료";
+       // console.log(dateInfo);
+
+        $(this).text(dateInfo);
+    });
+
+    $(".btn_write").click(function(e){
+        e.preventDefault();
+        location.href = "/user/myPage/myReviewWrite?reviewNum=" + $(this).attr("href") + "&userNum=" + userNum;
+    });
+
+    $(document).ready(function() {
+        console.log("length : " + document.getElementsByClassName("main_name").length);
+        if(document.getElementsByClassName("main_name").length == 0){
+            $('#noReviews').text("작성 가능한 후기가 없습니다.");
+        }
+    });
+</script>
+</html>
